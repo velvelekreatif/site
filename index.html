@@ -338,6 +338,34 @@ dialog .alt{color:#fff;margin-top:12px;font-size:15px}
   .acilis h1 em{animation:salla 1.5s ease-out .25s both}
   @keyframes salla{0%{transform:rotate(0)}30%{transform:rotate(-7deg)}55%{transform:rotate(-1deg)}100%{transform:rotate(-3deg)}}
 }
+
+/* ---- Vaka çalışmaları ---- */
+#vakalar .bas{margin-bottom:34px}
+.vaka{--vb:#111;--vf:#fff;--va:#FFC531;--vm:rgba(255,255,255,.72);background:var(--vb);color:var(--vf);border-radius:28px;padding:clamp(24px,5vw,64px);display:grid;grid-template-columns:minmax(0,420px) minmax(0,1fr);gap:clamp(28px,5vw,64px);align-items:center;margin-bottom:22px;position:relative;overflow:hidden}
+.vaka.ters{grid-template-columns:minmax(0,1fr) minmax(0,420px)}
+.vaka.ters .v-tel{order:2}
+@media (max-width:900px){.vaka,.vaka.ters{grid-template-columns:1fr}.vaka.ters .v-tel{order:0}}
+.v-tel{justify-self:center;width:min(100%,360px);background:#0b0b0d;border-radius:46px;padding:12px;box-shadow:0 40px 80px rgba(0,0,0,.35),inset 0 0 0 2px rgba(255,255,255,.08)}
+.v-ekran{background:#fff;border-radius:36px;overflow:hidden;color:#111}
+.v-ust{display:flex;align-items:center;gap:10px;padding:14px 16px 10px;font:600 14px "Instrument Sans",sans-serif}
+.v-ust i{width:30px;height:30px;border-radius:50%;background:var(--va);box-shadow:0 0 0 2px #fff,0 0 0 4px var(--va);flex:none}
+.v-ust span{margin-left:auto;letter-spacing:2px;color:#999}
+.v-tel button{display:block;width:100%;padding:0;border:0;background:none;cursor:zoom-in}
+.v-tel img{display:block;width:100%;height:auto;aspect-ratio:4/5}
+.v-alt{display:flex;gap:16px;padding:12px 16px 18px}
+.v-alt svg{width:24px;height:24px;fill:none;stroke:#111;stroke-width:2}
+.v-alt b{margin-left:auto;font:600 13px "Instrument Sans",sans-serif;color:#555}
+.v-marka{font:600 13px "Instrument Sans",sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--va)}
+.v-metin h3{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:clamp(34px,4.4vw,58px);line-height:1.02;letter-spacing:-.02em;margin:12px 0 26px}
+.v-metin h3 em{font-family:"Instrument Serif",serif;font-weight:400;font-style:italic;color:var(--va)}
+.v-dl{display:grid;gap:18px}
+.v-dl div{display:grid;grid-template-columns:120px 1fr;gap:16px;border-top:1px solid color-mix(in srgb,var(--vf) 18%,transparent);padding-top:14px}
+@media (max-width:560px){.v-dl div{grid-template-columns:1fr;gap:4px}}
+.v-dl dt{font:600 12px "Instrument Sans",sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--va);padding-top:3px}
+.v-dl dd{margin:0;font-size:16.5px;line-height:1.55;color:var(--vm)}
+.v-tas{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.v-tas span{border:1px solid color-mix(in srgb,var(--vf) 30%,transparent);border-radius:999px;padding:7px 14px;font-size:13.5px;color:var(--vf)}
+.v-no{position:absolute;right:28px;top:20px;font:800 120px/1 "Bricolage Grotesque",sans-serif;color:color-mix(in srgb,var(--vf) 7%,transparent);pointer-events:none}
 </style>
 
 </head>
@@ -347,7 +375,7 @@ dialog .alt{color:#fff;margin-top:12px;font-size:15px}
   <div class="ic">
     <nav class="nav" aria-label="Ana menü">
       <a class="logo" href="#">Velvele<span>.</span></a>
-      <ul><li><a href="#biz">Biz kimiz</a></li><li><a href="#fark">Fark</a></li><li><a href="#isler">İşler</a></li><li><a href="#hizmetler">Hizmetler</a></li><li><a href="#baski">Baskı</a></li><li><a href="#fikir-makinesi">Fikir makinesi</a></li><li><a href="#kontrol">Instagram kontrolü</a></li><li><a href="#paketler">Paketler</a></li><li><a href="#notlar">Notlar</a></li><li><a href="#sss">SSS</a></li></ul>
+      <ul><li><a href="#biz">Biz kimiz</a></li><li><a href="#fark">Fark</a></li><li><a href="#vakalar">Vakalar</a></li><li><a href="#isler">İşler</a></li><li><a href="#hizmetler">Hizmetler</a></li><li><a href="#baski">Baskı</a></li><li><a href="#fikir-makinesi">Fikir makinesi</a></li><li><a href="#kontrol">Instagram kontrolü</a></li><li><a href="#paketler">Paketler</a></li><li><a href="#notlar">Notlar</a></li><li><a href="#sss">SSS</a></li></ul>
       <a class="btn btn-sinyal" href="#ornek">Teklif al</a>
     </nav>
     <div class="acilis">
@@ -355,7 +383,7 @@ dialog .alt{color:#fff;margin-top:12px;font-size:15px}
         <div class="etiket" style="opacity:.8">Velvele Kreatif · sosyal medya, reklam, tasarım, baskı ve uygulama</div>
         <h1 style="margin-top:18px">Nasıl <em>düşünemedik?</em></h1>
         <p class="ozet">Müşterilerimizin işlerimizi ilk gördüğünde söylediği cümle bu. Yerel markalar için durdurup baktıran, konuşturan ve kapıya müşteri getiren işler yapıyoruz.</p>
-        <div class="cta"><a class="btn btn-sinyal" href="#ornek">İşletmem için teklif al</a><a class="btn btn-hat" href="#isler">İşlere bak</a></div>
+        <div class="cta"><a class="btn btn-sinyal" href="#ornek">İşletmem için teklif al</a><a class="btn btn-hat" href="#vakalar">İşlere bak</a></div>
         <p class="kitle">Kafe · restoran · dönerci · catering · toplu yemek · kurukahveci · galericiler · ambalaj · berber · butik · yerel markalar</p>
       </div>
       <div class="deste" aria-hidden="true">
@@ -367,7 +395,7 @@ dialog .alt{color:#fff;margin-top:12px;font-size:15px}
   </div>
 </div>
 
-<div class="markalar"><div class="ic"><span class="etiket">Birlikte çalıştığımız markalar</span><ul><li>Keyfhane</li><li>Ms Neilos Coffees</li><li>Tiesto Coffee</li><li>Hacı Caferoğlu</li><li>Otomer</li><li>Uğur Hazır Yemek</li><li>Tomara Catering</li><li>Armet Ambalaj</li><li>Alex Gece Dönercisi</li></ul></div></div>
+<div class="markalar"><div class="ic"><span class="etiket">Birlikte çalıştığımız markalar</span><ul><li>Keyfhane</li><li>Ms Neilos Coffees</li><li>Tiesto Coffee</li><li>Hacı Caferoğlu</li><li>Otomer</li><li>Uğur Hazır Yemek</li><li>Tomara Catering</li><li>Armet Ambalaj</li><li>Alex Gece Dönercisi</li><li>Kids'n Move</li><li>Demlesene</li></ul></div></div>
 <main class="ic">
   <section id="fark">
     <div class="bas">
@@ -392,9 +420,102 @@ dialog .alt{color:#fff;margin-top:12px;font-size:15px}
     </div>
   </section>
 
+
+  <section id="vakalar">
+    <div class="bas">
+      <div class="etiket">Vaka çalışmaları</div>
+      <h2>Her markanın <i>kendi</i> dili var.</h2>
+      <p>Önce markayı inceliyoruz: rengini, semtini, müşterisini, gününü. Sonra o markadan başkasına ait olamayacak tek bir fikir buluyoruz. Fikir bir posta değil, dükkândan pakete her yere taşınıyor.</p>
+    </div>
+    <article class="vaka" style="--vb:#18A7B5;--vf:#fff;--va:#FFD23F;--vm:rgba(255,255,255,.88)">
+      <span class="v-no" aria-hidden="true">01</span>
+      <div class="v-tel"><div class="v-ekran">
+        <div class="v-ust"><i></i>kidsnmove<span>•••</span></div>
+        <button type="button" data-buyut="is/kidsnmove.jpg" data-alt="Kids'n Move için enerji faturası: zıplama 1.240 adet, takla 86 adet, evde kalan enerji 0 kWh, ödenecek tutar mışıl mışıl bir uyku"><img src="is/kidsnmove.jpg" alt="Kids'n Move için enerji faturası: zıplama 1.240 adet, takla 86 adet, evde kalan enerji 0 kWh, ödenecek tutar mışıl mışıl bir uyku" width="880" height="1100" loading="lazy"></button>
+        <div class="v-alt"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.4-9.3-9A5.2 5.2 0 0 1 12 6.3 5.2 5.2 0 0 1 21.3 12C19 16.6 12 21 12 21z"/></svg><svg viewBox="0 0 24 24"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.2A8.5 8.5 0 1 1 21 12z"/></svg><svg viewBox="0 0 24 24"><path d="M22 3 2 10.5l8 3.5 3.5 8L22 3z"/></svg><b>Kaydet</b></div>
+      </div></div>
+      <div class="v-metin">
+        <div class="v-marka">Kids'n Move · Kozyatağı · çocuk hareket ve cimnastik okulu</div>
+        <h3>Enerjisini evde değil, <em>burada</em> harcasın.</h3>
+        <dl class="v-dl"><div><dt>Durum</dt><dd>Ebeveyn okul seçerken güven ve gelişim arıyor. Çocuk tarafında tek bir gerçek var: o enerji bir yerde harcanacak.</dd></div><div><dt>Fikir</dt><dd>Ev faturası diliyle bir enerji faturası: zıplama, takla, denge kirişi kalem kalem. Evde kalan enerji 0 kWh, ödenecek tutar mışıl mışıl bir uyku. Markanın renkli logosu ve “Harekette Sınır Yok” sözüyle.</dd></div><div><dt>Neden işe yarar</dt><dd>Her ebeveynin yaşadığı akşam saatini tek bakışta anlatıyor. Veli gruplarında elden ele gönderilecek türden; 2026’da Instagram’ın en çok ödüllendirdiği şey de bu.</dd></div></dl>
+        <div class="v-tas" aria-label="Bu fikrin taşındığı yerler"><span>Instagram postu</span><span>Dönem sonu veli karnesi</span><span>Kayıt broşürü</span><span>Girişte “fatura gişesi” panosu</span><span>Aylık fatura Reels’i</span></div>
+      </div>
+    </article>
+    <article class="vaka ters" style="--vb:#0E1B3D;--vf:#fff;--va:#FF4A4A;--vm:rgba(255,255,255,.75)">
+      <span class="v-no" aria-hidden="true">02</span>
+      <div class="v-tel"><div class="v-ekran">
+        <div class="v-ust"><i></i>tiestocoffees<span>•••</span></div>
+        <button type="button" data-buyut="is/tiesto.jpg" data-alt="Tiesto Coffee için plak kapağı: Kahvenin en güzel hali, tracklist Espresso Original Mix, Taş Değirmen Slow Grind"><img src="is/tiesto.jpg" alt="Tiesto Coffee için plak kapağı: Kahvenin en güzel hali, tracklist Espresso Original Mix, Taş Değirmen Slow Grind" width="880" height="1100" loading="lazy"></button>
+        <div class="v-alt"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.4-9.3-9A5.2 5.2 0 0 1 12 6.3 5.2 5.2 0 0 1 21.3 12C19 16.6 12 21 12 21z"/></svg><svg viewBox="0 0 24 24"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.2A8.5 8.5 0 1 1 21 12z"/></svg><svg viewBox="0 0 24 24"><path d="M22 3 2 10.5l8 3.5 3.5 8L22 3z"/></svg><b>Kaydet</b></div>
+      </div></div>
+      <div class="v-metin">
+        <div class="v-marka">Tiesto Coffee · Beylikdüzü</div>
+        <h3>Bu sabahın <em>setlisti</em> hazır.</h3>
+        <dl class="v-dl"><div><dt>Durum</dt><dd>Markanın adı dünyaca ünlü bir DJ’i çağrıştırıyor. Saklamak yerine sahneye çıkarmak gerekiyordu.</dd></div><div><dt>Fikir</dt><dd>Kahve menüsü bir plak kapağına döndü: Espresso (Original Mix), Taş Değirmen (Slow Grind), Şömine Başı (Extended). Kapak markanın lacivert-kırmızısı ve parmak izi deseniyle, “Live at Beylikdüzü”.</dd></div><div><dt>Neden işe yarar</dt><dd>İsimle gelen merak bir gülümsemeye dönüşüyor, menü ezberlenir hale geliyor. Marka kendi tuhaflığını sahipleniyor.</dd></div></dl>
+        <div class="v-tas" aria-label="Bu fikrin taşındığı yerler"><span>Tracklist menü kartı</span><span>Bardakta Side A / Side B</span><span>Haftalık setlist story serisi</span><span>Mağazada plak duvarı</span></div>
+      </div>
+    </article>
+    <article class="vaka" style="--vb:#E6F5F4;--vf:#16232B;--va:#1C9C97;--vm:#3E525B">
+      <span class="v-no" aria-hidden="true">03</span>
+      <div class="v-tel"><div class="v-ekran">
+        <div class="v-ust"><i></i>msneiloscoffees<span>•••</span></div>
+        <button type="button" data-buyut="is/neilos.jpg" data-alt="Ms Neilos için istasyon tabelası: Espresso hattı E1, Soğuk hat C2, Tatlı hattı T3, ilk sefer 09.00 son sefer 02.00"><img src="is/neilos.jpg" alt="Ms Neilos için istasyon tabelası: Espresso hattı E1, Soğuk hat C2, Tatlı hattı T3, ilk sefer 09.00 son sefer 02.00" width="880" height="1100" loading="lazy"></button>
+        <div class="v-alt"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.4-9.3-9A5.2 5.2 0 0 1 12 6.3 5.2 5.2 0 0 1 21.3 12C19 16.6 12 21 12 21z"/></svg><svg viewBox="0 0 24 24"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.2A8.5 8.5 0 1 1 21 12z"/></svg><svg viewBox="0 0 24 24"><path d="M22 3 2 10.5l8 3.5 3.5 8L22 3z"/></svg><b>Kaydet</b></div>
+      </div></div>
+      <div class="v-metin">
+        <div class="v-marka">Ms Neilos Coffees · Pendik · 09.00–02.00</div>
+        <h3>Pendik’te herkes bir yerde <em>aktarma</em> yapar.</h3>
+        <dl class="v-dl"><div><dt>Durum</dt><dd>Pendik bir aktarma semti: Marmaray, metro, otobüs. Herkes bir yerden bir yere geçiyor.</dd></div><div><dt>Fikir</dt><dd>Kafeyi bir istasyon gibi tabelaladık: Espresso hattı E1, Soğuk hat C2, Tatlı hattı T3. İlk sefer 09.00, son sefer 02.00. Turkuaz “N” bir metro durağı işaretine dönüştü.</dd></div><div><dt>Neden işe yarar</dt><dd>Semtin günlük hayatına oturuyor; yol tarifi bile reklama dönüşüyor. Gece 2’ye kadar açık olmak, “son sefer” diye söylenince akılda kalıyor.</dd></div></dl>
+        <div class="v-tas" aria-label="Bu fikrin taşındığı yerler"><span>Cam giydirme istasyon tabelası</span><span>Bardakta hat rozetleri</span><span>Neilos kart: 10 sefer 1 bedava</span><span>Durak çıkışı yön afişi</span></div>
+      </div>
+    </article>
+    <article class="vaka ters" style="--vb:#F4EEE4;--vf:#2A1A12;--va:#D7262D;--vm:#6B5444">
+      <span class="v-no" aria-hidden="true">04</span>
+      <div class="v-tel"><div class="v-ekran">
+        <div class="v-ust"><i></i>demlesene<span>•••</span></div>
+        <button type="button" data-buyut="is/demlesene.jpg" data-alt="Demlesene için kahve pasaportu: Guatemala, El Salvador, Kolombiya ve Brezilya vize damgaları"><img src="is/demlesene.jpg" alt="Demlesene için kahve pasaportu: Guatemala, El Salvador, Kolombiya ve Brezilya vize damgaları" width="880" height="1100" loading="lazy"></button>
+        <div class="v-alt"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.4-9.3-9A5.2 5.2 0 0 1 12 6.3 5.2 5.2 0 0 1 21.3 12C19 16.6 12 21 12 21z"/></svg><svg viewBox="0 0 24 24"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.2A8.5 8.5 0 1 1 21 12z"/></svg><svg viewBox="0 0 24 24"><path d="M22 3 2 10.5l8 3.5 3.5 8L22 3z"/></svg><b>Kaydet</b></div>
+      </div></div>
+      <div class="v-metin">
+        <div class="v-marka">Demlesene.com · online nitelikli kahve</div>
+        <h3>Dört ülke, tek <em>kapı</em>: senin kapın.</h3>
+        <dl class="v-dl"><div><dt>Durum</dt><dd>Dört farklı ülkeden tek kökenli kahveler var, ama internette hepsi aynı beyaz paket gibi görünüyor.</dd></div><div><dt>Fikir</dt><dd>Bir kahve pasaportu: her köken bir vize damgası. Guatemala Jaguar, El Salvador La Majada, Kolombiya Supremo, Brezilya Doce Diamantina. En altta kırmızı damga: vize gerekmez, demlesene.com, 7/24.</dd></div><div><dt>Neden işe yarar</dt><dd>Tadım notlarını macera diline çeviriyor ve “hepsini toplamalıyım” isteği doğuruyor. Tek paket yerine dörtlü set satıyor.</dd></div></dl>
+        <div class="v-tas" aria-label="Bu fikrin taşındığı yerler"><span>Paketle gelen pasaport kitapçığı</span><span>Her siparişte yeni damga</span><span>Dört ülke tadım seti</span><span>“Yeni vize geldi” e-postası</span></div>
+      </div>
+    </article>
+    <article class="vaka" style="--vb:#0F1F3A;--vf:#fff;--va:#C9A15B;--vm:rgba(255,255,255,.74)">
+      <span class="v-no" aria-hidden="true">05</span>
+      <div class="v-tel"><div class="v-ekran">
+        <div class="v-ust"><i></i>tomarasofrasi_catering<span>•••</span></div>
+        <button type="button" data-buyut="is/tomara.jpg" data-alt="Tomara Catering için ofis takvimi: toplantılara katılım düşük, öğle yemeğine 148 kişiden 148 kişi kabul demiş"><img src="is/tomara.jpg" alt="Tomara Catering için ofis takvimi: toplantılara katılım düşük, öğle yemeğine 148 kişiden 148 kişi kabul demiş" width="880" height="1100" loading="lazy"></button>
+        <div class="v-alt"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.4-9.3-9A5.2 5.2 0 0 1 12 6.3 5.2 5.2 0 0 1 21.3 12C19 16.6 12 21 12 21z"/></svg><svg viewBox="0 0 24 24"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.2A8.5 8.5 0 1 1 21 12z"/></svg><svg viewBox="0 0 24 24"><path d="M22 3 2 10.5l8 3.5 3.5 8L22 3z"/></svg><b>Kaydet</b></div>
+      </div></div>
+      <div class="v-metin">
+        <div class="v-marka">Tomara Catering · Tuzla · 2015’ten beri kurumsal yemek</div>
+        <h3>Herkesin kabul ettiği <em>tek toplantı.</em></h3>
+        <dl class="v-dl"><div><dt>Durum</dt><dd>Kurumsal yemekte kararı İK ve satın alma veriyor. Onların dünyası toplantı takvimi.</dd></div><div><dt>Fikir</dt><dd>Bir ofis takvimi: bütün toplantılarda katılım düşük, öğle yemeğine 148 kişiden 148’i “kabul” demiş. Tomara’nın lacivert-altın kimliği ve servis kapağı simgesiyle.</dd></div><div><dt>Neden işe yarar</dt><dd>Alıcıya kendi ekranından konuşuyor. İK yöneticilerinin LinkedIn’de paylaşacağı, gülümseterek ikna eden türden bir B2B işi.</dd></div></dl>
+        <div class="v-tas" aria-label="Bu fikrin taşındığı yerler"><span>LinkedIn kampanyası</span><span>Teklif dosyası kapağı</span><span>Yemekhane panosu</span><span>Takvim daveti biçiminde e-posta</span></div>
+      </div>
+    </article>
+    <article class="vaka ters" style="--vb:#0B0A12;--vf:#FFF6EA;--va:#FFB347;--vm:rgba(255,246,234,.74)">
+      <span class="v-no" aria-hidden="true">06</span>
+      <div class="v-tel"><div class="v-ekran">
+        <div class="v-ust"><i></i>alexgecedonercisi<span>•••</span></div>
+        <button type="button" data-buyut="is/alex.jpg" data-alt="Alex Gece Dönercisi için nöbetçi eczane levhası biçiminde post: Bu gece nöbetçi dönerci, nöbet saati 17.00–02.00"><img src="is/alex.jpg" alt="Alex Gece Dönercisi için nöbetçi eczane levhası biçiminde post: Bu gece nöbetçi dönerci, nöbet saati 17.00–02.00" width="880" height="1100" loading="lazy"></button>
+        <div class="v-alt"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.4-9.3-9A5.2 5.2 0 0 1 12 6.3 5.2 5.2 0 0 1 21.3 12C19 16.6 12 21 12 21z"/></svg><svg viewBox="0 0 24 24"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.2A8.5 8.5 0 1 1 21 12z"/></svg><svg viewBox="0 0 24 24"><path d="M22 3 2 10.5l8 3.5 3.5 8L22 3z"/></svg><b>Kaydet</b></div>
+      </div></div>
+      <div class="v-metin">
+        <div class="v-marka">Alex Gece Dönercisi · Kartal Topselvi · 02.00’ye kadar</div>
+        <h3>Gece acıkanların <em>nöbetçisi.</em></h3>
+        <dl class="v-dl"><div><dt>Durum</dt><dd>Gece döner arayan, aklına ilk geleni seçiyor. Mesele en iyi olmak değil, akla ilk gelen olmak.</dd></div><div><dt>Fikir</dt><dd>Herkesin tanıdığı nöbetçi eczane levhası: “Bu gece nöbetçi dönerci.” Nöbet saati 17.00–02.00, ikram: çay.</dd></div><div><dt>Neden işe yarar</dt><dd>Tanıdık işaret tek saniyede okunuyor. “Nöbetçi” kelimesi gece açık olmayı bir hizmete, bir güvenceye çeviriyor.</dd></div></dl>
+        <div class="v-tas" aria-label="Bu fikrin taşındığı yerler"><span>Dükkân önü ışıklı levha</span><span>Trendyol Go mağaza görseli</span><span>Gece 23.00 story’si</span><span>Paket üstü sticker</span></div>
+      </div>
+    </article>
+  </section>
+
   <section id="isler">
     <div class="bas">
-      <div class="etiket">İşler</div>
+      <div class="etiket">Daha fazla iş</div>
       <h2>Her işin <i>tek</i> bir fikri var.</h2>
       <p>Postlar, Reels videoları ve baskı işleri. Büyütmek için görsele dokunun.</p>
     </div>
@@ -412,10 +533,6 @@ dialog .alt{color:#fff;margin-top:12px;font-size:15px}
         <h3>İstirahat Raporu</h3><p>Keyfhane için. Teşhis: akut keyifsizlik. Tedavi: iki demli çay, bir dilim tatlı.</p>
       </article>
       <article class="is" data-t="teklif">
-        <button class="medya" type="button" data-buyut="is/alex.jpg" data-alt="Alex Gece Dönercisi · Nöbetçi Dönerci"><img src="is/alex.jpg" alt="Nöbetçi eczane levhası biçiminde dönerci postu: Bu gece nöbetçi dönerci" width="880" height="1100" loading="lazy"><span class="tur t">Dönerci</span></button>
-        <h3>Nöbetçi Dönerci</h3><p>Kartal Topselvi'deki Alex Gece Dönercisi için. Gece 12'ye kadar açık, çay bizden: gece acıkanların nöbetçisi.</p>
-      </article>
-      <article class="is" data-t="teklif">
         <button class="medya" type="button" data-buyut="is/caferoglu.jpg" data-alt="Hatır Senedi"><img src="is/caferoglu.jpg" alt="Senet biçiminde kurukahveci postu: Hatır senedi, vade kırk yıl" width="880" height="1100" loading="lazy"><span class="tur t">Kurukahveci</span></button>
         <h3>Hatır Senedi</h3><p>Kurukahveci Hacı Caferoğlu için. Bir fincan dibek kahvesinin kırk yıl hatırı, senede bağlandı.</p>
       </article>
@@ -423,17 +540,9 @@ dialog .alt{color:#fff;margin-top:12px;font-size:15px}
         <div class="medya"><video src="is/reels.mp4" poster="is/reels.jpg" autoplay muted loop playsinline aria-label="Keyfhane Mesai Bitti Reels videosu"></video><span class="tur">Kafe · Reels</span></div>
         <h3>Mesai Bitti</h3><p>Keyfhane için 8 saniyelik Reels. Saat 18.01, üç bildirim. Hangisine cevap vereceğin belli.</p>
       </article>
-      <article class="is" data-t="teklif">
-        <button class="medya" type="button" data-buyut="is/tomara.jpg" data-alt="Herkesin kabul ettiği tek toplantı"><img src="is/tomara.jpg" alt="Ofis takvimi biçiminde kurumsal yemek postu: Herkesin kabul ettiği tek toplantı" width="880" height="1100" loading="lazy"><span class="tur t">Catering</span></button>
-        <h3>Herkesin kabul ettiği tek toplantı</h3><p>Tuzla'daki Tomara Catering için. Ofis takviminde toplantılara katılım düşük, öğle yemeğine herkes "kabul" demiş.</p>
-      </article>
       <article class="is" data-t="konsept">
         <button class="medya" type="button" data-buyut="is/berber.jpg" data-alt="Konsept · Usta Makas"><img src="is/berber.jpg" alt="Sıra numaratörü biçiminde berber postu: Sıradaki sen" width="880" height="1100" loading="lazy"><span class="tur k">Konsept · Berber</span></button>
         <h3>Sıradaki: Sen</h3><p>Berber için sıra numaratörü. Randevulu müşteri hiç beklemez, tek mesaj bu.</p>
-      </article>
-      <article class="is" data-t="teklif">
-        <button class="medya" type="button" data-buyut="is/neilos.jpg" data-alt="Ms. Neilos Coffee"><img src="is/neilos.jpg" alt="Davetiye biçiminde kafe postu: Ms. Neilos sizi bir fincan kahveye davet eder" width="880" height="1100" loading="lazy"><span class="tur t">Kafe</span></button>
-        <h3>Davetlisiniz</h3><p>Pendik'teki Ms Neilos Coffees için. Sabah 9'dan gece 2'ye bir davetiye: kıyafet serbest, pijama dahil.</p>
       </article>
       <article class="is" data-t="teklif">
         <button class="medya" type="button" data-buyut="is/ugur.jpg" data-alt="Dikkat: verim artışı"><img src="is/ugur.jpg" alt="İş güvenliği levhası biçiminde toplu yemek postu: Dikkat, öğle yemeğinden sonra verim artışı" width="880" height="1100" loading="lazy"><span class="tur t">Toplu yemek</span></button>
@@ -446,10 +555,6 @@ dialog .alt{color:#fff;margin-top:12px;font-size:15px}
       <article class="is" data-t="konsept">
         <button class="medya" type="button" data-buyut="is/firin.jpg" data-alt="Konsept · Fırın Sabah"><img src="is/firin.jpg" alt="Kargo takip ekranı biçiminde fırın postu: Simidin yola çıktı" width="880" height="1100" loading="lazy"><span class="tur k">Konsept · Fırın</span></button>
         <h3>Simidin yola çıktı</h3><p>Kargo takip ekranı, ama paket sıcak simit. Hamurdan tezgâha her adım saatiyle.</p>
-      </article>
-      <article class="is" data-t="teklif">
-        <button class="medya" type="button" data-buyut="is/tiesto.jpg" data-alt="Sabah Setlist"><img src="is/tiesto.jpg" alt="Müzik listesi biçiminde kafe postu: Sabah setlist" width="880" height="1100" loading="lazy"><span class="tur t">Kafe</span></button>
-        <h3>Sabah Setlist</h3><p>Beylikdüzü'ndeki Tiesto Coffee için. Espresso (Original Mix), Taş Değirmen (Slow Grind), Şömine Başı (Extended).</p>
       </article>
       <article class="is" data-t="teklif">
         <button class="medya" type="button" data-buyut="is/armet.jpg" data-alt="Bu taraf yukarı. Markan da."><img src="is/armet.jpg" alt="Koli üstü işaretleri biçiminde ambalaj postu: Bu taraf yukarı, markan da" width="880" height="1100" loading="lazy"><span class="tur t">Ambalaj</span></button>
