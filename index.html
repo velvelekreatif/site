@@ -11,7 +11,7 @@
 <meta property="og:locale" content="tr_TR">
 <meta property="og:site_name" content="Velvele Kreatif">
 <meta property="og:title" content="Velvele Kreatif · Nasıl düşünemedik?">
-<meta property="og:description" content="Fikirden tabelaya, her sektöre. Marka danışmanlığı, sosyal medya, reklam, video, web, baskı ve uygulama.">
+<meta property="og:description" content="Fikirden tabelaya, her sektöre. Marka danışmanlığı, sosyal medya, reklam, video, mobil uygulama ve yazılım, baskı ve uygulama.">
 <meta property="og:url" content="https://velvelekreatif.com/">
 <meta property="og:image" content="https://velvelekreatif.com/og.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -366,6 +366,48 @@ dialog .alt{color:#fff;margin-top:12px;font-size:15px}
 .v-tas{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
 .v-tas span{border:1px solid color-mix(in srgb,var(--vf) 30%,transparent);border-radius:999px;padding:7px 14px;font-size:13.5px;color:var(--vf)}
 .v-no{position:absolute;right:28px;top:20px;font:800 120px/1 "Bricolage Grotesque",sans-serif;color:color-mix(in srgb,var(--vf) 7%,transparent);pointer-events:none}
+
+/* Uygulama ve yazılım stüdyosu */
+#yazilim .yz{background:#0D0F2E;color:#fff;border-radius:28px;padding:clamp(24px,5vw,64px);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,5vw,64px);align-items:center;overflow:hidden;position:relative}
+@media (max-width:900px){#yazilim .yz{grid-template-columns:1fr}}
+#yazilim .yz .etiket{color:#FFC531}
+#yazilim .yz h2{font:800 clamp(36px,5.2vw,62px)/.98 var(--display);letter-spacing:-.03em;margin:14px 0 18px}
+#yazilim .yz h2 i{font-family:var(--serif);font-weight:400;font-style:italic;color:#FFC531}
+#yazilim .yz p.giris{color:rgba(255,255,255,.78);font-size:18px;line-height:1.6;max-width:520px}
+#yazilim .adim{display:grid;grid-template-columns:repeat(2,1fr);gap:16px 14px;margin-top:28px;counter-reset:a}
+@media (max-width:560px){#yazilim .adim{grid-template-columns:1fr 1fr}}
+#yazilim .adim div{border-top:2px solid rgba(255,255,255,.22);padding-top:12px;font-size:14px;color:rgba(255,255,255,.75);line-height:1.4}
+#yazilim .adim div:before{counter-increment:a;content:"0" counter(a);display:block;font:800 13px var(--body);letter-spacing:.12em;color:#FFC531;margin-bottom:6px}
+#yazilim .adim b{display:block;color:#fff;font-size:15px;margin-bottom:2px}
+.telefonlar{display:flex;justify-content:center;align-items:flex-end;gap:10px;min-height:430px;min-width:0}
+.tf{width:168px;flex:none;background:#000;border-radius:34px;padding:8px;box-shadow:0 30px 60px rgba(0,0,0,.45),0 0 0 1px #2a2d52}
+.tf:nth-child(2){transform:translateY(-34px);width:184px}
+@media (max-width:560px){.telefonlar{min-height:0;margin-top:8px}.tf{width:150px}.tf:nth-child(2){display:none}}
+.tf .ek{background:#F5F6FB;color:#0D0F2E;border-radius:27px;height:390px;overflow:hidden;padding:30px 14px 14px;font:500 12px var(--body);position:relative}
+.tf:nth-child(2) .ek{height:420px}
+.tf .ek:before{content:"";position:absolute;left:50%;top:9px;width:56px;height:14px;border-radius:10px;background:#000;transform:translateX(-50%)}
+.tf h4{font:800 17px/1.1 var(--display);margin:4px 0 10px;letter-spacing:-.01em}
+.tf small{display:block;color:#6a6e8c;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;font-weight:700}
+.damgalar{display:grid;grid-template-columns:repeat(5,1fr);gap:7px;background:#fff;border-radius:14px;padding:12px;box-shadow:0 2px 0 #e3e5f0}
+.damgalar i{aspect-ratio:1;border-radius:50%;border:2px dashed #c9cce0}
+.damgalar i.d{border:0;background:#2331D4;box-shadow:inset 0 0 0 4px #5b66ff}
+.tf .not{margin-top:10px;background:#FFC531;border-radius:12px;padding:10px;font-weight:700;font-size:12px}
+.tf .sat{display:flex;justify-content:space-between;align-items:center;background:#fff;border-radius:12px;padding:10px;margin-top:7px;box-shadow:0 2px 0 #e3e5f0}
+.tf .sat em{font-style:normal;color:#6a6e8c;font-size:11px;display:block}
+.tf .sat b{font-weight:800}
+.tf .sat .bt{background:#2331D4;color:#fff;border-radius:8px;padding:5px 9px;font-weight:700;font-size:11px}
+.tf .sat .bt.k{background:#e8e9f3;color:#9a9db6}
+.tf .alt{position:absolute;left:14px;right:14px;bottom:14px;background:#0D0F2E;color:#fff;border-radius:12px;padding:12px;font-weight:700;display:flex;justify-content:space-between}
+.tf .gun{display:flex;gap:6px;margin-bottom:8px}
+.tf .gun span{flex:1;text-align:center;background:#fff;border-radius:9px;padding:6px 0;font-weight:700;box-shadow:0 2px 0 #e3e5f0}
+.tf .gun span.s{background:#2331D4;color:#fff}
+.yzliste{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:14px;margin-top:18px}
+.yzliste div{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px;display:grid;gap:8px;align-content:start}
+.yzliste h3{font:800 19px/1.2 var(--display)}
+.yzliste p{color:var(--muted);font-size:15px;line-height:1.55}
+.yzson{margin-top:18px;display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;background:var(--sunk);border-radius:14px;padding:20px 24px}
+.yzson .btn{background:var(--kobalt);color:#fff}
+.yzson p{font-size:16px;max-width:720px}
 </style>
 
 </head>
@@ -376,7 +418,7 @@ dialog .alt{color:#fff;margin-top:12px;font-size:15px}
   <div class="ic">
     <nav class="nav" aria-label="Ana menü">
       <a class="logo" href="#">Velvele<span>.</span></a>
-      <ul><li><a href="#biz">Biz kimiz</a></li><li><a href="#fark">Fark</a></li><li><a href="#vakalar">Vakalar</a></li><li><a href="#isler">İşler</a></li><li><a href="#hizmetler">Hizmetler</a></li><li><a href="#baski">Baskı</a></li><li><a href="#fikir-makinesi">Fikir makinesi</a></li><li><a href="#kontrol">Instagram kontrolü</a></li><li><a href="#paketler">Paketler</a></li><li><a href="#notlar">Notlar</a></li><li><a href="#sss">SSS</a></li></ul>
+      <ul><li><a href="#biz">Biz kimiz</a></li><li><a href="#fark">Fark</a></li><li><a href="#vakalar">Vakalar</a></li><li><a href="#isler">İşler</a></li><li><a href="#hizmetler">Hizmetler</a></li><li><a href="#baski">Baskı</a></li><li><a href="#yazilim">Yazılım</a></li><li><a href="#fikir-makinesi">Fikir makinesi</a></li><li><a href="#kontrol">Instagram kontrolü</a></li><li><a href="#paketler">Paketler</a></li><li><a href="#notlar">Notlar</a></li><li><a href="#sss">SSS</a></li></ul>
       <a class="btn btn-sinyal" href="#ornek">Teklif al</a>
     </nav>
     <div class="acilis">
@@ -669,6 +711,7 @@ dialog .alt{color:#fff;margin-top:12px;font-size:15px}
         <div><h4>Sosyal medya</h4><p>İçerik takvimi · Post ve carousel · Story · Profil ve öne çıkanlar · Yorum ve mesaj yönetimi · Gündem pazarlaması · TikTok · LinkedIn · YouTube Shorts · Eleman arama ilanları</p></div>
         <div><h4>Reklam</h4><p>Instagram ve Facebook · TikTok · Google Arama ve Haritalar · YouTube · Yeniden hedefleme · Reklam görseli testleri · Dönüşüm takibi kurulumu · Rakip reklam takibi</p></div>
         <div><h4>Bulunmak</h4><p>Google İşletme Profili · Yerel SEO · Yapay zekâ aramaları · Instagram arama · Apple ve Yandex Haritalar · Yorum toplama ve cevaplama</p></div>
+        <div><h4>Uygulama ve yazılım</h4><p>Mobil uygulama (iOS ve Android) · App Store ve Google Play yayını · Web uygulaması ve yönetim paneli · Sipariş, randevu, rezervasyon sistemleri · Sadakat uygulaması · Akıllı asistan ve otomasyon · Mini oyun ve oyun geliştirme · Uygulama bakımı ve güncelleme</p></div>
         <div><h4>Web</h4><p>Tek sayfalık site · Kurumsal site · E-ticaret sitesi · QR ve dijital menü · Link sayfası · Online sipariş ve rezervasyon · Kampanya sayfası · Çark, kazı kazan gibi kampanya oyunları</p></div>
         <div><h4>Paket servis ve pazaryeri</h4><p>Yemeksepeti, Trendyol Yemek, Getir vitrini · Menü fotoğrafı ve açıklamaları · Kombo ve kampanya kurgusu · Trendyol ve Hepsiburada ürün sayfaları · Puan ve yorum takibi</p></div>
         <div><h4>Müşteri ve sadakat</h4><p>WhatsApp Business · İzinli müşteri listesi · Dijital damga kartı · Doğum günü ve geri kazanma mesajları · E-posta ve SMS bülteni · Otomatik mesaj cevapları</p></div>
@@ -697,6 +740,57 @@ dialog .alt{color:#fff;margin-top:12px;font-size:15px}
       <div><h3>Promosyon ve basılı</h3><p>Menü, afiş, broşür, katalog, kartvizit, sticker ve etiket.</p></div>
       <div><h3>Fuar ve etkinlik</h3><p>Roll-up, X banner, fuar standı görselleri, karşılama panoları.</p></div>
     </div>
+  </section>
+
+  <section lang="tr" id="yazilim">
+    <div class="yz">
+      <div>
+        <div class="etiket">Uygulama ve yazılım stüdyosu</div>
+        <h2>Markanız artık <i>cebinizde</i> de duruyor.</h2>
+        <p class="giris">Mobil uygulama, web sitesi, e-ticaret ve işinize özel yazılım. Fikri, tasarımı, kodu ve mağazaya yükleme işini aynı ekip yapıyor. Kendi uygulamalarımızı da geliştirip yayınlıyoruz; müşterilerimize sattığımız şeyi önce kendimiz kullanıyoruz.</p>
+        <div class="adim">
+          <div><b>Fikir</b>Ne çözecek, kim kullanacak?</div>
+          <div><b>Tasarım</b>Ekranlar ve tıklanabilir taslak</div>
+          <div><b>Geliştirme</b>iOS, Android ve web</div>
+          <div><b>Yayın ve bakım</b>App Store, Google Play, güncelleme</div>
+        </div>
+      </div>
+      <div class="telefonlar" aria-hidden="true">
+        <div class="tf"><div class="ek">
+          <small>Sadakat kartı</small><h4>10. kahve bizden</h4>
+          <div class="damgalar"><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i></i><i></i><i></i></div>
+          <div class="not">3 damga kaldı. Bu hafta gel, ikram bizden.</div>
+          <div class="sat"><div><em>Son ziyaret</em><b>Salı, 19.40</b></div></div>
+        </div></div>
+        <div class="tf"><div class="ek">
+          <small>Sipariş</small><h4>Masa 7 · menü</h4>
+          <div class="sat"><div><b>Türk kahvesi</b><em>Közde, lokumla</em></div><span class="bt">Ekle</span></div>
+          <div class="sat"><div><b>Cold brew</b><em>18 saat demlenmiş</em></div><span class="bt">Ekle</span></div>
+          <div class="sat"><div><b>San Sebastian</b><em>Dilim</em></div><span class="bt">Ekle</span></div>
+          <div class="sat"><div><b>Demli çay</b><em>İnce belli</em></div><span class="bt k">Eklendi</span></div>
+          <div class="alt"><span>Sepet · 2 ürün</span><span>Gönder →</span></div>
+        </div></div>
+        <div class="tf"><div class="ek">
+          <small>Randevu</small><h4>Uygun saatler</h4>
+          <div class="gun"><span>Pzt</span><span class="s">Sal</span><span>Çar</span></div>
+          <div class="sat"><b>10.30</b><span class="bt">Seç</span></div>
+          <div class="sat"><b>13.00</b><span class="bt k">Dolu</span></div>
+          <div class="sat"><b>15.30</b><span class="bt">Seç</span></div>
+          <div class="sat"><b>17.00</b><span class="bt">Seç</span></div>
+        </div></div>
+      </div>
+    </div>
+    <div class="yzliste">
+      <div><h3>Mobil uygulama</h3><p>iOS ve Android. Sipariş, sadakat kartı, randevu, rezervasyon ve üyelik uygulamaları. App Store ve Google Play yayını dahil.</p></div>
+      <div><h3>Web sitesi</h3><p>Kurumsal site, tek sayfalık tanıtım, çok dilli site. Hızlı, telefonda kusursuz, Google'da bulunur.</p></div>
+      <div><h3>E-ticaret</h3><p>Online mağaza, ödeme ve kargo bağlantıları, stok ve sipariş yönetimi.</p></div>
+      <div><h3>Web uygulaması ve panel</h3><p>Rezervasyon, sipariş takip, bayi ve müşteri paneli. Excel'de yürüyen işi tek ekrana taşıyoruz.</p></div>
+      <div><h3>Akıllı asistan ve otomasyon</h3><p>WhatsApp ve Instagram'da otomatik cevap, teklif ve randevu akışları; tekrar eden işleri kendiliğinden yürüyen sistemlere çeviriyoruz.</p></div>
+      <div><h3>Oyun ve kampanya uygulaması</h3><p>Markalı mini oyunlar, çarkıfelek ve kazı kazan kampanyaları, mobil oyun geliştirme.</p></div>
+      <div><h3>Yayın, bakım ve büyüme</h3><p>Güncellemeler, hata takibi, mağaza sayfası ve yorum yönetimi, kullanıcı sayısını artıran kampanyalar.</p></div>
+      <div><h3>Fikrinizi ürüne çevirme</h3><p>“Şöyle bir uygulama olsa” diyorsanız: fikri netleştirir, ilk sürümü çıkarır, satılabilir ürüne dönüştürürüz.</p></div>
+    </div>
+    <div class="yzson"><p><b>Uygulamayı da reklamını da aynı ekip yapınca</b> ürün daha ilk günden konuşulur: mağaza görselleri, tanıtım videosu ve lansman reklamı aynı elden çıkar.</p><a class="btn btn-kobalt" href="#ornek">Uygulama fikrimi anlatayım</a></div>
   </section>
 
   <section lang="tr" id="fikir-makinesi">
