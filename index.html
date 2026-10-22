@@ -408,8 +408,25 @@ dialog .alt{color:#fff;margin-top:12px;font-size:15px}
 .yzson{margin-top:18px;display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;background:var(--sunk);border-radius:14px;padding:20px 24px}
 .yzson .btn{background:var(--kobalt);color:#fff}
 .yzson p{font-size:16px;max-width:720px}
-</style>
 
+/* Açılış: Seda tanıtım videosu */
+.sahne{position:relative;display:grid;place-items:center;min-height:clamp(520px,54vw,660px);min-width:0}
+.sahne .arka{position:absolute;width:44%;max-width:210px;height:auto;aspect-ratio:4/5;object-fit:cover;border-radius:10px;box-shadow:0 30px 60px -20px rgba(0,0,20,.6);opacity:.92;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.sahne .arka.s{left:-4%;top:16%;transform:rotate(-9deg)}
+.sahne .arka.d{right:-6%;top:26%;transform:rotate(8deg)}
+.sahne:hover .arka.s{transform:rotate(-12deg) translateX(-14px)}
+.sahne:hover .arka.d{transform:rotate(11deg) translateX(14px)}
+.reel{position:relative;z-index:2;width:min(320px,74vw);aspect-ratio:9/16;border-radius:28px;overflow:hidden;background:#0D0F2E;box-shadow:0 44px 90px -26px rgba(0,0,20,.75),0 0 0 6px rgba(255,255,255,.14)}
+.reel video{width:100%;height:100%;object-fit:cover;display:block}
+.reel .ses{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);display:inline-flex;align-items:center;gap:10px;white-space:nowrap;border:0;cursor:pointer;background:var(--sinyal);color:var(--on-sinyal);font:700 15px/1 var(--body,inherit);padding:13px 18px;border-radius:999px;box-shadow:0 10px 28px -8px rgba(0,0,0,.55)}
+.reel .ses svg{width:18px;height:18px;flex:none}
+.reel .ses[aria-pressed="true"]{background:rgba(13,15,46,.62);color:#fff;backdrop-filter:blur(6px);padding:10px 14px;font-size:13px}
+.reel .ilerleme{position:absolute;left:14px;right:14px;top:12px;height:3px;border-radius:3px;background:rgba(255,255,255,.28);overflow:hidden}
+.reel .ilerleme i{display:block;height:100%;width:0;background:#fff}
+.sahne .not{position:absolute;z-index:3;bottom:-6px;left:50%;transform:translateX(-50%);font-size:13px;opacity:.8;white-space:nowrap}
+@media (min-width:901px){.acilis{grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr)}}
+@media (max-width:900px){.sahne{min-height:auto;padding-block:8px 34px}.sahne .arka{width:34%}.sahne .arka.s{left:0}.sahne .arka.d{right:0}}
+</style>
 </head>
 <body>
 
@@ -429,10 +446,15 @@ dialog .alt{color:#fff;margin-top:12px;font-size:15px}
         <div class="cta"><a class="btn btn-sinyal" href="#ornek">İşletmem için teklif al</a><a class="btn btn-hat" href="#vakalar">İşlere bak</a></div>
         <p class="kitle">Kafe · restoran · dönerci · catering · toplu yemek · kurukahveci · galericiler · ambalaj · berber · butik · yerel markalar</p>
       </div>
-      <div class="deste" aria-hidden="true">
-        <img src="is/caferoglu.jpg" alt="" width="880" height="1100">
-        <img src="is/rapor.jpg" alt="" width="880" height="1100">
-        <img src="is/alex.jpg" alt="" width="880" height="1100">
+      <div class="sahne">
+        <img class="arka s" src="is/umran.jpg" alt="" width="880" height="1100" aria-hidden="true">
+        <img class="arka d" src="is/tiesto.jpg" alt="" width="880" height="1100" aria-hidden="true">
+        <div class="reel">
+          <video id="seda" src="is/seda.mp4" poster="is/seda_kapak.jpg" muted loop playsinline preload="metadata" aria-label="Velvele'nin yapay zekâ temsilcisi Seda'nın tanıtım videosu, Türkçe altyazılı"></video>
+          <div class="ilerleme" aria-hidden="true"><i id="sedaIlerleme"></i></div>
+          <button class="ses" id="sedaSes" type="button" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9 9 0 0 1 0 13"/></svg><span>Sesi aç, Seda'yı dinle</span></button>
+        </div>
+        <p class="not">Sonunu kaçırmayın.</p>
       </div>
     </div>
   </div>
@@ -1303,6 +1325,27 @@ document.getElementById('kopyala').addEventListener('click', async e => {
   catch { el.closest('details').open = true; const r = document.createRange(); r.selectNodeContents(el); const s = getSelection(); s.removeAllRanges(); s.addRange(r); b.textContent = 'Seçildi, Ctrl+C ile kopyalayın'; }
 });
 goster();
+
+// Açılış videosu: sessiz başlar, "Sesi aç" ile baştan sesli oynar; ekrandan çıkınca durur
+(() => {
+  const v = document.getElementById('seda'), b = document.getElementById('sedaSes'), ilr = document.getElementById('sedaIlerleme');
+  if (!v) return;
+  const az = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let gorunur = false;
+  const etiket = b.querySelector('span');
+  const oynat = () => { const p = v.play(); if (p) p.catch(() => {}); };
+  new IntersectionObserver(es => es.forEach(e => {
+    gorunur = e.isIntersecting;
+    if (gorunur && (!az || !v.muted)) oynat(); else v.pause();
+  }), { threshold: .35 }).observe(v);
+  b.addEventListener('click', () => {
+    if (v.muted) { v.muted = false; v.currentTime = 0; oynat(); b.setAttribute('aria-pressed', 'true'); etiket.textContent = 'Sesi kapat'; }
+    else { v.muted = true; b.setAttribute('aria-pressed', 'false'); etiket.textContent = "Sesi aç, Seda'yı dinle"; }
+  });
+  v.addEventListener('click', () => b.click());
+  const ciz = () => { if (v.duration) ilr.style.width = (v.currentTime / v.duration * 100) + '%'; requestAnimationFrame(ciz); };
+  requestAnimationFrame(ciz);
+})();
 </script>
 
 </body>
