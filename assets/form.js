@@ -69,26 +69,24 @@
     ].join('\n');
   }
 
-  f.addEventListener('submit', async e => {
+  f.addEventListener('submit', e => {
     e.preventDefault(); if (adim !== 3) return;
     if (!gecerli()) return;
     const g = $('#tf-gonder'); g.disabled = true; g.textContent = 'Gönderiliyor…';
-    const govde = { _subject: 'Velvele · Teklif talebi: ' + v('t-isletme'), _template: 'table', _captcha: 'false',
+    gc('gonderildi');
+    // Standart form gönderimi: tarayıcı FormSubmit'e gider, e-posta bize düşer, ziyaretçi teşekkür sayfasına döner.
+    const alanlar = { _subject: 'Velvele · Teklif talebi: ' + v('t-isletme'), _template: 'table', _captcha: 'false',
+      _next: location.origin + '/tesekkurler/?ad=' + encodeURIComponent(v('t-ad').split(' ')[0]), _replyto: v('t-eposta'), _honey: '',
       'İhtiyaç': S.ihtiyac.join(', '), 'İşletme': v('t-isletme'), 'Sektör': S.sektor || '-', 'Yer': v('t-yer') || '-', 'Instagram': v('t-ig') || '-',
       'Ne zaman': S.zaman || '-', 'Kapsam': S.butce || '-', 'Not': v('t-not') || '-', 'Ad': v('t-ad'), 'Telefon': v('t-tel'), 'E-posta': v('t-eposta'),
-      'Sayfa': location.pathname, _replyto: v('t-eposta') };
-    try {
-      const r = await fetch('https://formsubmit.co/ajax/' + EPOSTA, { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify(govde) });
-      const d = await r.json().catch(() => ({}));
-      if (!r.ok || String(d.success) !== 'true') throw new Error(d.message || 'hata');
-      gc('gonderildi');
-      $('#tf-ad-yaz').textContent = v('t-ad').split(' ')[0];
-      $('.tf-govde').hidden = true; $('.tf-tamam').hidden = false; $$('.tf-yol li').forEach(l => { l.classList.remove('aktif'); l.classList.add('bitti'); }); f.scrollIntoView({ block: 'start', behavior: 'smooth' });
-    } catch (err) {
-      gc('hata');
+      'Sayfa': location.pathname };
+    const gf = document.createElement('form'); gf.method = 'POST'; gf.action = 'https://formsubmit.co/' + EPOSTA; gf.hidden = true;
+    Object.entries(alanlar).forEach(([k, val]) => { const i = document.createElement('input'); i.type = 'hidden'; i.name = k; i.value = val; gf.append(i); });
+    document.body.append(gf);
+    try { gf.submit(); } catch (err) {
       g.disabled = false; g.textContent = 'Tekrar dene';
       hata('Şu an gönderemedik. Talebinizi tek tıkla e-posta uygulamanızdan iletebilirsiniz.');
-      const y = $('.tf-yedek'); y.hidden = false;
+      $('.tf-yedek').hidden = false;
       $('#tf-ep-yedek').href = 'mailto:' + EPOSTA + '?subject=' + encodeURIComponent('Teklif talebi · ' + v('t-isletme')) + '&body=' + encodeURIComponent(metin());
     }
   });
