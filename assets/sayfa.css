@@ -152,3 +152,20 @@ details p{color:var(--muted);margin-top:12px;max-width:68ch}
 .alt-bilgi .slogan{font:400 italic 26px/1.15 var(--serif);margin-top:12px;max-width:22ch}
 .alt-bilgi .dip{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-top:48px;padding-top:20px;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
 @media (max-width:560px){.deste img{width:54%}.deste img:nth-child(1){left:2%}.deste img:nth-child(3){left:44%}}
+
+/* MOBİL MENÜ */
+details.mmenu{display:none;position:relative;border:0;padding:0;margin:0}
+details.mmenu>summary{list-style:none;cursor:pointer;width:48px;height:48px;border-radius:50%;border:1.5px solid rgba(255,255,255,.55);display:grid;place-items:center;padding:0;font:inherit;color:inherit}
+details.mmenu>summary::-webkit-details-marker{display:none}
+details.mmenu>summary::after{content:none!important}
+details.mmenu>summary svg{width:22px;height:22px}
+details.mmenu[open]>summary{background:var(--sinyal);border-color:var(--sinyal);color:var(--on-sinyal)}
+.mmenu .panel{position:absolute;right:0;top:58px;width:min(calc(100vw - 32px),330px);background:var(--surface);color:var(--fg);border-radius:20px;padding:10px;box-shadow:0 30px 60px -15px rgba(0,0,30,.55);z-index:60;display:grid;max-height:calc(100vh - 110px);overflow:auto}
+.mmenu .panel a{display:block;padding:13px 14px;border-radius:12px;text-decoration:none;font:600 17px/1.2 var(--body);color:var(--fg)}
+.mmenu .panel a:active,.mmenu .panel a:hover{background:var(--sunk)}
+.mmenu .panel .ayir{font:600 11px var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--muted);padding:14px 14px 4px}
+.mmenu .panel .teklif{background:var(--sinyal);color:var(--on-sinyal);text-align:center;margin-top:8px}
+@media (max-width:860px){details.mmenu{display:block}.nav{gap:10px}.nav .btn{margin-left:auto}}
+.mmenu .panel a[aria-current]{background:var(--sunk)}
+.nav{z-index:50}
+.mmenu .panel{position:fixed;top:78px;right:16px}

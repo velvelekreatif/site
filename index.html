@@ -326,7 +326,7 @@ footer{padding-block:40px;color:var(--muted);font-size:14px;display:flex;justify
 .sonuc-brif .satir{display:flex;flex-wrap:wrap;gap:10px}
 /* YAPIŞKAN */
 .yapiskan{position:fixed;right:max(16px, env(safe-area-inset-right, 0px));bottom:calc(16px + env(safe-area-inset-bottom, 0px));z-index:20;box-shadow:0 10px 30px rgba(0,0,0,.3);display:none}
-@media (max-width:860px){.yapiskan{display:inline-flex}}
+@media (max-width:860px){.yapiskan{display:inline-flex;opacity:0;transform:translateY(20px);pointer-events:none;transition:opacity .25s ease,transform .25s ease}.yapiskan.gor{opacity:1;transform:none;pointer-events:auto}}
 /* BÜYÜT */
 dialog{border:0;padding:0;background:transparent;max-width:min(92vw,620px);width:100%}
 dialog::backdrop{background:rgba(5,6,20,.82)}
@@ -444,6 +444,26 @@ footer.alt-bilgi{display:block;margin-top:0;padding:64px 0 40px;border-top:1px s
 .nav ul a,.nav .btn{white-space:nowrap}
 @media (max-width:1340px){.nav ul li:nth-child(2),.nav ul li:nth-child(8),.nav ul li:nth-child(9),.nav ul li:nth-child(11){display:none}}
 @media (max-width:1100px){.nav ul{gap:20px}.nav ul li:nth-child(4),.nav ul li:nth-child(7){display:none}}
+
+/* MOBİL MENÜ */
+details.mmenu{display:none;position:relative;border:0;padding:0;margin:0}
+details.mmenu>summary{list-style:none;cursor:pointer;width:48px;height:48px;border-radius:50%;border:1.5px solid rgba(255,255,255,.55);display:grid;place-items:center;padding:0;font:inherit;color:inherit}
+details.mmenu>summary::-webkit-details-marker{display:none}
+details.mmenu>summary::after{content:none!important}
+details.mmenu>summary svg{width:22px;height:22px}
+details.mmenu[open]>summary{background:var(--sinyal);border-color:var(--sinyal);color:var(--on-sinyal)}
+.mmenu .panel{position:absolute;right:0;top:58px;width:min(calc(100vw - 32px),330px);background:var(--surface);color:var(--fg);border-radius:20px;padding:10px;box-shadow:0 30px 60px -15px rgba(0,0,30,.55);z-index:60;display:grid;max-height:calc(100vh - 110px);overflow:auto}
+.mmenu .panel a{display:block;padding:13px 14px;border-radius:12px;text-decoration:none;font:600 17px/1.2 var(--body);color:var(--fg)}
+.mmenu .panel a:active,.mmenu .panel a:hover{background:var(--sunk)}
+.mmenu .panel .ayir{font:600 11px var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--muted);padding:14px 14px 4px}
+.mmenu .panel .teklif{background:var(--sinyal);color:var(--on-sinyal);text-align:center;margin-top:8px}
+@media (max-width:860px){details.mmenu{display:block}.nav{gap:10px}.nav .btn{margin-left:auto}}
+
+.nav{position:relative;z-index:50}
+.mmenu .panel{position:fixed;top:78px;right:16px}
+/* MOBİL DÜZELTMELER */
+@media (max-width:900px){.v-no{display:none}}
+@media (max-width:600px){.acilis h1{line-height:.95}.acilis h1 em{margin-top:4px}.h:has(h3 a) ul{display:none}}
 </style>
 </head>
 <body>
@@ -455,6 +475,7 @@ footer.alt-bilgi{display:block;margin-top:0;padding:64px 0 40px;border-top:1px s
       <a class="logo" href="#">Velvele<span>.</span></a>
       <ul><li><a href="#biz">Biz kimiz</a></li><li><a href="#fark">Fark</a></li><li><a href="#vakalar">Vakalar</a></li><li><a href="#isler">İşler</a></li><li><a href="#hizmetler">Hizmetler</a></li><li><a href="#baski">Baskı</a></li><li><a href="#yazilim">Yazılım</a></li><li><a href="#fikir-makinesi">Fikir makinesi</a></li><li><a href="#kontrol">Instagram kontrolü</a></li><li><a href="#paketler">Paketler</a></li><li><a href="#notlar">Notlar</a></li><li><a href="#sss">SSS</a></li></ul>
       <a class="btn btn-sinyal" href="#ornek">Teklif al</a>
+      <details class="mmenu"><summary aria-label="Menüyü aç"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10"/></svg></summary><nav class="panel" aria-label="Mobil menü"><a href="#biz">Biz kimiz</a><a href="#vakalar">Vakalar</a><a href="#isler">İşler</a><a href="#hizmetler">Hizmetler</a><a href="#baski">Baskı ve uygulama</a><a href="#yazilim">Uygulama ve yazılım</a><a href="#fikir-makinesi">Fikir makinesi</a><a href="#kontrol">Instagram kontrolü</a><a href="#paketler">Paketler</a><a href="#notlar">Notlar</a><a href="#sss">Sık sorulanlar</a><div class="ayir">Sayfalar</div><a href="/hizmetler/">Tüm hizmetler</a><a href="/isler/">Tüm vakalar</a><a href="/sektorler/kafe-restoran/">Kafe ve restoran</a><a href="/sektorler/kurumsal-b2b/">Kurumsal ve B2B</a><a class="teklif" href="#ornek">Teklif al</a></nav></details>
     </nav>
     <div class="acilis">
       <div>
@@ -1381,5 +1402,7 @@ goster();
 })();
 </script>
 
+<script>document.querySelectorAll('.mmenu a').forEach(a=>a.addEventListener('click',()=>{a.closest('details').open=false}));document.addEventListener('click',e=>{document.querySelectorAll('details.mmenu[open]').forEach(d=>{if(!d.contains(e.target))d.open=false})});</script>
+<script>(()=>{const y=document.querySelector('.yapiskan'),b=document.querySelector('.bant'),f=document.getElementById('ornek');if(!y||!b)return;const g=()=>{const r=b.getBoundingClientRect(),fr=f?f.getBoundingClientRect():null;const formda=fr&&fr.top<innerHeight&&fr.bottom>0;y.classList.toggle('gor',r.bottom<0&&!formda)};addEventListener('scroll',g,{passive:true});g()})();</script>
 </body>
 </html>
