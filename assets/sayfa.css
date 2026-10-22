@@ -169,3 +169,7 @@ details.mmenu[open]>summary{background:var(--sinyal);border-color:var(--sinyal);
 .mmenu .panel a[aria-current]{background:var(--sunk)}
 .nav{z-index:50}
 .mmenu .panel{position:fixed;top:78px;right:16px}
+.dip a{color:inherit;text-decoration:underline}
+
+.wa-yuz{position:fixed;right:max(16px,env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:30;display:flex;align-items:center;gap:10px;height:54px;padding:0 20px 0 16px;border-radius:999px;background:#16181D;color:#fff;font:700 15px/1 var(--body,system-ui);text-decoration:none;box-shadow:0 14px 34px rgba(10,12,30,.35)}.wa-yuz svg{width:22px;height:22px}.wa-yuz:hover{transform:translateY(-1px)}.wa-yuz{padding:0;width:54px;justify-content:center}.wa-yuz span{display:none}
+@media (max-width:640px){.wa-yuz{padding:0;width:54px;justify-content:center}.wa-yuz span{display:none}}

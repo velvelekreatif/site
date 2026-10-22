@@ -1,5 +1,5 @@
 /* İLETİŞİM AYARLARI — numara ve hesap adı gelince burayı doldur */
-const ILETISIM = { whatsapp: "", instagram: "" }; // örn. whatsapp: "905xxxxxxxxx", instagram: "velvelekreatif"
+const ILETISIM = { whatsapp: "905454554129", instagram: "", eposta: "merhaba@velvelekreatif.com" }; // örn. whatsapp: "905xxxxxxxxx", instagram: "velvelekreatif"
 
 if (document.getElementById('kaydir')) {
 // Karşılaştırma kaydırıcısı
@@ -214,7 +214,7 @@ const SEC = {
   reklam: ["Düzenli veriyoruz", "Birkaç kez denedik", "Hiç vermedik"],
   butce: ["Küçük başlayıp görmek istiyorum", "Düzenli aylık hizmet", "Kapsamlı, her şey dâhil", "Önce teklif görmek istiyorum"],
   zaman: ["Hemen", "Bu ay içinde", "Önümüzdeki ay", "Sadece bilgi alıyorum"],
-  kanal: ["WhatsApp", "Telefon", "Instagram DM"]
+  kanal: ["WhatsApp", "Telefon", "E-posta", "Instagram DM"]
 };
 const TARZ = [["esprili", "Esprili ve cesur", "Güldüren, konuşturan, paylaşılan"], ["sicak", "Sıcak ve samimi", "Mahalleden, içten, tanıdık"], ["sik", "Şık ve premium", "Sade, zarif, kaliteli"], ["kurumsal", "Kurumsal ve güven veren", "Net, ciddi, profesyonel"]];
 const B = { sektor: [], hedef: [], ig: [], yonetim: [], reklam: [], butce: [], zaman: [], kanal: [], tarz: [] };
@@ -297,12 +297,12 @@ function sonuc() {
     'Başlangıç: ' + (B.butce[0] || '-') + ' · Zaman: ' + (B.zaman[0] || '-'),
     'Not: ' + (val('b-not') || '-'),
     'Önerilen paket: ' + p,
-    'İletişim: ' + (val('b-ad') || '-') + (val('b-tel') ? ' · ' + val('b-tel') : '') + ' · ' + (B.kanal[0] || '-')
+    'İletişim: ' + (val('b-ad') || '-') + (val('b-tel') ? ' · ' + val('b-tel') : '') + (document.getElementById('b-eposta') && val('b-eposta') ? ' · ' + val('b-eposta') : '') + ' · ' + (B.kanal[0] || '-')
   ].join('\n');
   document.getElementById('s-brif').textContent = brif;
   const wa = document.getElementById('wa'), kanal = document.getElementById('kanal');
   if (ILETISIM.whatsapp) { wa.href = 'https://wa.me/' + ILETISIM.whatsapp + '?text=' + encodeURIComponent(brif); wa.hidden = false; kanal.textContent = ''; }
-  else kanal.textContent = 'Brifinizi kopyalayıp bize iletebilirsiniz. İletişim kanallarımız çok yakında burada.';
+  else kanal.textContent = '';
   if (ILETISIM.instagram) kanal.textContent = (ILETISIM.whatsapp ? '' : 'Brifi kopyalayıp ') + 'Instagram: @' + ILETISIM.instagram;
   document.querySelectorAll('#brif .adm').forEach(f => f.hidden = true);
   document.getElementById('gez').hidden = true; document.querySelector('#brif .ilerleme').hidden = true; document.getElementById('adim-no').hidden = true;
@@ -337,4 +337,27 @@ if (document.getElementById('seda')) {
   const ciz = () => { if (v.duration) ilr.style.width = (v.currentTime / v.duration * 100) + '%'; requestAnimationFrame(ciz); };
   requestAnimationFrame(ciz);
 })();
+}
+if (document.getElementById('gonder')) {
+  const g = document.getElementById('gonder'), dr = document.getElementById('gonder-durum'), ok = document.getElementById('kvkk-onay'), ep = document.getElementById('eposta-gonder');
+  const v = id => ((document.getElementById(id) || {}).value || '').trim();
+  const brifMetni = () => document.getElementById('s-brif').textContent;
+  const durum = (t, s) => { dr.textContent = t; dr.className = 'ipucu ' + (s || ''); };
+  ep.addEventListener('click', e => { e.preventDefault(); location.href = 'mailto:' + ILETISIM.eposta + '?subject=' + encodeURIComponent('Velvele brif · ' + (v('b-isletme') || v('b-ad'))) + '&body=' + encodeURIComponent(brifMetni()); });
+  g.addEventListener('click', async () => {
+    if (!v('b-tel') && !v('b-eposta')) { durum('Size dönebilmemiz için telefon ya da e-posta yazın (son adım).', 'kotu'); return; }
+    if (!ok.checked) { durum('Gönderebilmemiz için onay kutusunu işaretleyin.', 'kotu'); ok.focus(); return; }
+    g.disabled = true; g.textContent = 'Gönderiliyor…'; durum('');
+    try {
+      const r = await fetch('https://formsubmit.co/ajax/' + ILETISIM.eposta, { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({ _subject: 'Velvele · Yeni brif: ' + (v('b-isletme') || v('b-ad')), _template: 'table', _captcha: 'false', ...(v('b-eposta') ? { _replyto: v('b-eposta') } : {}),
+          'İşletme': v('b-isletme'), 'Ad': v('b-ad'), 'Telefon': v('b-tel'), 'E-posta': v('b-eposta'), 'Brif': brifMetni(), 'Sayfa': location.pathname }) });
+      const d = await r.json().catch(() => ({}));
+      if (!r.ok || String(d.success) !== 'true') throw new Error(d.message || 'hata');
+      g.textContent = 'Gönderildi ✓'; durum('Teşekkürler! Brifiniz ekibimize ulaştı; en kısa sürede size dönüyoruz.', 'iyi');
+    } catch (e) {
+      g.disabled = false; g.textContent = 'Tekrar dene';
+      durum('Şu an gönderemedik. Yandaki düğmeyle e-posta uygulamanızdan gönderebilirsiniz: ' + ILETISIM.eposta, 'kotu');
+    }
+  });
 }

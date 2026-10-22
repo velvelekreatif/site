@@ -475,12 +475,67 @@ details.mmenu[open]>summary{background:var(--sinyal);border-color:var(--sinyal);
 .nav ul a[aria-current="page"]{text-decoration:underline;text-underline-offset:6px;text-decoration-thickness:2px}
 .devam{display:inline-flex;margin-top:28px}
 </style>
+<style>
+.tform{background:var(--surface);color:var(--fg);border-radius:28px;padding:28px;box-shadow:0 30px 80px -30px rgba(5,8,40,.55);align-self:start;scroll-margin-top:24px}
+.tform fieldset{border:0;padding:0;margin:0;min-width:0}
+.tform legend{font:800 clamp(24px,2.4vw,30px)/1.1 var(--display);letter-spacing:-.02em;margin-bottom:18px;padding:0}
+.tform legend small{display:block;font:500 14px/1.4 var(--body);letter-spacing:0;color:var(--muted);margin-top:6px}
+.tf-yol{display:flex;gap:6px;list-style:none;padding:0;margin:0 0 24px}
+.tf-yol li{flex:1;display:flex;align-items:center;gap:8px;font:600 13.5px/1.2 var(--body);color:var(--muted);padding:9px 10px;border-radius:12px;background:var(--sunk)}
+.tf-yol i{font-style:normal;width:24px;height:24px;flex:none;border-radius:8px;display:grid;place-items:center;background:var(--surface);color:var(--fg);font-weight:800;font-size:13px}
+.tf-yol li.aktif{background:var(--kobalt);color:var(--on-kobalt)}
+.tf-yol li.aktif i{background:var(--sinyal);color:#16181D}
+.tf-yol li.bitti i{background:var(--kobalt);color:var(--on-kobalt)}
+.tf-kartlar{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.tf-kart{position:relative;display:grid;grid-template-columns:30px 1fr;grid-template-rows:auto auto;column-gap:12px;align-items:center;text-align:left;padding:14px 14px;border-radius:16px;border:1.5px solid var(--line);background:var(--bg);color:var(--fg);cursor:pointer;transition:border-color .15s,background .15s,transform .15s}
+.tf-kart:hover{border-color:var(--kobalt);transform:translateY(-1px)}
+.tf-kart svg{grid-row:1/3;width:28px;height:28px;color:var(--kobalt)}
+.tf-kart b{font:700 15.5px/1.2 var(--body)}
+.tf-kart small{font:500 13px/1.3 var(--body);color:var(--muted);margin-top:3px}
+.tf-kart[aria-pressed="true"]{border-color:var(--kobalt);background:var(--kobalt);color:var(--on-kobalt)}
+.tf-kart[aria-pressed="true"] svg,.tf-kart[aria-pressed="true"] small{color:var(--on-kobalt)}
+.tf-kart[aria-pressed="true"]:after{content:"✓";position:absolute;top:8px;right:8px;width:20px;height:20px;border-radius:7px;background:var(--sinyal);color:#16181D;font:800 12px/20px var(--body);text-align:center}
+.tf-alan{margin-top:18px;display:flex;flex-direction:column;gap:8px}
+.tf-alan label,.tf-lbl{font:600 14px/1.3 var(--body)}
+.tf-alan small{font-weight:500;color:var(--muted)}
+.tf-alan input,.tf-alan textarea{font:500 16px/1.4 var(--body);padding:13px 14px;border-radius:12px;border:1.5px solid var(--line);background:var(--bg);color:var(--fg);width:100%}
+.tf-alan input:focus,.tf-alan textarea:focus{outline:none;border-color:var(--kobalt);box-shadow:0 0 0 4px rgba(35,49,212,.15)}
+.tf-cift{display:grid;grid-template-columns:1fr 1fr;gap:0 12px}
+.tf-cip{display:flex;flex-wrap:wrap;gap:8px}
+.tf-cip button{font:600 14px/1.2 var(--body);padding:10px 14px;border-radius:999px;border:1.5px solid var(--line);background:var(--bg);color:var(--fg);cursor:pointer}
+.tf-cip button[aria-pressed="true"]{background:var(--kobalt);border-color:var(--kobalt);color:var(--on-kobalt)}
+.tf-onay{display:flex;gap:10px;align-items:flex-start;margin-top:18px;font:500 13.5px/1.45 var(--body);color:var(--muted)}
+.tf-onay input{width:20px;height:20px;flex:none;margin-top:1px;accent-color:var(--kobalt)}
+.tf-onay a{color:var(--kobalt)}
+.tf-ozet{margin-top:18px;padding:12px 14px;border-radius:12px;background:var(--sunk);font:500 14px/1.45 var(--body)}
+.tf-hata{margin-top:14px;color:#C62828;font:600 14px/1.4 var(--body)}
+.tf-yedek{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+.tf-gez{display:flex;justify-content:space-between;gap:10px;margin-top:22px}
+.tf-gez #tf-ileri,.tf-gez #tf-gonder{margin-left:auto;min-width:160px;justify-content:center}
+.tf-tamam{text-align:left}
+.tf-isaret{width:64px;height:64px;border-radius:20px;background:var(--sinyal);color:#16181D;display:grid;place-items:center;font:800 32px/1 var(--body)}
+.tf-tamam h3{font:800 clamp(26px,3vw,34px)/1.1 var(--display);letter-spacing:-.02em;margin:20px 0 8px}
+.tf-tamam p{color:var(--muted)}
+.tf-sonra{margin:16px 0 24px;padding-left:20px;display:flex;flex-direction:column;gap:10px;font:500 15px/1.45 var(--body)}
+.tf-hat{display:flex;flex-direction:column;gap:10px;margin-top:28px}
+.tf-hat a{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 18px;border-radius:16px;border:1.5px solid rgba(255,255,255,.28);color:inherit;text-decoration:none}
+.tf-hat a:hover{background:rgba(255,255,255,.08)}
+.tf-hat span{font:600 13px/1 var(--body);letter-spacing:.14em;text-transform:uppercase;opacity:.75}
+.tf-hat b{font:700 17px/1.2 var(--body)}
+.wa-yuz{position:fixed;right:max(16px,env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:30;display:flex;align-items:center;gap:10px;height:54px;padding:0 20px 0 16px;border-radius:999px;background:#16181D;color:#fff;font:700 15px/1 var(--body,system-ui);text-decoration:none;box-shadow:0 14px 34px rgba(10,12,30,.35)}
+.wa-yuz svg{width:22px;height:22px}
+.wa-yuz:hover{transform:translateY(-1px)}
+.yapiskan{right:calc(170px + env(safe-area-inset-right,0px))!important}
+.dip a{color:inherit;text-decoration:underline}
+@media (max-width:640px){.tform{padding:20px;border-radius:22px}.tf-kartlar{grid-template-columns:1fr}.tf-cift{grid-template-columns:1fr}.tf-yol li{font-size:0;justify-content:center}.tf-yol li i{font-size:13px}.tf-yol li.aktif{font-size:13px}
+.wa-yuz{padding:0;width:54px;justify-content:center}.wa-yuz span{display:none}.yapiskan{right:calc(80px + env(safe-area-inset-right,0px))!important}}
+</style>
 </head>
 <body>
 <div class="bant">
   <svg class="halka" viewBox="0 0 200 200" aria-hidden="true"><g fill="none" stroke="#FFFFFF" stroke-width="5"><circle cx="100" cy="100" r="22"/><circle cx="100" cy="100" r="48"/><circle cx="100" cy="100" r="74"/><circle cx="100" cy="100" r="97"/></g></svg>
   <div class="ic">
-    <nav class="nav" aria-label="Ana menü"><a class="logo" href="/">Velvele<span>.</span></a><ul><li><a href="/hizmetler/">Hizmetler</a></li><li><a href="/isler/">İşler</a></li><li><a href="/paketler/">Paketler</a></li><li><a href="/fikir-makinesi/">Fikir makinesi</a></li><li><a href="/hakkimizda/">Hakkımızda</a></li><li><a href="/sss/">SSS</a></li></ul><a class="btn btn-sinyal" href="/teklif/">Teklif al</a><details class="mmenu"><summary aria-label="Menüyü aç"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10"/></svg></summary><nav class="panel" aria-label="Mobil menü"><a href="/">Ana sayfa</a><a href="/hizmetler/">Hizmetler</a><a href="/isler/">İşler</a><a href="/sektorler/kafe-restoran/">Kafe ve restoran</a><a href="/sektorler/kurumsal-b2b/">Kurumsal ve B2B</a><a href="/hizmetler/tabela-branda-giydirme/">Baskı ve uygulama</a><a href="/hizmetler/mobil-uygulama-web/">Uygulama ve yazılım</a><a href="/paketler/">Paketler</a><a href="/fikir-makinesi/">Fikir makinesi</a><a href="/instagram-kontrolu/" aria-current="page">Instagram kontrolü</a><a href="/notlar/">Notlar</a><a href="/hakkimizda/">Hakkımızda</a><a href="/sss/">Sık sorulanlar</a><a class="teklif" href="/teklif/">Teklif al</a></nav></details></nav>
+    <nav class="nav" aria-label="Ana menü"><a class="logo" href="/">Velvele<span>.</span></a><ul><li><a href="/hizmetler/">Hizmetler</a></li><li><a href="/isler/">İşler</a></li><li><a href="/paketler/">Paketler</a></li><li><a href="/fikir-makinesi/">Fikir makinesi</a></li><li><a href="/hakkimizda/">Hakkımızda</a></li><li><a href="/sss/">SSS</a></li></ul><a class="btn btn-sinyal" href="/teklif/">Teklif al</a><details class="mmenu"><summary aria-label="Menüyü aç"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10"/></svg></summary><nav class="panel" aria-label="Mobil menü"><a href="/">Ana sayfa</a><a href="/hizmetler/">Hizmetler</a><a href="/hizmetler/mobil-uygulama-web/">Mobil uygulama, web ve yazılım</a><a href="/isler/">İşler</a><a href="/sektorler/kafe-restoran/">Kafe ve restoran</a><a href="/sektorler/kurumsal-b2b/">Kurumsal ve B2B</a><a href="/hizmetler/tabela-branda-giydirme/">Baskı ve uygulama</a><a href="/paketler/">Paketler</a><a href="/fikir-makinesi/">Fikir makinesi</a><a href="/instagram-kontrolu/" aria-current="page">Instagram kontrolü</a><a href="/notlar/">Notlar</a><a href="/hakkimizda/">Hakkımızda</a><a href="/sss/">Sık sorulanlar</a><a class="teklif" href="/teklif/">Teklif al</a></nav></details></nav>
     <div class="sayfa-bas"><ol class="iz" aria-label="Konum"><li><a href="/">Velvele</a></li><li aria-current="page">Instagram kontrolü</li></ol>
       <h1>On soruda <em>hesap kontrolü.</em></h1><p class="ozet">On soruda Instagram profilinizin durumunu görün; önce neyi düzeltmeniz gerektiğini söyleyelim.</p></div>
   </div>
@@ -507,13 +562,16 @@ details.mmenu[open]>summary{background:var(--sinyal);border-color:var(--sinyal);
 <footer class="alt-bilgi"><div class="ic"><div class="kol">
 <div><a class="logo" href="/" style="font:800 30px/1 var(--display);letter-spacing:-.035em;text-decoration:none">Velvele<span style="color:var(--sinyal)">.</span></a>
 <p class="slogan">Gürültüyü biz yaparız, konuşulan siz olursunuz.</p>
-<p style="margin-top:16px;font-size:15px"><a href="mailto:merhaba@velvelekreatif.com">merhaba@velvelekreatif.com</a></p></div>
+<p style="margin-top:16px;font-size:15px"><a href="mailto:merhaba@velvelekreatif.com">merhaba@velvelekreatif.com</a></p><p style="margin-top:8px;font-size:15px"><a href="https://wa.me/905454554129" target="_blank" rel="noopener">WhatsApp: 0545 455 41 29</a></p></div>
 <div><h4>Hizmetler</h4><ul><li><a href="/hizmetler/sosyal-medya-yonetimi/">Sosyal medya yönetimi</a></li><li><a href="/hizmetler/reklam-yonetimi/">Reklam yönetimi</a></li><li><a href="/hizmetler/tabela-branda-giydirme/">Tabela, branda ve giydirme</a></li><li><a href="/hizmetler/marka-danismanligi/">Marka danışmanlığı</a></li><li><a href="/hizmetler/mobil-uygulama-web/">Uygulama ve web</a></li><li><a href="/hizmetler/">Tüm hizmetler</a></li></ul></div>
 <div><h4>Sektörler</h4><ul><li><a href="/sektorler/kafe-restoran/">Kafe ve restoran</a></li><li><a href="/sektorler/kurumsal-b2b/">Kurumsal ve B2B</a></li></ul></div>
 <div><h4>İşler</h4><ul><li><a href="/isler/kids-n-move/">Kids&#x27;n Move</a></li><li><a href="/isler/tiesto-coffee/">Tiesto Coffee</a></li><li><a href="/isler/ms-neilos/">Ms.Neilos Coffees</a></li><li><a href="/isler/demlesene/">Demlesene</a></li><li><a href="/isler/tomara-catering/">Tomara Catering</a></li><li><a href="/isler/alex-gece-donercisi/">Alex Gece Dönercisi</a></li><li><a href="/isler/umran-oto-ekspertiz/">Umran Oto Ekspertiz</a></li><li><a href="/isler/otomer/">Otomer Galericiler Sitesi</a></li><li><a href="/isler/">Tüm işler</a></li></ul></div>
-</div><div class="dip"><span>© 2026 Velvele Kreatif · İstanbul</span><span>Sosyal medya · Reklam · Video · Tasarım · Baskı · Uygulama</span></div></div></footer>
+</div><div class="dip"><span>© 2026 Velvele Kreatif · İstanbul · <a href="/kvkk/">KVKK aydınlatma metni</a></span><span>Sosyal medya · Reklam · Video · Tasarım · Baskı · Uygulama</span></div></div></footer>
 
 <script src="/assets/ana.js" defer></script>
+<script src="/assets/form.js" defer></script>
+<script data-goatcounter="https://velvelekreatif.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 <script>document.querySelectorAll('.mmenu a').forEach(a=>a.addEventListener('click',()=>{a.closest('details').open=false}));document.addEventListener('click',e=>{document.querySelectorAll('details.mmenu[open]').forEach(d=>{if(!d.contains(e.target))d.open=false})});</script>
+<a class="wa-yuz" href="https://wa.me/905454554129?text=Merhaba%20Velvele%2C%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener" aria-label="WhatsApp'tan yazın: 0545 455 41 29"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 19z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1.2-1.4-2-1-1 .8a4 4 0 0 1-2.1-2.1l.8-1-1-2z"/></svg><span>WhatsApp</span></a>
 </body>
 </html>

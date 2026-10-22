@@ -475,13 +475,68 @@ details.mmenu[open]>summary{background:var(--sinyal);border-color:var(--sinyal);
 .nav ul a[aria-current="page"]{text-decoration:underline;text-underline-offset:6px;text-decoration-thickness:2px}
 .devam{display:inline-flex;margin-top:28px}
 </style>
+<style>
+.tform{background:var(--surface);color:var(--fg);border-radius:28px;padding:28px;box-shadow:0 30px 80px -30px rgba(5,8,40,.55);align-self:start;scroll-margin-top:24px}
+.tform fieldset{border:0;padding:0;margin:0;min-width:0}
+.tform legend{font:800 clamp(24px,2.4vw,30px)/1.1 var(--display);letter-spacing:-.02em;margin-bottom:18px;padding:0}
+.tform legend small{display:block;font:500 14px/1.4 var(--body);letter-spacing:0;color:var(--muted);margin-top:6px}
+.tf-yol{display:flex;gap:6px;list-style:none;padding:0;margin:0 0 24px}
+.tf-yol li{flex:1;display:flex;align-items:center;gap:8px;font:600 13.5px/1.2 var(--body);color:var(--muted);padding:9px 10px;border-radius:12px;background:var(--sunk)}
+.tf-yol i{font-style:normal;width:24px;height:24px;flex:none;border-radius:8px;display:grid;place-items:center;background:var(--surface);color:var(--fg);font-weight:800;font-size:13px}
+.tf-yol li.aktif{background:var(--kobalt);color:var(--on-kobalt)}
+.tf-yol li.aktif i{background:var(--sinyal);color:#16181D}
+.tf-yol li.bitti i{background:var(--kobalt);color:var(--on-kobalt)}
+.tf-kartlar{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.tf-kart{position:relative;display:grid;grid-template-columns:30px 1fr;grid-template-rows:auto auto;column-gap:12px;align-items:center;text-align:left;padding:14px 14px;border-radius:16px;border:1.5px solid var(--line);background:var(--bg);color:var(--fg);cursor:pointer;transition:border-color .15s,background .15s,transform .15s}
+.tf-kart:hover{border-color:var(--kobalt);transform:translateY(-1px)}
+.tf-kart svg{grid-row:1/3;width:28px;height:28px;color:var(--kobalt)}
+.tf-kart b{font:700 15.5px/1.2 var(--body)}
+.tf-kart small{font:500 13px/1.3 var(--body);color:var(--muted);margin-top:3px}
+.tf-kart[aria-pressed="true"]{border-color:var(--kobalt);background:var(--kobalt);color:var(--on-kobalt)}
+.tf-kart[aria-pressed="true"] svg,.tf-kart[aria-pressed="true"] small{color:var(--on-kobalt)}
+.tf-kart[aria-pressed="true"]:after{content:"✓";position:absolute;top:8px;right:8px;width:20px;height:20px;border-radius:7px;background:var(--sinyal);color:#16181D;font:800 12px/20px var(--body);text-align:center}
+.tf-alan{margin-top:18px;display:flex;flex-direction:column;gap:8px}
+.tf-alan label,.tf-lbl{font:600 14px/1.3 var(--body)}
+.tf-alan small{font-weight:500;color:var(--muted)}
+.tf-alan input,.tf-alan textarea{font:500 16px/1.4 var(--body);padding:13px 14px;border-radius:12px;border:1.5px solid var(--line);background:var(--bg);color:var(--fg);width:100%}
+.tf-alan input:focus,.tf-alan textarea:focus{outline:none;border-color:var(--kobalt);box-shadow:0 0 0 4px rgba(35,49,212,.15)}
+.tf-cift{display:grid;grid-template-columns:1fr 1fr;gap:0 12px}
+.tf-cip{display:flex;flex-wrap:wrap;gap:8px}
+.tf-cip button{font:600 14px/1.2 var(--body);padding:10px 14px;border-radius:999px;border:1.5px solid var(--line);background:var(--bg);color:var(--fg);cursor:pointer}
+.tf-cip button[aria-pressed="true"]{background:var(--kobalt);border-color:var(--kobalt);color:var(--on-kobalt)}
+.tf-onay{display:flex;gap:10px;align-items:flex-start;margin-top:18px;font:500 13.5px/1.45 var(--body);color:var(--muted)}
+.tf-onay input{width:20px;height:20px;flex:none;margin-top:1px;accent-color:var(--kobalt)}
+.tf-onay a{color:var(--kobalt)}
+.tf-ozet{margin-top:18px;padding:12px 14px;border-radius:12px;background:var(--sunk);font:500 14px/1.45 var(--body)}
+.tf-hata{margin-top:14px;color:#C62828;font:600 14px/1.4 var(--body)}
+.tf-yedek{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+.tf-gez{display:flex;justify-content:space-between;gap:10px;margin-top:22px}
+.tf-gez #tf-ileri,.tf-gez #tf-gonder{margin-left:auto;min-width:160px;justify-content:center}
+.tf-tamam{text-align:left}
+.tf-isaret{width:64px;height:64px;border-radius:20px;background:var(--sinyal);color:#16181D;display:grid;place-items:center;font:800 32px/1 var(--body)}
+.tf-tamam h3{font:800 clamp(26px,3vw,34px)/1.1 var(--display);letter-spacing:-.02em;margin:20px 0 8px}
+.tf-tamam p{color:var(--muted)}
+.tf-sonra{margin:16px 0 24px;padding-left:20px;display:flex;flex-direction:column;gap:10px;font:500 15px/1.45 var(--body)}
+.tf-hat{display:flex;flex-direction:column;gap:10px;margin-top:28px}
+.tf-hat a{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 18px;border-radius:16px;border:1.5px solid rgba(255,255,255,.28);color:inherit;text-decoration:none}
+.tf-hat a:hover{background:rgba(255,255,255,.08)}
+.tf-hat span{font:600 13px/1 var(--body);letter-spacing:.14em;text-transform:uppercase;opacity:.75}
+.tf-hat b{font:700 17px/1.2 var(--body)}
+.wa-yuz{position:fixed;right:max(16px,env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:30;display:flex;align-items:center;gap:10px;height:54px;padding:0 20px 0 16px;border-radius:999px;background:#16181D;color:#fff;font:700 15px/1 var(--body,system-ui);text-decoration:none;box-shadow:0 14px 34px rgba(10,12,30,.35)}
+.wa-yuz svg{width:22px;height:22px}
+.wa-yuz:hover{transform:translateY(-1px)}
+.yapiskan{right:calc(170px + env(safe-area-inset-right,0px))!important}
+.dip a{color:inherit;text-decoration:underline}
+@media (max-width:640px){.tform{padding:20px;border-radius:22px}.tf-kartlar{grid-template-columns:1fr}.tf-cift{grid-template-columns:1fr}.tf-yol li{font-size:0;justify-content:center}.tf-yol li i{font-size:13px}.tf-yol li.aktif{font-size:13px}
+.wa-yuz{padding:0;width:54px;justify-content:center}.wa-yuz span{display:none}.yapiskan{right:calc(80px + env(safe-area-inset-right,0px))!important}}
+</style>
 </head>
 <body>
 
 <div class="bant">
   <svg class="halka" viewBox="0 0 200 200" aria-hidden="true"><g fill="none" stroke="#FFFFFF" stroke-width="5"><circle cx="100" cy="100" r="22"/><circle cx="100" cy="100" r="48"/><circle cx="100" cy="100" r="74"/><circle cx="100" cy="100" r="97"/></g></svg>
   <div class="ic">
-    <nav class="nav" aria-label="Ana menü"><a class="logo" href="/">Velvele<span>.</span></a><ul><li><a href="/hizmetler/">Hizmetler</a></li><li><a href="/isler/">İşler</a></li><li><a href="/paketler/">Paketler</a></li><li><a href="/fikir-makinesi/">Fikir makinesi</a></li><li><a href="/hakkimizda/">Hakkımızda</a></li><li><a href="/sss/">SSS</a></li></ul><a class="btn btn-sinyal" href="/teklif/">Teklif al</a><details class="mmenu"><summary aria-label="Menüyü aç"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10"/></svg></summary><nav class="panel" aria-label="Mobil menü"><a href="/">Ana sayfa</a><a href="/hizmetler/">Hizmetler</a><a href="/isler/">İşler</a><a href="/sektorler/kafe-restoran/">Kafe ve restoran</a><a href="/sektorler/kurumsal-b2b/">Kurumsal ve B2B</a><a href="/hizmetler/tabela-branda-giydirme/">Baskı ve uygulama</a><a href="/hizmetler/mobil-uygulama-web/">Uygulama ve yazılım</a><a href="/paketler/">Paketler</a><a href="/fikir-makinesi/">Fikir makinesi</a><a href="/instagram-kontrolu/">Instagram kontrolü</a><a href="/notlar/">Notlar</a><a href="/hakkimizda/">Hakkımızda</a><a href="/sss/">Sık sorulanlar</a><a class="teklif" href="/teklif/">Teklif al</a></nav></details></nav>
+    <nav class="nav" aria-label="Ana menü"><a class="logo" href="/">Velvele<span>.</span></a><ul><li><a href="/hizmetler/">Hizmetler</a></li><li><a href="/isler/">İşler</a></li><li><a href="/paketler/">Paketler</a></li><li><a href="/fikir-makinesi/">Fikir makinesi</a></li><li><a href="/hakkimizda/">Hakkımızda</a></li><li><a href="/sss/">SSS</a></li></ul><a class="btn btn-sinyal" href="/teklif/">Teklif al</a><details class="mmenu"><summary aria-label="Menüyü aç"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10"/></svg></summary><nav class="panel" aria-label="Mobil menü"><a href="/">Ana sayfa</a><a href="/hizmetler/">Hizmetler</a><a href="/hizmetler/mobil-uygulama-web/">Mobil uygulama, web ve yazılım</a><a href="/isler/">İşler</a><a href="/sektorler/kafe-restoran/">Kafe ve restoran</a><a href="/sektorler/kurumsal-b2b/">Kurumsal ve B2B</a><a href="/hizmetler/tabela-branda-giydirme/">Baskı ve uygulama</a><a href="/paketler/">Paketler</a><a href="/fikir-makinesi/">Fikir makinesi</a><a href="/instagram-kontrolu/">Instagram kontrolü</a><a href="/notlar/">Notlar</a><a href="/hakkimizda/">Hakkımızda</a><a href="/sss/">Sık sorulanlar</a><a class="teklif" href="/teklif/">Teklif al</a></nav></details></nav>
     <div class="acilis">
       <div>
         <div class="etiket" style="opacity:.8">Velvele Kreatif · sosyal medya, reklam, tasarım, baskı ve uygulama</div>
@@ -759,7 +814,8 @@ details.mmenu[open]>summary{background:var(--sinyal);border-color:var(--sinyal);
       <p>Menü ve reçeteden tabelaya, mahalle kafesinden fabrikaya, her sektöre. Tek tek ya da paket halinde.</p>
     </div>
     <div class="hizmet">
-      <div class="h h-one"><h3><a href="/hizmetler/marka-danismanligi/">Marka danışmanlığı</a></h3><p>Her şeyden önce: markanız ne söylüyor, kime, neden farklı?</p><ul><li>Konumlandırma ve rakip analizi</li><li>İsim, slogan ve marka hikâyesi</li><li>Fiyat algısı ve menü mühendisliği</li><li>Şube ve büyüme için marka standartları</li></ul></div>
+      <div class="h h-one"><h3><a href="/hizmetler/mobil-uygulama-web/">Mobil uygulama, web ve yazılım</a></h3><p>En güçlü olduğumuz alanlardan biri: uygulamayı da, reklamını da aynı ekip yapıyor.</p><ul><li>iOS ve Android uygulama, App Store ve Google Play yayını</li><li>Kurumsal site, e-ticaret, QR menü</li><li>Sipariş, randevu, rezervasyon ve yönetim paneli</li><li>Yapay zekâ asistanı ve otomasyon</li></ul></div>
+      <div class="h"><h3><a href="/hizmetler/marka-danismanligi/">Marka danışmanlığı</a></h3><p>Her şeyden önce: markanız ne söylüyor, kime, neden farklı?</p><ul><li>Konumlandırma ve rakip analizi</li><li>İsim, slogan ve marka hikâyesi</li><li>Fiyat algısı ve menü mühendisliği</li><li>Şube ve büyüme için marka standartları</li></ul></div>
       <div class="h"><h3><a href="/sektorler/kafe-restoran/">Kafe ve restoran kurulumu</a></h3><p>Sadece reklamını değil, bardağın içini de kuruyoruz.</p><ul><li>Menü ve reçete geliştirme</li><li>Ürün ve tedarikçi seçimi</li><li>Çalışan, barista ve servis eğitimi</li><li>Ekibe marka dili ve story atölyesi</li></ul></div>
       <div class="h"><h3><a href="/hizmetler/sosyal-medya-yonetimi/">Sosyal medya yönetimi</a></h3><p>Aylık içerik takvimi, post, story ve profil düzeni.</p><ul><li>Instagram, Facebook, TikTok</li><li>Yorum ve mesaj cevap metinleri</li><li>Maç, bayram, özel gün planı</li></ul></div>
       <div class="h"><h3><a href="/hizmetler/reklam-yonetimi/">Meta reklamları</a></h3><p>Instagram ve Facebook'ta kapınıza yakın doğru kişiye reklam.</p><ul><li>Test edilen reklam setleri</li><li>Bütçe sizin hesabınızda, kontrol sizde</li><li>Aylık sonuç raporu</li></ul></div>
@@ -995,76 +1051,44 @@ details.mmenu[open]>summary{background:var(--sinyal);border-color:var(--sinyal);
     <div class="sol">
       <div class="etiket" style="opacity:.8">Teklif al · 2 dakika</div>
       <h2 style="margin-top:16px">Sizi tanıyalım, <em>doğru teklifi</em> verelim.</h2>
-      <p>Birkaç soruyla ihtiyacınızı ve beklentinizi anlayalım. Sonunda size uygun paketi ve hazır brifinizi göreceksiniz. Gönderin, size özel fikir taslağı ve net teklifle dönelim.</p>
-      <ul><li>İlk görüşme ve fikir taslağı ücretsiz</li><li>Net fiyat, sürpriz ücret yok</li><li>Cevaplarınız sadece sizin işiniz için kullanılır</li></ul>
-    </div>
-    <form id="brif" novalidate>
-      <div class="ilerleme" aria-hidden="true"><span id="ilerleme-dolu"></span></div>
-      <p class="adim-no" id="adim-no">Adım 1 / 6</p>
-
-      <fieldset class="adm" data-adim="1">
-        <legend>İşletmenizi tanıyalım</legend>
-        <div class="alan"><label for="b-isletme">İşletmenizin adı</label><input id="b-isletme" autocomplete="organization" placeholder="Örn. Keyfhane"></div>
-        <div class="alan"><span class="lbl">Sektörünüz</span><div class="cips" data-ad="sektor" data-tek="1"></div></div>
-        <div class="alan"><label for="b-yer">Şehir / semt</label><input id="b-yer" placeholder="Örn. Kartal, İstanbul"></div>
-        <p class="hata" data-hata="1" hidden>İşletmenizin adını yazıp sektörünüzü seçer misiniz?</p>
-      </fieldset>
-
-      <fieldset class="adm" data-adim="2" hidden>
-        <legend>Ne olsun istiyorsunuz?</legend>
-        <p class="ipucu">Birden fazla seçebilirsiniz.</p>
-        <div class="cips" data-ad="hedef"></div>
-        <p class="hata" data-hata="2" hidden>En az bir hedef seçin.</p>
-      </fieldset>
-
-      <fieldset class="adm" data-adim="3" hidden>
-        <legend>Şu an durum ne?</legend>
-        <div class="alan"><span class="lbl">Instagram hesabınız</span><div class="cips" data-ad="ig" data-tek="1"></div></div>
-        <div class="alan"><span class="lbl">Sosyal medyanızı kim yönetiyor?</span><div class="cips" data-ad="yonetim" data-tek="1"></div></div>
-        <div class="alan"><span class="lbl">Daha önce reklam verdiniz mi?</span><div class="cips" data-ad="reklam" data-tek="1"></div></div>
-        <div class="alan"><label for="b-hesap">Instagram adresiniz (varsa)</label><input id="b-hesap" placeholder="@isletmeniz"></div>
-      </fieldset>
-
-      <fieldset class="adm" data-adim="4" hidden>
-        <legend>Markanız nasıl konuşsun?</legend>
-        <div class="tarz" data-ad="tarz" data-tek="1"></div>
-        <div class="alan"><label for="b-sevdigi">Beğendiğiniz bir marka ya da hesap var mı?</label><input id="b-sevdigi" placeholder="Örn. şu kafenin Instagram'ı çok hoşuma gidiyor"></div>
-        <div class="alan"><label for="b-asla">Asla görmek istemediğiniz bir şey?</label><input id="b-asla" placeholder="Örn. çok renkli olmasın, espri istemiyorum"></div>
-      </fieldset>
-
-      <fieldset class="adm" data-adim="5" hidden>
-        <legend>Bütçe ve zaman</legend>
-        <div class="alan"><span class="lbl">Nasıl başlamak istersiniz?</span><div class="cips" data-ad="butce" data-tek="1"></div></div>
-        <div class="alan"><span class="lbl">Ne zaman başlayalım?</span><div class="cips" data-ad="zaman" data-tek="1"></div></div>
-        <div class="alan"><label for="b-not">Eklemek istediğiniz bir şey (kampanya, açılış tarihi, özel gün)</label><textarea id="b-not" placeholder="Örn. Kasımda ikinci şubemizi açıyoruz."></textarea></div>
-      </fieldset>
-
-      <fieldset class="adm" data-adim="6" hidden>
-        <legend>Size nasıl ulaşalım?</legend>
-        <div class="cift">
-          <div class="alan"><label for="b-ad">Adınız</label><input id="b-ad" autocomplete="name"></div>
-          <div class="alan"><label for="b-tel">Telefon (isteğe bağlı)</label><input id="b-tel" type="tel" autocomplete="tel" placeholder="05xx xxx xx xx"></div>
-        </div>
-        <div class="alan"><span class="lbl">Size nasıl dönelim?</span><div class="cips" data-ad="kanal" data-tek="1"></div></div>
-      </fieldset>
-
-      <div class="sonuc-brif" id="sonuc" hidden>
-        <p class="etiket" style="color:var(--muted)">Önerimiz</p>
-        <h3 id="s-paket">Büyüme</h3>
-        <p id="s-neden"></p>
-        <div class="s-fikir"><span class="etiket">İlk fikir taslağı</span><p id="s-fikir"></p></div>
-        <details><summary>Brifinizi görün</summary><pre id="s-brif"></pre></details>
-        <div class="satir">
-          <a class="btn btn-sinyal" id="wa" href="#" target="_blank" rel="noopener" hidden>WhatsApp'tan gönder</a>
-          <button class="btn btn-hat2" type="button" id="kopyala">Brifi kopyala</button>
-          <button class="btn btn-hat2" type="button" id="bastan">Baştan başla</button>
-        </div>
-        <p id="kanal" class="ipucu"></p>
+      <p>Üç kısa adım: ne lazım, işletmeniz kim, size nasıl ulaşalım. Talebiniz doğrudan e-posta kutumuza düşer; telefonla ya da e-postayla size biz döneriz.</p>
+      <ul><li>İlk görüşme ve fikir taslağı ücretsiz</li><li>Net fiyat, sürpriz ücret yok</li><li>Bilgileriniz yalnızca talebiniz için kullanılır</li></ul>
+      <div class="tf-hat">
+        <a href="mailto:merhaba@velvelekreatif.com"><span>E-posta</span><b>merhaba@velvelekreatif.com</b></a>
       </div>
-
-      <div class="gez" id="gez">
-        <button class="btn btn-hat2" type="button" id="geri" hidden>Geri</button>
-        <button class="btn" type="button" id="ileri">Devam</button>
+    </div>
+    <form class="tform" id="talep" novalidate>
+      <ol class="tf-yol" aria-label="Adımlar"><li class="aktif"><i>1</i>Ne lazım?</li><li><i>2</i>İşletmeniz</li><li><i>3</i>İletişim</li></ol>
+      <div class="tf-govde">
+        <fieldset class="tf-adim" data-adim="1"><legend>Ne lazım? <small>Birden fazla seçebilirsiniz.</small></legend>
+          <div class="tf-kartlar" data-sec="ihtiyac" data-coklu><button type="button" class="tf-kart" data-d="Mobil uygulama" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg><b>Mobil uygulama</b><small>iOS ve Android uygulama</small></button><button type="button" class="tf-kart" data-d="Web sitesi" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2.5"/><path d="M3 9h18"/><path d="M7 6.5h.01M10 6.5h.01"/></svg><b>Web sitesi</b><small>Kurumsal site, e-ticaret, menü</small></button><button type="button" class="tf-kart" data-d="Yazılım ve panel" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 8l-4 4 4 4M16 8l4 4-4 4M13.5 5l-3 14"/></svg><b>Yazılım ve panel</b><small>Sipariş, rezervasyon, yönetim</small></button><button type="button" class="tf-kart" data-d="Sosyal medya" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg><b>Sosyal medya</b><small>Instagram düzeni, post, story</small></button><button type="button" class="tf-kart" data-d="Reklam" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10v4h3l7 4V6L6 10H3z"/><path d="M16 9.5a3.5 3.5 0 0 1 0 5M18.5 7a7 7 0 0 1 0 10"/></svg><b>Reklam</b><small>Meta reklamlarıyla müşteri</small></button><button type="button" class="tf-kart" data-d="Reels ve video" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M10 9.2v5.6l4.6-2.8z"/></svg><b>Reels ve video</b><small>Kısa video ve kurgu</small></button><button type="button" class="tf-kart" data-d="Logo ve kimlik" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><b>Logo ve kimlik</b><small>Marka, logo, kurumsal kimlik</small></button><button type="button" class="tf-kart" data-d="Tabela ve baskı" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="10" rx="1.5"/><path d="M8 14v6M16 14v6M6 20h12"/></svg><b>Tabela ve baskı</b><small>Branda, tabela, giydirme</small></button><button type="button" class="tf-kart" data-d="Ambalaj ve etiket" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7.5L12 3l8 4.5v9L12 21l-8-4.5z"/><path d="M4 7.5l8 4.5 8-4.5M12 12v9"/></svg><b>Ambalaj ve etiket</b><small>Paket, etiket, kutu</small></button><button type="button" class="tf-kart" data-d="Emin değilim" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 9a3 3 0 1 1 4.2 2.7c-.8.4-1.2 1-1.2 1.8V15"/><path d="M12 18.5h.01"/></svg><b>Emin değilim</b><small>Birlikte karar verelim</small></button></div>
+          <div class="tf-alan"><span class="tf-lbl">Ne zaman başlamak istersiniz?</span><div class="tf-cip" data-sec="zaman"><button type="button" aria-pressed="false">Hemen</button><button type="button" aria-pressed="false">Bu ay içinde</button><button type="button" aria-pressed="false">Önümüzdeki ay</button><button type="button" aria-pressed="false">Sadece bilgi alıyorum</button></div></div>
+        </fieldset>
+        <fieldset class="tf-adim" data-adim="2" hidden><legend>İşletmeniz</legend>
+          <div class="tf-alan"><label for="t-isletme">İşletmenizin adı</label><input id="t-isletme" autocomplete="organization" placeholder="Örn. Keyfhane"></div>
+          <div class="tf-alan"><span class="tf-lbl">Sektörünüz</span><div class="tf-cip" data-sec="sektor"><button type="button" aria-pressed="false">Kafe / restoran</button><button type="button" aria-pressed="false">Dönerci / fast food</button><button type="button" aria-pressed="false">Catering / toplu yemek</button><button type="button" aria-pressed="false">Kahve / kurukahveci</button><button type="button" aria-pressed="false">Butik / giyim</button><button type="button" aria-pressed="false">Berber / güzellik</button><button type="button" aria-pressed="false">Otomotiv / galeri</button><button type="button" aria-pressed="false">Sanayi / B2B</button><button type="button" aria-pressed="false">Diğer</button></div></div>
+          <div class="tf-cift"><div class="tf-alan"><label for="t-yer">Şehir / semt</label><input id="t-yer" placeholder="Örn. Kartal, İstanbul"></div>
+          <div class="tf-alan"><label for="t-ig">Instagram hesabınız <small>(varsa)</small></label><input id="t-ig" placeholder="@hesabiniz"></div></div>
+          <div class="tf-alan"><span class="tf-lbl">Nasıl bir çalışma düşünüyorsunuz?</span><div class="tf-cip" data-sec="butce"><button type="button" aria-pressed="false">Küçük başlayıp görmek istiyorum</button><button type="button" aria-pressed="false">Düzenli aylık hizmet</button><button type="button" aria-pressed="false">Kapsamlı, her şey dâhil</button><button type="button" aria-pressed="false">Önce teklif görmek istiyorum</button></div></div>
+        </fieldset>
+        <fieldset class="tf-adim" data-adim="3" hidden><legend>Size nasıl ulaşalım?</legend>
+          <div class="tf-cift"><div class="tf-alan"><label for="t-ad">Adınız soyadınız</label><input id="t-ad" autocomplete="name"></div>
+          <div class="tf-alan"><label for="t-tel">Telefon</label><input id="t-tel" type="tel" inputmode="tel" autocomplete="tel" placeholder="05xx xxx xx xx"></div></div>
+          <div class="tf-alan"><label for="t-eposta">E-posta</label><input id="t-eposta" type="email" autocomplete="email" placeholder="ornek@isletme.com"></div>
+          <div class="tf-alan"><label for="t-not">Eklemek istedikleriniz <small>(isteğe bağlı)</small></label><textarea id="t-not" rows="3" placeholder="Aklınızdaki fikir, beğendiğiniz hesaplar, bütçe ya da tarih…"></textarea></div>
+          <label class="tf-onay"><input type="checkbox" id="t-onay"><span><a href="/kvkk/" target="_blank" rel="noopener">KVKK aydınlatma metnini</a> okudum; talebim için bilgilerimin işlenmesine ve yurt dışındaki e-posta/form hizmet sağlayıcısına aktarılmasına açık rıza veriyorum.</span></label>
+        </fieldset>
+        <p class="tf-ozet" hidden><b>Talebiniz:</b> <span></span></p>
+        <p class="tf-hata" role="alert" hidden></p>
+        <div class="tf-yedek" hidden><a class="btn btn-sinyal" id="tf-ep-yedek" href="#">E-posta uygulamasıyla gönder</a></div>
+        <div class="tf-gez"><button type="button" class="btn btn-hat2" id="tf-geri" hidden>Geri</button><button type="button" class="btn" id="tf-ileri">Devam</button><button type="submit" class="btn btn-sinyal" id="tf-gonder" hidden>Teklifimi iste</button></div>
+      </div>
+      <div class="tf-tamam" hidden>
+        <div class="tf-isaret" aria-hidden="true">✓</div>
+        <h3>Talebiniz ulaştı, <span id="tf-ad-yaz"></span>!</h3>
+        <p>Bundan sonrası şöyle ilerliyor:</p>
+        <ol class="tf-sonra"><li><b>Talebinizi inceliyoruz.</b> İşletmenize ve sektörünüze bakıyoruz.</li><li><b>Size telefonla ya da e-postayla dönüyoruz.</b> Kısa bir tanışma görüşmesi yapıyoruz.</li><li><b>Ücretsiz fikir taslağı ve net teklif.</b> Beğenirseniz başlıyoruz.</li></ol>
+        <a class="btn btn-sinyal" href="/isler/">Bu arada işlerimize göz atın</a>
       </div>
     </form>
   </div>
@@ -1074,15 +1098,18 @@ details.mmenu[open]>summary{background:var(--sinyal);border-color:var(--sinyal);
 <footer class="alt-bilgi"><div class="ic"><div class="kol">
 <div><a class="logo" href="/" style="font:800 30px/1 var(--display);letter-spacing:-.035em;text-decoration:none">Velvele<span style="color:var(--sinyal)">.</span></a>
 <p class="slogan">Gürültüyü biz yaparız, konuşulan siz olursunuz.</p>
-<p style="margin-top:16px;font-size:15px"><a href="mailto:merhaba@velvelekreatif.com">merhaba@velvelekreatif.com</a></p></div>
+<p style="margin-top:16px;font-size:15px"><a href="mailto:merhaba@velvelekreatif.com">merhaba@velvelekreatif.com</a></p><p style="margin-top:8px;font-size:15px"><a href="https://wa.me/905454554129" target="_blank" rel="noopener">WhatsApp: 0545 455 41 29</a></p></div>
 <div><h4>Hizmetler</h4><ul><li><a href="/hizmetler/sosyal-medya-yonetimi/">Sosyal medya yönetimi</a></li><li><a href="/hizmetler/reklam-yonetimi/">Reklam yönetimi</a></li><li><a href="/hizmetler/tabela-branda-giydirme/">Tabela, branda ve giydirme</a></li><li><a href="/hizmetler/marka-danismanligi/">Marka danışmanlığı</a></li><li><a href="/hizmetler/mobil-uygulama-web/">Uygulama ve web</a></li><li><a href="/hizmetler/">Tüm hizmetler</a></li></ul></div>
 <div><h4>Sektörler</h4><ul><li><a href="/sektorler/kafe-restoran/">Kafe ve restoran</a></li><li><a href="/sektorler/kurumsal-b2b/">Kurumsal ve B2B</a></li></ul></div>
 <div><h4>İşler</h4><ul><li><a href="/isler/kids-n-move/">Kids&#x27;n Move</a></li><li><a href="/isler/tiesto-coffee/">Tiesto Coffee</a></li><li><a href="/isler/ms-neilos/">Ms.Neilos Coffees</a></li><li><a href="/isler/demlesene/">Demlesene</a></li><li><a href="/isler/tomara-catering/">Tomara Catering</a></li><li><a href="/isler/alex-gece-donercisi/">Alex Gece Dönercisi</a></li><li><a href="/isler/umran-oto-ekspertiz/">Umran Oto Ekspertiz</a></li><li><a href="/isler/otomer/">Otomer Galericiler Sitesi</a></li><li><a href="/isler/">Tüm işler</a></li></ul></div>
-</div><div class="dip"><span>© 2026 Velvele Kreatif · İstanbul</span><span>Sosyal medya · Reklam · Video · Tasarım · Baskı · Uygulama</span></div></div></footer>
+</div><div class="dip"><span>© 2026 Velvele Kreatif · İstanbul · <a href="/kvkk/">KVKK aydınlatma metni</a></span><span>Sosyal medya · Reklam · Video · Tasarım · Baskı · Uygulama</span></div></div></footer>
 
 <dialog id="buyut"><button class="kapat" type="button" id="kapat">Kapat ✕</button><img id="buyut-img" alt=""><p class="alt" id="buyut-alt"></p></dialog>
 
 <script src="/assets/ana.js" defer></script>
+<script src="/assets/form.js" defer></script>
+<script data-goatcounter="https://velvelekreatif.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+<a class="wa-yuz" href="https://wa.me/905454554129?text=Merhaba%20Velvele%2C%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener" aria-label="WhatsApp'tan yazın: 0545 455 41 29"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 19z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1.2-1.4-2-1-1 .8a4 4 0 0 1-2.1-2.1l.8-1-1-2z"/></svg><span>WhatsApp</span></a>
 
 <script>document.querySelectorAll('.mmenu a').forEach(a=>a.addEventListener('click',()=>{a.closest('details').open=false}));document.addEventListener('click',e=>{document.querySelectorAll('details.mmenu[open]').forEach(d=>{if(!d.contains(e.target))d.open=false})});</script>
 <script>(()=>{const y=document.querySelector('.yapiskan'),b=document.querySelector('.bant'),f=document.getElementById('ornek');if(!y||!b)return;const g=()=>{const r=b.getBoundingClientRect(),fr=f?f.getBoundingClientRect():null;const formda=fr&&fr.top<innerHeight&&fr.bottom>0;y.classList.toggle('gor',r.bottom<0&&!formda)};addEventListener('scroll',g,{passive:true});g()})();</script>
