@@ -439,6 +439,11 @@ footer.alt-bilgi{display:block;margin-top:0;padding:64px 0 40px;border-top:1px s
 .alt-bilgi ul a{text-decoration:none}.alt-bilgi ul a:hover{text-decoration:underline}
 .alt-bilgi .slogan{font:400 italic 26px/1.15 var(--serif);margin-top:12px;max-width:22ch}
 .alt-bilgi .dip{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-top:48px;padding-top:20px;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
+
+/* Menü taşmasın */
+.nav ul a,.nav .btn{white-space:nowrap}
+@media (max-width:1340px){.nav ul li:nth-child(2),.nav ul li:nth-child(8),.nav ul li:nth-child(9),.nav ul li:nth-child(11){display:none}}
+@media (max-width:1100px){.nav ul{gap:20px}.nav ul li:nth-child(4),.nav ul li:nth-child(7){display:none}}
 </style>
 </head>
 <body>
