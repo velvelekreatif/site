@@ -530,6 +530,60 @@ details.mmenu[open]>summary{background:var(--sinyal);border-color:var(--sinyal);
 @media (max-width:640px){.tform{padding:20px;border-radius:22px}.tf-kartlar{grid-template-columns:1fr}.tf-cift{grid-template-columns:1fr}.tf-yol li{font-size:0;justify-content:center}.tf-yol li i{font-size:13px}.tf-yol li.aktif{font-size:13px}
 .wa-yuz{padding:0;width:54px;justify-content:center}.wa-yuz span{display:none}.yapiskan{right:calc(80px + env(safe-area-inset-right,0px))!important}}
 </style>
+<style>
+/* 2026-10 YENİLEME: filmler, kısa vaka ızgarası, kısa hizmetler */
+main>section,main>.ic>section{scroll-margin-top:20px}
+@media (max-width:700px){section{padding-block:72px 0}.bas{margin-bottom:30px}.bas p{font-size:16.5px}}
+.filmler{background:#0A0B1E;color:#EDEFFB;padding-block:96px 100px;margin:0}
+@media (max-width:700px){.filmler{padding-block:64px 70px}}
+.filmler .bas .etiket{color:var(--sinyal)}
+.filmler .bas p{color:#A4A8CA}
+.film-serit{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+@media (max-width:980px){.film-serit{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;margin-inline:-20px;padding-inline:20px;padding-bottom:6px;scrollbar-width:none}.film-serit::-webkit-scrollbar{display:none}.film{flex:0 0 min(68vw,300px);scroll-snap-align:start}}
+.film{margin:0;display:grid;gap:14px;align-content:start;min-width:0}
+.film-ekran{position:relative;display:block;width:100%;aspect-ratio:9/16;border:0;padding:0;border-radius:14px;overflow:hidden;background:#13153A;cursor:pointer;box-shadow:0 30px 60px -30px rgba(0,0,0,.8)}
+.film-ekran video{width:100%;height:100%;object-fit:cover}
+.film-oynat{position:absolute;left:50%;top:50%;width:68px;height:68px;margin:-34px 0 0 -34px;border-radius:50%;background:var(--sinyal);display:grid;place-items:center;transition:transform .2s ease,opacity .2s ease;box-shadow:0 10px 30px rgba(0,0,0,.4)}
+.film-oynat svg{width:28px;height:28px;fill:#16130A;margin-left:4px}
+.film-ekran:hover .film-oynat{transform:scale(1.08)}
+.film-sure{position:absolute;right:12px;top:12px;font:600 12px/1 var(--body);padding:7px 9px;border-radius:999px;background:rgba(10,11,30,.72);color:#fff}
+.film.oynuyor .film-oynat,.film.oynuyor .film-sure{opacity:0;pointer-events:none}
+.film figcaption{display:grid;gap:6px}
+.film figcaption .etiket{color:#A4A8CA;font-size:11px}
+.film figcaption b{font:800 22px/1.1 var(--display);letter-spacing:-.02em}
+.film figcaption span:last-child{color:#A4A8CA;font-size:15px;line-height:1.5}
+.vk-izgara{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px 18px}
+@media (max-width:980px){.vk-izgara{grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 14px}}
+.isk{text-decoration:none;display:grid;gap:10px;align-content:start;min-width:0}
+.isk .kap{border-radius:12px;overflow:hidden;background:var(--sunk);aspect-ratio:4/5}
+.isk img{width:100%;height:100%;object-fit:cover;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.isk:hover img{transform:scale(1.04)}
+.isk .etiket{color:var(--muted);font-size:11px;letter-spacing:.12em;line-height:1.35}
+.isk h3{font-size:clamp(17px,2vw,21px);font-weight:800;line-height:1.12}
+.isk .ok{font-weight:600;font-size:14.5px}
+.isk .ok::after{content:" →";color:var(--kobalt-ink)}
+.hizmet.kisa{grid-template-columns:repeat(4,minmax(0,1fr))}
+@media (max-width:1040px){.hizmet.kisa{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:600px){.hizmet.kisa{grid-template-columns:1fr;gap:10px}.hizmet.kisa .h{padding:20px}}
+a.h{text-decoration:none;transition:border-color .2s ease,transform .2s ease}
+a.h:hover{border-color:var(--kobalt);transform:translateY(-2px)}
+a.h h3::after{content:" →";color:var(--kobalt-ink)}
+a.h.h-one h3::after{color:var(--sinyal)}
+.kt-serit{margin-top:18px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px 24px;padding:22px 26px;border:1.5px solid var(--line);border-radius:16px;background:var(--surface);text-decoration:none;font-size:17px}
+.kt-serit b{font-family:var(--display);font-weight:800}
+#calisma .soz{margin-top:40px}
+.fm{align-items:start}
+@media (max-width:600px){
+  .paket,.soz{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;margin-inline:-20px;padding:0 20px 8px;scrollbar-width:none}
+  .paket::-webkit-scrollbar,.soz::-webkit-scrollbar,.fm-sek::-webkit-scrollbar{display:none}
+  .paket>.p{flex:0 0 78vw;scroll-snap-align:start}
+  .soz>div{flex:0 0 72vw;scroll-snap-align:start}
+  .surec{grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 14px}
+  .adim h3{font-size:18px}.adim p{font-size:14.5px}
+  .fm-sek{flex-wrap:nowrap;overflow-x:auto;margin-inline:-20px;padding:0 20px 6px;scrollbar-width:none}
+  .fm-sek button{flex:0 0 auto}
+}
+</style>
 </head>
 <body>
 
@@ -560,7 +614,55 @@ details.mmenu[open]>summary{background:var(--sinyal);border-color:var(--sinyal);
 </div>
 
 <div class="markalar"><div class="ic"><span class="etiket">Birlikte çalıştığımız markalar</span><ul><li>Keyfhane</li><li>Ms.Neilos Coffees</li><li>Tiesto Coffee</li><li>Hacı Caferoğlu</li><li>Otomer</li><li>Uğur Hazır Yemek</li><li>Tomara Catering</li><li>Armet Ambalaj</li><li>Alex Gece Dönercisi</li><li>Kids'n Move</li><li>Umran Oto Ekspertiz</li><li>Demlesene</li></ul></div></div>
-<main class="ic">
+<main>
+
+<section lang="tr" id="filmler" class="filmler">
+  <div class="ic">
+    <div class="bas">
+      <div class="etiket">Filmler ve Reels</div>
+      <h2>Kaydırırken <i>durduran</i> filmler.</h2>
+      <p>Reklam filmi, Reels ve hikâye. Fikri de kurguyu da biz yapıyoruz. Sesini açın, izleyin.</p>
+    </div>
+    <div class="film-serit">
+      <figure class="film one">
+        <button class="film-ekran" type="button" aria-label="Fenille Cold Brew Fıss yok reklam filmini sesli oynat">
+          <video src="is/film-fiss-yok.mp4" poster="is/film-fiss-yok.jpg" preload="none" playsinline aria-label="Fenille Cold Brew Fıss yok reklam filmi, 27 saniye"></video>
+          <span class="film-oynat" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"/></svg></span>
+          <span class="film-sure">0:27</span>
+        </button>
+        <figcaption><span class="etiket">Fenille Cold Brew · Reklam filmi</span><b>Fıss yok.</b><span>Trafikte, maçta, toplantıda herkes kaynarken biri hep soğukkanlı. Köpüksüz, telaşsız bir kahvenin filmi.</span></figcaption>
+      </figure>
+      <figure class="film">
+        <button class="film-ekran" type="button" aria-label="Fenille Cold Brew Yolun soğukkanlısı reklam filmini sesli oynat">
+          <video src="is/film-yolun-sogukkanlisi.mp4" poster="is/film-yolun-sogukkanlisi.jpg" preload="none" playsinline aria-label="Fenille Cold Brew Yolun soğukkanlısı reklam filmi, 22 saniye"></video>
+          <span class="film-oynat" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"/></svg></span>
+          <span class="film-sure">0:22</span>
+        </button>
+        <figcaption><span class="etiket">Fenille Cold Brew · Reklam filmi</span><b>Yolun soğukkanlısı.</b><span>Cezve kaynar, çaydanlık kaynar, trafik kaynar. Benzinlikteki dolapta bekleyen kahve hiç kaynamadı.</span></figcaption>
+      </figure>
+      <figure class="film">
+        <button class="film-ekran" type="button" aria-label="Ms.Neilos Planlı kahve kesintisi Reels videosunu sesli oynat">
+          <video src="is/film-planli-kahve-kesintisi.mp4" poster="is/film-planli-kahve-kesintisi.jpg" preload="none" playsinline aria-label="Ms.Neilos Coffees Planlı kahve kesintisi Reels videosu, 17 saniye"></video>
+          <span class="film-oynat" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"/></svg></span>
+          <span class="film-sure">0:17</span>
+        </button>
+        <figcaption><span class="etiket">Ms.Neilos Coffees · Reels</span><b>Planlı kahve kesintisi.</b><span>Herkesin tanıdığı kesinti bildirimi: 02.00 ile 09.00 arası kahve yok. Geri kalan 17 saat kesintisiz.</span></figcaption>
+      </figure>
+      <figure class="film">
+        <button class="film-ekran" type="button" aria-label="Keyfhane Mesai bitti Reels videosunu oynat">
+          <video src="is/reels.mp4" poster="is/reels.jpg" preload="none" playsinline aria-label="Keyfhane Mesai bitti Reels videosu, 8 saniye"></video>
+          <span class="film-oynat" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"/></svg></span>
+          <span class="film-sure">0:08</span>
+        </button>
+        <figcaption><span class="etiket">Keyfhane · Reels</span><b>Mesai bitti.</b><span>Saat 18.01, telefona üç bildirim düşer. Hangisine cevap vereceğin belli.</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+
+<div class="ic">
+
   <section lang="tr" id="fark">
     <div class="bas">
       <div class="etiket">Aynı brif, iki ajans</div>
@@ -584,189 +686,22 @@ details.mmenu[open]>summary{background:var(--sinyal);border-color:var(--sinyal);
     </div>
   </section>
 
-
   <section lang="tr" id="vakalar">
     <div class="bas">
       <div class="etiket">Vaka çalışmaları</div>
       <h2>Her markanın <i>kendi</i> dili var.</h2>
-      <p>Önce markayı inceliyoruz: rengini, semtini, müşterisini, gününü. Sonra markanın kendi fotoğraflarıyla, ondan başkasına ait olamayacak tek bir fikir kuruyoruz. Fikir bir posta değil, dükkândan pakete her yere taşınıyor.</p>
+      <p>Önce markayı inceliyoruz: rengini, semtini, müşterisini, gününü. Sonra ondan başkasına ait olamayacak tek bir fikir kuruyoruz ve o fikri dükkândan pakete her yere taşıyoruz.</p>
     </div>
-    <article class="vaka" style="--vb:#18A7B5;--vf:#fff;--va:#FFD23F;--vm:rgba(255,255,255,.88)">
-      <span class="v-no" aria-hidden="true">01</span>
-      <div class="v-tel"><div class="v-ekran">
-        <div class="v-ust"><i></i>kidsnmove<span>•••</span></div>
-        <button type="button" data-buyut="is/kidsnmove.jpg" data-alt="Kids'n Move sınıfının gerçek fotoğrafı üzerinde okul öncesi karnesi: takla atmak, sırasını beklemek, ayakkabısını kendi giymek, hepsi pekiyi. Öğretmen notu: okula hazır, hem de takla atarak."><img src="is/kidsnmove.jpg" alt="Kids'n Move sınıfının gerçek fotoğrafı üzerinde okul öncesi karnesi: takla atmak, sırasını beklemek, ayakkabısını kendi giymek, hepsi pekiyi. Öğretmen notu: okula hazır, hem de takla atarak." width="880" height="1100" loading="lazy"></button>
-        <div class="v-alt"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.4-9.3-9A5.2 5.2 0 0 1 12 6.3 5.2 5.2 0 0 1 21.3 12C19 16.6 12 21 12 21z"/></svg><svg viewBox="0 0 24 24"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.2A8.5 8.5 0 1 1 21 12z"/></svg><svg viewBox="0 0 24 24"><path d="M22 3 2 10.5l8 3.5 3.5 8L22 3z"/></svg><b>Kaydet</b></div>
-      </div></div>
-      <div class="v-metin">
-        <div class="v-marka">Kids'n Move · Kozyatağı · okul öncesi ve hareket okulu</div>
-        <h3>Okula hazırlık, <em>takla atarak.</em></h3>
-        <dl class="v-dl"><div><dt>Durum</dt><dd>Veli okul öncesi seçerken tek bir şey soruyor: çocuğum okula hazır olacak mı? Kids'n Move'un cevabı hareket: oyun grubu, yarım ve tam gün sınıflar, cimnastik.</dd></div><div><dt>Fikir</dt><dd>Markanın kendi sınıfının fotoğrafı üstüne bir okul öncesi karnesi. Takla atmak, sırasını beklemek, ayakkabısını kendi giymek, yeni arkadaş edinmek; hepsi “Pekiyi”. Öğretmen notu: “Okula hazır. Hem de takla atarak.”</dd></div><div><dt>Neden işe yarar</dt><dd>Hareketi ebeveynin asıl derdine, okul hazırlığına bağlıyor. Karne herkesin tanıdığı bir belge; veli grubunda paylaşılır, kayıt döneminde aynı karne velinin eline gerçek kâğıt olarak verilir.</dd></div></dl>
-        <div class="v-tas" aria-label="Bu fikrin taşındığı yerler"><span>Kayıt dönemi postu</span><span>Velinin eline verilen gerçek karne</span><span>Kayıt broşürü</span><span>Okul girişi panosu</span><span>Veli WhatsApp duyurusu</span></div>
-        <a class="v-git" href="/isler/kids-n-move/">Vakanın tamamı →</a>
-      </div>
-    </article>
-    <article class="vaka ters" style="--vb:#0E1B3D;--vf:#fff;--va:#FF4A4A;--vm:rgba(255,255,255,.75)">
-      <span class="v-no" aria-hidden="true">02</span>
-      <div class="v-tel"><div class="v-ekran">
-        <div class="v-ust"><i></i>tiestocoffees<span>•••</span></div>
-        <button type="button" data-buyut="is/tiesto.jpg" data-alt="Tiesto Coffee'nin gece çekilmiş gerçek cephesi ve parmak izi logosu; önünde bir telefonda Tiesto albümü, mekândan gerçek fotoğraflarla dolu. Başlık: Beylikdüzü'nün galerisinde parmak izimiz var."><img src="is/tiesto.jpg" alt="Tiesto Coffee'nin gece çekilmiş gerçek cephesi ve parmak izi logosu; önünde bir telefonda Tiesto albümü, mekândan gerçek fotoğraflarla dolu. Başlık: Beylikdüzü'nün galerisinde parmak izimiz var." width="880" height="1100" loading="lazy"></button>
-        <div class="v-alt"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.4-9.3-9A5.2 5.2 0 0 1 12 6.3 5.2 5.2 0 0 1 21.3 12C19 16.6 12 21 12 21z"/></svg><svg viewBox="0 0 24 24"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.2A8.5 8.5 0 1 1 21 12z"/></svg><svg viewBox="0 0 24 24"><path d="M22 3 2 10.5l8 3.5 3.5 8L22 3z"/></svg><b>Kaydet</b></div>
-      </div></div>
-      <div class="v-metin">
-        <div class="v-marka">Tiesto Coffee · Beylikdüzü · menüden ekibe, uçtan uca</div>
-        <h3>Beylikdüzü’nün galerisinde <em>parmak izimiz</em> var.</h3>
-        <dl class="v-dl"><div><dt>Kapsam</dt><dd>Bu markada işimiz bardağın içinden başladı: menüyü ve reçeteleri biz geliştirdik, ürün tedarikini biz kurduk, çalışan eğitimini biz verdik. Sonra marka iletişimi ve sosyal medya geldi.</dd></div><div><dt>Durum</dt><dd>Tiesto'nun logosu bir parmak izi, sözü “Fingerprint on Quality”. Mekân öyle bir yer ki misafir kahvesini içmeden önce fotoğrafını çekiyor.</dd></div><div><dt>Fikir</dt><dd>Markanın kendi cephesi, gece ışıkları ve parmak izi tabelasıyla. Önünde bir telefon galerisi: “Tiesto” albümü, mekândan gerçek karelerle dolu. “Bir fotoğraf daha kaydedildi.”</dd></div><div><dt>Neden işe yarar</dt><dd>Logodaki parmak izini müşterinin davranışına bağlıyor: her bardak, her tabak, bir galeriye geçiyor. Müşterinin çektiği fotoğrafı reklama, reklamı da yeni fotoğraf çekme davetine çeviriyor. Fotoğrafı çekilen kahveyi de biz kurguladığımız için reklamın vaadi bardakta karşılanıyor.</dd></div></dl>
-        <div class="v-tas" aria-label="Bu fikrin taşındığı yerler"><span>Menü ve reçeteler</span><span>Ürün tedariki</span><span>Barista ve servis eğitimi</span><span>Instagram postu</span><span>“Galerinden Tiesto” paylaşım serisi</span><span>Bardakta parmak izi baskısı</span><span>Masada fotoğraf köşesi kartı</span></div>
-        <a class="v-git" href="/isler/tiesto-coffee/">Vakanın tamamı →</a>
-      </div>
-    </article>
-    <article class="vaka" style="--vb:#E6F5F4;--vf:#16232B;--va:#1C9C97;--vm:#3E525B">
-      <span class="v-no" aria-hidden="true">03</span>
-      <div class="v-tel"><div class="v-ekran">
-        <div class="v-ust"><i></i>msneiloscoffees<span>•••</span></div>
-        <button type="button" data-buyut="is/neilos.jpg" data-alt="Ms.Neilos'un turkuaz baskılı bardağında gerçek bir buzlu latte fotoğrafı ve yanında müze etiketi: Eser no. 01, Iced Latte, ziyaret saatleri her gün 09.00–02.00. Başlık: Pendik'in kalıcı koleksiyonu."><img src="is/neilos.jpg" alt="Ms.Neilos'un turkuaz baskılı bardağında gerçek bir buzlu latte fotoğrafı ve yanında müze etiketi: Eser no. 01, Iced Latte, ziyaret saatleri her gün 09.00–02.00. Başlık: Pendik'in kalıcı koleksiyonu." width="880" height="1100" loading="lazy"></button>
-        <div class="v-alt"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.4-9.3-9A5.2 5.2 0 0 1 12 6.3 5.2 5.2 0 0 1 21.3 12C19 16.6 12 21 12 21z"/></svg><svg viewBox="0 0 24 24"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.2A8.5 8.5 0 1 1 21 12z"/></svg><svg viewBox="0 0 24 24"><path d="M22 3 2 10.5l8 3.5 3.5 8L22 3z"/></svg><b>Kaydet</b></div>
-      </div></div>
-      <div class="v-metin">
-        <div class="v-marka">Ms.Neilos Coffees · Pendik · 09.00–02.00</div>
-        <h3>Pendik’in <em>kalıcı koleksiyonu.</em></h3>
-        <dl class="v-dl"><div><dt>Durum</dt><dd>Üçüncü nesil kahve dükkânı; turkuaz baskılı bardakları ve özenli sunumu kendi başına bir vitrin. Ama özen, fotoğrafta “bir kafe daha” gibi kalabiliyor.</dd></div><div><dt>Fikir</dt><dd>Her içeceği bir müze eseri gibi sergiledik. Gerçek buzlu latte fotoğrafının yanında bir müze etiketi: “Eser no. 01, Iced Latte. Espresso, soğuk süt ve buz; turkuaz baskılı bardak üzerine.” Ziyaret saatleri 09.00–02.00, salon Erol Kaya Caddesi. “Bu eserde dokunmak ve tatmak serbesttir.”</dd></div><div><dt>Neden işe yarar</dt><dd>Üçüncü nesil kahvenin özenini tek bakışta anlatıyor. Her yeni içecek koleksiyona yeni bir eser olarak katılır; seri kendiliğinden büyür, müdavim “hepsini gördüm” der.</dd></div></dl>
-        <div class="v-tas" aria-label="Bu fikrin taşındığı yerler"><span>Eser serisi postları</span><span>Kasada müze etiketi menü</span><span>Bardakta eser numarası</span><span>“Yeni eser” story duyurusu</span></div>
-        <a class="v-git" href="/isler/ms-neilos/">Vakanın tamamı →</a>
-      </div>
-    </article>
-    <article class="vaka ters" style="--vb:#F4EEE4;--vf:#2A1A12;--va:#D7262D;--vm:#6B5444">
-      <span class="v-no" aria-hidden="true">04</span>
-      <div class="v-tel"><div class="v-ekran">
-        <div class="v-ust"><i></i>demlesene<span>•••</span></div>
-        <button type="button" data-buyut="is/demlesene.jpg" data-alt="Demlesene'nin gerçek Espresso No.1–No.4 paketleri, boy çizgili bir teşhis duvarında yan yana. Başlık: Dün gece uykunu kaçıran hangisiydi?"><img src="is/demlesene.jpg" alt="Demlesene'nin gerçek Espresso No.1–No.4 paketleri, boy çizgili bir teşhis duvarında yan yana. Başlık: Dün gece uykunu kaçıran hangisiydi?" width="880" height="1100" loading="lazy"></button>
-        <div class="v-alt"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.4-9.3-9A5.2 5.2 0 0 1 12 6.3 5.2 5.2 0 0 1 21.3 12C19 16.6 12 21 12 21z"/></svg><svg viewBox="0 0 24 24"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.2A8.5 8.5 0 1 1 21 12z"/></svg><svg viewBox="0 0 24 24"><path d="M22 3 2 10.5l8 3.5 3.5 8L22 3z"/></svg><b>Kaydet</b></div>
-      </div></div>
-      <div class="v-metin">
-        <div class="v-marka">Demlesene.com · online nitelikli kahve</div>
-        <h3>Dün gece uykunu <em>kaçıran</em> hangisiydi?</h3>
-        <dl class="v-dl"><div><dt>Durum</dt><dd>Dört espresso harmanı var, internette dördü de birbirine benzeyen paketler gibi duruyor. Müşteri farkı göremeyince en ucuzunu seçiyor.</dd></div><div><dt>Fikir</dt><dd>Markanın gerçek paketleri, polis teşhis sırasına dizildi: Espresso No.1'den No.4'e, arkada boy çizgileri, kırmızı etikette “demlesene.com · teşhis”. Soru net: dün gece uykunu kaçıran hangisiydi?</dd></div><div><dt>Neden işe yarar</dt><dd>Kafeinin bilinen etkisini esprili bir suça çeviriyor; paketler kendiliğinden karakter kazanıyor. Yorumlarda herkes “sanığını” seçer, dört harmanı tek tek tanıtmak için hazır bir seri doğar.</dd></div></dl>
-        <div class="v-tas" aria-label="Bu fikrin taşındığı yerler"><span>Instagram postu</span><span>Her harmana bir “sabıka kaydı” postu</span><span>Dörtlü deneme seti</span><span>Siparişle gelen teşhis kartı</span></div>
-        <a class="v-git" href="/isler/demlesene/">Vakanın tamamı →</a>
-      </div>
-    </article>
-    <article class="vaka" style="--vb:#0F1F3A;--vf:#fff;--va:#C9A15B;--vm:rgba(255,255,255,.74)">
-      <span class="v-no" aria-hidden="true">05</span>
-      <div class="v-tel"><div class="v-ekran">
-        <div class="v-ust"><i></i>tomarasofrasi_catering<span>•••</span></div>
-        <button type="button" data-buyut="is/tomara.jpg" data-alt="Tomara Catering'in gerçek yemek tepsisi fotoğrafı ve üzerinde bir takvim daveti: Öğle yemeği, 12.00–13.00, yemekhane, mercimek çorbası, etli patates, şehriyeli pilav. 148 kişiden 148 kişi kabul etti."><img src="is/tomara.jpg" alt="Tomara Catering'in gerçek yemek tepsisi fotoğrafı ve üzerinde bir takvim daveti: Öğle yemeği, 12.00–13.00, yemekhane, mercimek çorbası, etli patates, şehriyeli pilav. 148 kişiden 148 kişi kabul etti." width="880" height="1100" loading="lazy"></button>
-        <div class="v-alt"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.4-9.3-9A5.2 5.2 0 0 1 12 6.3 5.2 5.2 0 0 1 21.3 12C19 16.6 12 21 12 21z"/></svg><svg viewBox="0 0 24 24"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.2A8.5 8.5 0 1 1 21 12z"/></svg><svg viewBox="0 0 24 24"><path d="M22 3 2 10.5l8 3.5 3.5 8L22 3z"/></svg><b>Kaydet</b></div>
-      </div></div>
-      <div class="v-metin">
-        <div class="v-marka">Tomara Catering · Tuzla · 2015’ten beri kurumsal yemek</div>
-        <h3>Herkesin kabul ettiği <em>tek toplantı.</em></h3>
-        <dl class="v-dl"><div><dt>Durum</dt><dd>Kurumsal yemekte kararı İK ve satın alma veriyor. Onların günü toplantı davetleriyle geçiyor, çoğuna da isteksizce katılıyorlar.</dd></div><div><dt>Fikir</dt><dd>Tomara'nın gerçek yemek tepsisi fotoğrafının üstünde bir takvim daveti: “Öğle yemeği · 12.00–13.00 · Yemekhane. Mercimek çorbası, etli patates, şehriyeli pilav.” Altında: ✓ Kabul edildi, 148 / 148 kişi.</dd></div><div><dt>Neden işe yarar</dt><dd>Alıcıya kendi ekranının diliyle konuşuyor ve yemeği gösteriyor. İK yöneticisinin LinkedIn'de paylaşacağı türden bir B2B işi; gülümsetirken teklif istemeye götürüyor.</dd></div></dl>
-        <div class="v-tas" aria-label="Bu fikrin taşındığı yerler"><span>LinkedIn kampanyası</span><span>Teklif dosyası kapağı</span><span>Takvim daveti biçiminde e-posta</span><span>Yemekhane menü panosu</span></div>
-        <a class="v-git" href="/isler/tomara-catering/">Vakanın tamamı →</a>
-      </div>
-    </article>
-    <article class="vaka ters" style="--vb:#0B0A12;--vf:#FFF6EA;--va:#FFB347;--vm:rgba(255,246,234,.74)">
-      <span class="v-no" aria-hidden="true">06</span>
-      <div class="v-tel"><div class="v-ekran">
-        <div class="v-ust"><i></i>alexgecedonercisi<span>•••</span></div>
-        <button type="button" data-buyut="is/alex.jpg" data-alt="Alex Gece Dönercisi'nin gerçek döner fotoğrafı gece gökyüzünde ay gibi parlıyor. Altında döner evreleri: dolunay, şişkin ay, yarım ay, hilal. Başlık: Bu gece gökyüzünde dolunay var."><img src="is/alex.jpg" alt="Alex Gece Dönercisi'nin gerçek döner fotoğrafı gece gökyüzünde ay gibi parlıyor. Altında döner evreleri: dolunay, şişkin ay, yarım ay, hilal. Başlık: Bu gece gökyüzünde dolunay var." width="880" height="1100" loading="lazy"></button>
-        <div class="v-alt"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.4-9.3-9A5.2 5.2 0 0 1 12 6.3 5.2 5.2 0 0 1 21.3 12C19 16.6 12 21 12 21z"/></svg><svg viewBox="0 0 24 24"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.2A8.5 8.5 0 1 1 21 12z"/></svg><svg viewBox="0 0 24 24"><path d="M22 3 2 10.5l8 3.5 3.5 8L22 3z"/></svg><b>Kaydet</b></div>
-      </div></div>
-      <div class="v-metin">
-        <div class="v-marka">Alex Gece Dönercisi · Kartal</div>
-        <h3>Bu gece gökyüzünde <em>dolunay</em> var.</h3>
-        <dl class="v-dl"><div><dt>Durum</dt><dd>Adı üstünde gece dönercisi. Gece acıkan kişi aklına ilk geleni seçer; Alex'in tek işi o anda akla gelmek.</dd></div><div><dt>Fikir</dt><dd>Markanın kendi döner fotoğrafı, gece gökyüzünde dolunay gibi parlıyor. Altında bir ay takvimi gibi döner evreleri: dolunay (ocak yeni yandı), şişkin ay, yarım ay, hilal (son dilimler). Tabelanın sarısı neon ışığa döndü.</dd></div><div><dt>Neden işe yarar</dt><dd>Geceyi ve döneri tek görüntüde birleştiriyor. “Hilale kalmadan gelin” cümlesi aciliyeti esprisiyle kuruyor; her gece aynı seriden yeni bir story çıkar: “Şu an yarım ay.”</dd></div></dl>
-        <div class="v-tas" aria-label="Bu fikrin taşındığı yerler"><span>Instagram postu</span><span>Gece boyu “döner evresi” story'leri</span><span>Dükkân camında neon</span><span>Paket servis uygulaması görseli</span></div>
-        <a class="v-git" href="/isler/alex-gece-donercisi/">Vakanın tamamı →</a>
-      </div>
-    </article>
-    <article class="vaka" style="--vb:#E30613;--vf:#fff;--va:#FFE3E5;--vm:rgba(255,255,255,.9)">
-      <span class="v-no" aria-hidden="true">07</span>
-      <div class="v-tel"><div class="v-ekran">
-        <div class="v-ust"><i></i>Umran Oto Ekspertiz<span>•••</span></div>
-        <button type="button" data-buyut="is/umran.jpg" data-alt="Umran Oto Ekspertiz’in kendi atölyesinde, el feneriyle kapı içini kontrol eden bir ekspertiz ustası. Önünde ikinci el ilan açıklaması: hatasız, boyasız, değişen yok, kaçmaz. Üstünde kırmızı damga: Bakalım. Başlık: İlanı satıcı yazar, raporu Umran."><img src="is/umran.jpg" alt="Umran Oto Ekspertiz’in kendi atölyesinde, el feneriyle kapı içini kontrol eden bir ekspertiz ustası. Önünde ikinci el ilan açıklaması: hatasız, boyasız, değişen yok, kaçmaz. Üstünde kırmızı damga: Bakalım. Başlık: İlanı satıcı yazar, raporu Umran." width="880" height="1100" loading="lazy"></button>
-        <div class="v-alt"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.4-9.3-9A5.2 5.2 0 0 1 12 6.3 5.2 5.2 0 0 1 21.3 12C19 16.6 12 21 12 21z"/></svg><svg viewBox="0 0 24 24"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.2A8.5 8.5 0 1 1 21 12z"/></svg><svg viewBox="0 0 24 24"><path d="M22 3 2 10.5l8 3.5 3.5 8L22 3z"/></svg><b>Kaydet</b></div>
-      </div></div>
-      <div class="v-metin">
-        <div class="v-marka">Umran Oto Ekspertiz · Otomer, Sancaktepe · “Profesyonel Bakış”</div>
-        <h3>İlanı satıcı yazar. <em>Raporu Umran.</em></h3>
-        <dl class="v-dl"><div><dt>Durum</dt><dd>İkinci el alan herkes aynı ilanı okumuştur: “Hatasız, boyasız, doktordan, kaçmaz.” Alıcının asıl korkusu bu cümlelere güvenmek. Ekspertiz markaları ise bunu çoğunlukla çizgi film karakterleri ve “güveniniz tam olsun” sloganlarıyla anlatıyor.</dd></div><div><dt>Fikir</dt><dd>Umran’ın kendi atölyesinden gerçek bir kare: usta, el feneriyle kapının içine bakıyor. Önüne herkesin ezbere bildiği ilan açıklamasını koyduk, üstüne markanın “Profesyonel Bakış” sözünden doğan tek kelimelik bir damga vurduk: “Bakalım.”</dd></div><div><dt>Neden işe yarar</dt><dd>Alıcının kafasındaki cümleyi markanın sesine çeviriyor; kimseyi suçlamadan şüpheyi bir hizmete bağlıyor. Raporların karekodla doğrulanabilmesi de sahte rapor endişesine aynı dilde cevap veriyor.</dd></div></dl>
-        <div class="v-tas" aria-label="Bu fikrin taşındığı yerler"><span>Instagram postu</span><span>Galericiler sitesi girişinde pano</span><span>“Bu ilanı Umran’a sor” story serisi</span><span>Rapor zarfı ve dosya kapağı</span></div>
-        <a class="v-git" href="/isler/umran-oto-ekspertiz/">Vakanın tamamı →</a>
-      </div>
-    </article>
-    <article class="vaka ters" style="--vb:#C8102E;--vf:#fff;--va:#FFD5DA;--vm:rgba(255,255,255,.88)">
-      <span class="v-no" aria-hidden="true">08</span>
-      <div class="v-tel"><div class="v-ekran">
-        <div class="v-ust"><i></i>Otomer Galericiler Sitesi<span>•••</span></div>
-        <button type="button" data-buyut="is/otomer.jpg" data-alt="Bir tarayıcı penceresi: üstte araba ilanı aranan sekmeler, açık sekmede Otomer Galericiler Sitesi. İçinde sitenin gerçek kırmızı OTOMER tabelası ve galerilerden gerçek araçlar: spor, klasik, koleksiyon, karavan. Başlık: Sekme sekme gezme, tek site yeter."><img src="is/otomer.jpg" alt="Bir tarayıcı penceresi: üstte araba ilanı aranan sekmeler, açık sekmede Otomer Galericiler Sitesi. İçinde sitenin gerçek kırmızı OTOMER tabelası ve galerilerden gerçek araçlar: spor, klasik, koleksiyon, karavan. Başlık: Sekme sekme gezme, tek site yeter." width="880" height="1100" loading="lazy"></button>
-        <div class="v-alt"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.4-9.3-9A5.2 5.2 0 0 1 12 6.3 5.2 5.2 0 0 1 21.3 12C19 16.6 12 21 12 21z"/></svg><svg viewBox="0 0 24 24"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.2A8.5 8.5 0 1 1 21 12z"/></svg><svg viewBox="0 0 24 24"><path d="M22 3 2 10.5l8 3.5 3.5 8L22 3z"/></svg><b>Kaydet</b></div>
-      </div></div>
-      <div class="v-metin">
-        <div class="v-marka">Otomer Galericiler Sitesi · Sancaktepe</div>
-        <h3>Sekme sekme gezme. <em>Tek site yeter.</em></h3>
-        <dl class="v-dl"><div><dt>Durum</dt><dd>Araba arayan kişi akşamlarını sekme sekme ilan gezerek geçiriyor. Otomer’in gücü ise tam tersi: galeriler aynı çatı altında, aynı gün yan yana görülebiliyor.</dd></div><div><dt>Fikir</dt><dd>“Site” kelimesinin iki anlamıyla oynadık. Bir tarayıcı penceresi, ilan sekmeleri ve açık sekmede Otomer: sitenin gerçek tabelası ve galerilerinden gerçek araçlar. Spor, klasik, koleksiyon, karavan.</dd></div><div><dt>Neden işe yarar</dt><dd>Hedef kitlenin o anki davranışını, ekran başında ilan gezmeyi, yakalıyor ve tek cümleyle çözüm sunuyor. Galericiler sitesini tek bir mağaza gibi pazarlıyor; içindeki her galeri bu reklamdan pay alıyor.</dd></div></dl>
-        <div class="v-tas" aria-label="Bu fikrin taşındığı yerler"><span>Instagram postu</span><span>Arama reklamları</span><span>Site girişinde dev “sekme” tabelası</span><span>Galeriler için ortak story şablonu</span></div>
-        <a class="v-git" href="/isler/otomer/">Vakanın tamamı →</a>
-      </div>
-    </article>
-  </section>
-
-  <section lang="tr" id="isler">
-    <div class="bas">
-      <div class="etiket">Daha fazla iş</div>
-      <h2>Her işin <i>tek</i> bir fikri var.</h2>
-      <p>Postlar, Reels videoları ve baskı işleri. Büyütmek için görsele dokunun.</p>
-    </div>
-    <div class="filtre" role="group" aria-label="İşleri filtrele">
-      <button type="button" data-f="hepsi" aria-pressed="true">Hepsi</button>
-      <button type="button" data-f="post" aria-pressed="false">Post</button>
-      <button type="button" data-f="reels" aria-pressed="false">Reels</button>
-      <button type="button" data-f="baski" aria-pressed="false">Baskı</button>
-      <button type="button" data-f="teklif" aria-pressed="false">Markalar</button>
-      <button type="button" data-f="konsept" aria-pressed="false">Konsept</button>
-    </div>
-    <div class="isler" id="isler-liste">
-      <article class="is" data-t="post">
-        <button class="medya" type="button" data-buyut="is/rapor.jpg" data-alt="Keyfhane · İstirahat Raporu"><img src="is/rapor.jpg" alt="Keyfhane istirahat raporu postu" width="880" height="1100" loading="lazy"><span class="tur">Kafe · Post</span></button>
-        <h3>İstirahat Raporu</h3><p>Keyfhane için. Teşhis: akut keyifsizlik. Tedavi: iki demli çay, bir dilim tatlı.</p>
-      </article>
-      <article class="is" data-t="teklif">
-        <button class="medya" type="button" data-buyut="is/caferoglu.jpg" data-alt="Hatır Senedi"><img src="is/caferoglu.jpg" alt="Senet biçiminde kurukahveci postu: Hatır senedi, vade kırk yıl" width="880" height="1100" loading="lazy"><span class="tur t">Kurukahveci</span></button>
-        <h3>Hatır Senedi</h3><p>Kurukahveci Hacı Caferoğlu için. Bir fincan dibek kahvesinin kırk yıl hatırı, senede bağlandı.</p>
-      </article>
-      <article class="is" data-t="reels">
-        <div class="medya"><video src="is/reels.mp4" poster="is/reels.jpg" autoplay muted loop playsinline aria-label="Keyfhane Mesai Bitti Reels videosu"></video><span class="tur">Kafe · Reels</span></div>
-        <h3>Mesai Bitti</h3><p>Keyfhane için 8 saniyelik Reels. Saat 18.01, üç bildirim. Hangisine cevap vereceğin belli.</p>
-      </article>
-      <article class="is" data-t="konsept">
-        <button class="medya" type="button" data-buyut="is/berber.jpg" data-alt="Konsept · Usta Makas"><img src="is/berber.jpg" alt="Sıra numaratörü biçiminde berber postu: Sıradaki sen" width="880" height="1100" loading="lazy"><span class="tur k">Konsept · Berber</span></button>
-        <h3>Sıradaki: Sen</h3><p>Berber için sıra numaratörü. Randevulu müşteri hiç beklemez, tek mesaj bu.</p>
-      </article>
-      <article class="is" data-t="teklif">
-        <button class="medya" type="button" data-buyut="is/ugur.jpg" data-alt="Dikkat: verim artışı"><img src="is/ugur.jpg" alt="Uğur Hazır Yemek mutfağından gerçek yemek kutuları ve üstünde sarı iş güvenliği levhası: Dikkat, öğle yemeğinden sonra verim artışı yaşanabilir" width="880" height="1100" loading="lazy"><span class="tur t">Toplu yemek</span></button>
-        <h3>Dikkat: verim artışı</h3><p>Fabrikalara toplu yemek veren Uğur Hazır Yemek için. Kendi mutfaklarından çıkan gerçek yemek kutularının üstünde, iş güvenliği levhası diliyle: öğle yemeğinden sonra verim artışı yaşanabilir.</p>
-      </article>
-      <article class="is" data-t="konsept">
-        <button class="medya" type="button" data-buyut="is/firin.jpg" data-alt="Konsept · Fırın Sabah"><img src="is/firin.jpg" alt="Kargo takip ekranı biçiminde fırın postu: Simidin yola çıktı" width="880" height="1100" loading="lazy"><span class="tur k">Konsept · Fırın</span></button>
-        <h3>Simidin yola çıktı</h3><p>Kargo takip ekranı, ama paket sıcak simit. Hamurdan tezgâha her adım saatiyle.</p>
-      </article>
-      <article class="is" data-t="teklif">
-        <button class="medya" type="button" data-buyut="is/armet.jpg" data-alt="Bu taraf yukarı. Markan da."><img src="is/armet.jpg" alt="Koli üstü işaretleri biçiminde ambalaj postu: Bu taraf yukarı, markan da" width="880" height="1100" loading="lazy"><span class="tur t">Ambalaj</span></button>
-        <h3>Bu taraf yukarı. Markan da.</h3><p>Armet Ambalaj için. Kolinin üstündeki işaretler marka mesajına dönüştü.</p>
-      </article>
-      <article class="is" data-t="konsept">
-        <button class="medya" type="button" data-buyut="is/butik.jpg" data-alt="Konsept · Askıda"><img src="is/butik.jpg" alt="Hata penceresi biçiminde butik postu: Dolapta hata tespit edildi" width="880" height="1100" loading="lazy"><span class="tur k">Konsept · Butik</span></button>
-        <h3>Dolapta hata tespit edildi</h3><p>"Giyecek hiçbir şeyim yok" hatası. Çözüm: eksik tek parça, güncelleme mağazada.</p>
-      </article>
-      <article class="is genis" data-t="baski">
-        <button class="medya" type="button" data-buyut="is/vitrin.jpg" data-alt="Keyfhane · Dükkân giydirme"><img src="is/vitrin.jpg" alt="Keyfhane için tabela, branda tente ve cam giydirmeli dükkân cephesi" width="1600" height="1000" loading="lazy"><span class="tur">Baskı · Dükkân giydirme</span></button>
-        <h3>Postlardaki fikir, vitrinde</h3><p>Keyfhane için tabela, branda tente, cam giydirme ve folyo bant. Instagram'daki "Raporunu al, gel." cümlesi sokakta da aynı.</p>
-      </article>
-    </div>
-    <p class="kunye">"Konsept" etiketli işler kurgusal markalar içindir. Fırın Sabah, Usta Makas ve Askıda gerçek işletmeler değildir.</p>
-    <div class="ic"><a class="btn btn-hat2 devam" href="/isler/">Tüm işler ve vakalar →</a></div>
+    <div class="vk-izgara"><a class="isk" href="/isler/kids-n-move/"><div class="kap"><img src="is/kidsnmove.jpg" alt="Kids&#x27;n Move sınıf fotoğrafı üzerinde okul öncesi karnesi tasarımı" width="880" height="1100" loading="lazy"></div>
+<div class="etiket">Kids&#x27;n Move · Kozyatağı</div><h3>Okula hazırlık, takla atarak.</h3><span class="ok">Vakayı aç</span></a><a class="isk" href="/isler/tiesto-coffee/"><div class="kap"><img src="is/tiesto.jpg" alt="Tiesto Coffee cephesi ve parmak izi tabelası önünde telefon galerisi tasarımı" width="880" height="1100" loading="lazy"></div>
+<div class="etiket">Tiesto Coffee · Beylikdüzü</div><h3>Galeride parmak izimiz var.</h3><span class="ok">Vakayı aç</span></a><a class="isk" href="/isler/ms-neilos/"><div class="kap"><img src="is/neilos.jpg" alt="Ms.Neilos buzlu latte fotoğrafının yanında müze etiketi tasarımı" width="880" height="1100" loading="lazy"></div>
+<div class="etiket">Ms.Neilos Coffees · Pendik</div><h3>Pendik&#x27;in kalıcı koleksiyonu.</h3><span class="ok">Vakayı aç</span></a><a class="isk" href="/isler/demlesene/"><div class="kap"><img src="is/demlesene.jpg" alt="Demlesene espresso paketleri polis teşhis sırasında" width="880" height="1100" loading="lazy"></div>
+<div class="etiket">Demlesene · online nitelikli kahve</div><h3>Dün gece uykunu kaçıran hangisiydi?</h3><span class="ok">Vakayı aç</span></a><a class="isk" href="/isler/tomara-catering/"><div class="kap"><img src="is/tomara.jpg" alt="Tomara Catering yemek tepsisi üzerinde takvim daveti tasarımı" width="880" height="1100" loading="lazy"></div>
+<div class="etiket">Tomara Catering · Tuzla · 2015&#x27;ten beri kurumsal yemek</div><h3>Herkesin kabul ettiği tek toplantı.</h3><span class="ok">Vakayı aç</span></a><a class="isk" href="/isler/alex-gece-donercisi/"><div class="kap"><img src="is/alex.jpg" alt="Alex Gece Dönercisi dönerinin gece gökyüzünde dolunay gibi parladığı tasarım" width="880" height="1100" loading="lazy"></div>
+<div class="etiket">Alex Gece Dönercisi · Kartal</div><h3>Bu gece gökyüzünde dolunay var.</h3><span class="ok">Vakayı aç</span></a><a class="isk" href="/isler/umran-oto-ekspertiz/"><div class="kap"><img src="is/umran.jpg" alt="Umran Oto Ekspertiz atölyesinde usta, önünde ikinci el ilan açıklaması ve Bakalım damgası" width="880" height="1100" loading="lazy"></div>
+<div class="etiket">Umran Oto Ekspertiz · Otomer, Sancaktepe</div><h3>İlanı satıcı yazar. Raporu Umran.</h3><span class="ok">Vakayı aç</span></a><a class="isk" href="/isler/otomer/"><div class="kap"><img src="is/otomer.jpg" alt="Tarayıcı penceresinde açık sekmede Otomer galericiler sitesi tasarımı" width="880" height="1100" loading="lazy"></div>
+<div class="etiket">Otomer Galericiler Sitesi · Sancaktepe</div><h3>Tek site yeter.</h3><span class="ok">Vakayı aç</span></a></div>
+    <div class="ic"><a class="btn btn-hat2 devam" href="/isler/">Tüm işler, filmler ve baskı uygulamaları →</a></div>
   </section>
 
   <section lang="tr" id="biz">
@@ -795,44 +730,21 @@ details.mmenu[open]>summary{background:var(--sinyal);border-color:var(--sinyal);
     <div class="ic"><a class="btn btn-hat2 devam" href="/hakkimizda/">Bizi daha yakından tanıyın →</a></div>
   </section>
 
-  <section>
-    <div class="bas">
-      <div class="etiket">Neden Velvele</div>
-      <h2>Üç şeyi <i>farklı</i> yapıyoruz.</h2>
-    </div>
-    <div class="fark">
-      <div><span class="rakam">40</span><h3>Önce fikir</h3><p>Her iş en az 40 ham fikirle başlar ve beş soruluk elemeden geçer: Durdurur mu, bu markaya mı ait, bir saniyede anlaşılır mı, paylaşılır mı, satar mı?</p></div>
-      <div><span class="rakam">1</span><h3>Ekrandan baskıya tek el</h3><p>Instagram'daki tasarımı tabelanıza, brandanıza, vitrininize, aracınıza ve menünüze kadar taşıyoruz. Tasarım, baskı ve uygulama aynı ekipte.</p></div>
-      <div><span class="rakam">1</span><h3>Tek muhatap</h3><p>Fikir, tasarım, video, reklam, baskı ve uygulama aynı ekipte. Beş ayrı firmayla uğraşmazsınız, her şey aynı dili konuşur.</p></div>
-    </div>
-  </section>
-
   <section lang="tr" id="hizmetler">
     <div class="bas">
       <div class="etiket">Hizmetler</div>
       <h2>Bir ajansın yaptığı <i>her şey.</i></h2>
-      <p>Menü ve reçeteden tabelaya, mahalle kafesinden fabrikaya, her sektöre. Tek tek ya da paket halinde.</p>
+      <p>Menü ve reçeteden tabelaya, mahalle kafesinden fabrikaya. Fikir, tasarım, video, reklam, yazılım, baskı ve uygulama aynı ekipte; beş ayrı firmayla uğraşmazsınız.</p>
     </div>
-    <div class="hizmet">
-      <div class="h h-one"><h3><a href="/hizmetler/mobil-uygulama-web/">Mobil uygulama, web ve yazılım</a></h3><p>En güçlü olduğumuz alanlardan biri: uygulamayı da, reklamını da aynı ekip yapıyor.</p><ul><li>iOS ve Android uygulama, App Store ve Google Play yayını</li><li>Kurumsal site, e-ticaret, QR menü</li><li>Sipariş, randevu, rezervasyon ve yönetim paneli</li><li>Yapay zekâ asistanı ve otomasyon</li></ul></div>
-      <div class="h"><h3><a href="/hizmetler/marka-danismanligi/">Marka danışmanlığı</a></h3><p>Her şeyden önce: markanız ne söylüyor, kime, neden farklı?</p><ul><li>Konumlandırma ve rakip analizi</li><li>İsim, slogan ve marka hikâyesi</li><li>Fiyat algısı ve menü mühendisliği</li><li>Şube ve büyüme için marka standartları</li></ul></div>
-      <div class="h"><h3><a href="/sektorler/kafe-restoran/">Kafe ve restoran kurulumu</a></h3><p>Sadece reklamını değil, bardağın içini de kuruyoruz.</p><ul><li>Menü ve reçete geliştirme</li><li>Ürün ve tedarikçi seçimi</li><li>Çalışan, barista ve servis eğitimi</li><li>Ekibe marka dili ve story atölyesi</li></ul></div>
-      <div class="h"><h3><a href="/hizmetler/sosyal-medya-yonetimi/">Sosyal medya yönetimi</a></h3><p>Aylık içerik takvimi, post, story ve profil düzeni.</p><ul><li>Instagram, Facebook, TikTok</li><li>Yorum ve mesaj cevap metinleri</li><li>Maç, bayram, özel gün planı</li></ul></div>
-      <div class="h"><h3><a href="/hizmetler/reklam-yonetimi/">Meta reklamları</a></h3><p>Instagram ve Facebook'ta kapınıza yakın doğru kişiye reklam.</p><ul><li>Test edilen reklam setleri</li><li>Bütçe sizin hesabınızda, kontrol sizde</li><li>Aylık sonuç raporu</li></ul></div>
-      <div class="h"><h3>Reels ve video</h3><p>İlk saniyede durduran kısa videolar.</p><ul><li>Animasyonlu post ve video reklam</li><li>Çektiğiniz videoların kurgusu</li><li>Altyazı, renk, ses temizliği</li></ul></div>
-      <div class="h"><h3>Ürün fotoğrafı</h3><p>Telefonla çekilmiş fotoğraflar stüdyo kalitesinde.</p><ul><li>Arka plan temizleme</li><li>Menü fotoğraflarında tek tip görünüm</li><li>Çekim rehberi</li></ul></div>
-      <div class="h"><h3>Logo ve kurumsal kimlik</h3><p>Markanızın her yerde aynı ve güçlü görünmesi.</p><ul><li>Logo, renk, yazı karakteri</li><li>Kartvizit ve kurumsal evrak</li><li>Kısa kimlik kılavuzu</li></ul></div>
-      <div class="h"><h3><a href="/hizmetler/tabela-branda-giydirme/">Baskı ve uygulama</a></h3><p>Brandadan mağaza giydirmeye, baskının her türü.</p><ul><li>Branda, tente, tabela</li><li>Mağaza ve cam giydirme, kaplama</li><li>UV baskı, menü, afiş, sticker</li></ul></div>
-      <div class="h"><h3>Web ve Google Haritalar</h3><p>"Yakınımdaki kafe" aramasında çıkmak.</p><ul><li>Tek sayfalık site ve QR menü</li><li>Google işletme profili düzeni</li><li>Yorum cevap metinleri</li></ul></div>
-      <div class="h"><h3><a href="/sektorler/kurumsal-b2b/">Kurumsal ve B2B</a></h3><p>Sanayi, üretim, ambalaj ve toplu yemek firmaları için.</p><ul><li>Firma tanıtım dosyası ve katalog</li><li>LinkedIn ve kurumsal sosyal medya</li><li>Fuar ve araç giydirme</li></ul></div>
-      <div class="h"><h3>İtibar ve yorum yönetimi</h3><p>Google ve Instagram'da sizin hakkınızda söylenenler.</p><ul><li>Olumsuz yorumlara doğru cevap</li><li>Yorum toplama sistemi</li><li>Kriz anında hızlı destek</li></ul></div>
-      <div class="h"><h3>Kampanya ve açılış</h3><p>Yeni şube, yeni ürün, sezon açılışı.</p><ul><li>Kampanya fikri ve sunumu</li><li>Dijital + basılı tüm parçalar</li><li>Yayın takvimi</li></ul></div>
-      <div class="h"><h3>Paket servis ve pazaryeri</h3><p>Yemeksepeti, Trendyol Yemek ve Getir'de vitrininiz, rakibinizin bir satır üstünde.</p><ul><li>Menü fotoğrafı, açıklama ve sıralama</li><li>Kombo ve kampanya kurgusu</li><li>Puan ve yorum takibi</li></ul></div>
-      <div class="h"><h3>WhatsApp ve müdavim sistemi</h3><p>Bir kez gelen müşteriyi müdavime çevirmek.</p><ul><li>WhatsApp Business ve katalog kurulumu</li><li>İzinli müşteri listesi (KVKK ve İYS uyumlu)</li><li>Dijital damga kartı, doğum günü mesajı</li></ul></div>
-      <div class="h"><h3>Yapay zekâ aramalarında görünürlük</h3><p>Müşteri ChatGPT'ye "Pendik'te gece açık kafe" diye sorduğunda adınız geçsin.</p><ul><li>Gemini, ChatGPT ve Google'da görünürlük kontrolü</li><li>İşletme bilgilerinin her yerde tutarlı olması</li><li>Sorulara cevap veren içerik</li></ul></div>
-      <div class="h"><h3><a href="/hizmetler/reklam-yonetimi/">Google, TikTok ve YouTube reklamları</a></h3><p>Arayan müşteriye arama anında, kaydıran müşteriye videoda ulaşmak.</p><ul><li>Google Arama ve Haritalar reklamları</li><li>TikTok ve YouTube video reklamları</li><li>Dönüşüm takibi ve tek rapor</li></ul></div>
-      <div class="h"><h3>Yapay zekâ asistanı</h3><p>Gece 3'te gelen "Açık mısınız?" mesajı da cevapsız kalmasın.</p><ul><li>Instagram ve WhatsApp otomatik cevapları</li><li>Fiyat, saat, menü, randevu soruları</li><li>Markanızın dilinde, sizin onayınızla</li></ul></div>
-      <div class="h"><h3>Etkinlik, aktivasyon ve PR</h3><p>Sokakta konuşulan, haberi yapılan işler.</p><ul><li>Açılış, tadım günü, sokak aktivasyonu</li><li>Influencer ve yerel sponsorluk</li><li>Basın bülteni ve yerel medya</li></ul></div>
+    <div class="hizmet kisa">
+      <a class="h h-one" href="/hizmetler/mobil-uygulama-web/"><h3>Mobil uygulama, web ve yazılım</h3><p>iOS ve Android uygulama, kurumsal site, e-ticaret, QR menü, sipariş ve randevu paneli. Uygulamayı da reklamını da aynı ekip yapıyor.</p></a>
+      <a class="h" href="/hizmetler/marka-danismanligi/"><h3>Marka danışmanlığı</h3><p>Konumlandırma, isim, slogan, fiyat algısı ve menü mühendisliği. Markanız bir cümlede ne söylüyor?</p></a>
+      <a class="h" href="/hizmetler/sosyal-medya-yonetimi/"><h3>Sosyal medya ve video</h3><p>Aylık içerik takvimi, post, story, Reels ve reklam filmi. Yorum ve mesaj cevapları dâhil.</p></a>
+      <a class="h" href="/hizmetler/reklam-yonetimi/"><h3>Reklam yönetimi</h3><p>Instagram, Facebook, Google, TikTok ve YouTube. Bütçe sizin hesabınızda, sonuç raporu her ay.</p></a>
+      <a class="h" href="/hizmetler/tabela-branda-giydirme/"><h3>Baskı ve uygulama</h3><p>Tabela, branda, mağaza ve cam giydirme, araç kaplama, UV baskı. Ekrandaki fikir sokağa çıkıyor.</p></a>
+      <a class="h" href="/sektorler/kafe-restoran/"><h3>Kafe ve restoran kurulumu</h3><p>Menü, reçete, tedarikçi seçimi ve barista eğitimi. Sadece reklamı değil, bardağın içini de kuruyoruz.</p></a>
+      <a class="h" href="/sektorler/kurumsal-b2b/"><h3>Kurumsal ve B2B</h3><p>Sanayi, ambalaj, toplu yemek: tanıtım dosyası, katalog, LinkedIn ve fuar.</p></a>
+      <a class="h" href="/hizmetler/"><h3>Google ve yapay zekâ aramaları</h3><p>Google Haritalar profili, yorum yönetimi ve ChatGPT, Gemini gibi araçlarda adınızın geçmesi.</p></a>
     </div>
     <details class="dizin">
       <summary><span>Tüm hizmet listesi</span><small>Aradığınız burada yoksa da sorun, büyük ihtimalle yapıyoruz.</small></summary>
@@ -856,76 +768,6 @@ details.mmenu[open]>summary{background:var(--sinyal);border-color:var(--sinyal);
     <div class="ic"><a class="btn btn-hat2 devam" href="/hizmetler/">Tüm hizmetler →</a></div>
   </section>
 
-  <section lang="tr" id="baski">
-    <div class="bas">
-      <div class="etiket">Baskı ve uygulama</div>
-      <h2>Ekranda kalmıyor, <i>sokağa çıkıyor.</i></h2>
-      <p>Tasarladığımız kimliği mekânınıza, aracınıza ve ürününüze kendimiz basıp uyguluyoruz. Tek muhatap, tek renk, tek dil.</p>
-    </div>
-    <figure class="vitrin"><img src="is/vitrin.jpg" alt="Keyfhane için örnek dükkân giydirmesi: tabela, branda tente, cam giydirme ve folyo bant" width="1600" height="1000" loading="lazy"><figcaption>Örnek uygulama: Keyfhane için tabela, branda tente, cam giydirme ve folyo bant. Postlardaki fikir vitrinde devam ediyor.</figcaption></figure>
-    <div class="bliste">
-      <div><h3>Branda ve tente</h3><p>Dış cephe brandası, tente, inşaat ve iskele brandası, etkinlik brandası.</p></div>
-      <div><h3>Mağaza giydirme</h3><p>Vitrin, iç mekân duvarları, kolon, tezgâh ve raf giydirme.</p></div>
-      <div><h3>Cam giydirme</h3><p>Folyo, buzlu cam efekti, delikli (one way) folyo, kesim yazı.</p></div>
-      <div><h3>Kaplama ve sıvama</h3><p>Araç kaplama, mobilya ve yüzey kaplama, folyo sıvama.</p></div>
-      <div><h3>Tabela</h3><p>Işıklı ve ışıksız tabela, kutu harf, yönlendirme levhaları.</p></div>
-      <div><h3>UV baskı</h3><p>Akrilik, ahşap, cam ve metal üzerine baskı. Masa numarası, plaket, QR standı.</p></div>
-      <div><h3>Promosyon ve basılı</h3><p>Menü, afiş, broşür, katalog, kartvizit, sticker ve etiket.</p></div>
-      <div><h3>Fuar ve etkinlik</h3><p>Roll-up, X banner, fuar standı görselleri, karşılama panoları.</p></div>
-    </div>
-  </section>
-
-  <section lang="tr" id="yazilim">
-    <div class="yz">
-      <div>
-        <div class="etiket">Uygulama ve yazılım stüdyosu</div>
-        <h2>Markanız artık <i>müşterinizin cebinde.</i></h2>
-        <p class="giris">Mobil uygulama, web sitesi, e-ticaret ve işinize özel yazılım. Fikri, tasarımı, kodu ve mağazaya yükleme işini aynı ekip yapıyor. Kendi uygulamalarımızı da geliştiriyoruz; müşterilerimize sattığımız şeyi önce kendimiz deniyoruz.</p>
-        <div class="adim">
-          <div><b>Fikir</b>Ne çözecek, kim kullanacak?</div>
-          <div><b>Tasarım</b>Ekranlar ve tıklanabilir taslak</div>
-          <div><b>Geliştirme</b>iOS, Android ve web</div>
-          <div><b>Yayın ve bakım</b>App Store, Google Play, güncelleme</div>
-        </div>
-      </div>
-      <div class="telefonlar" aria-hidden="true">
-        <div class="tf"><div class="ek">
-          <small>Sadakat kartı</small><h4>10. kahve bizden</h4>
-          <div class="damgalar"><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i></i><i></i><i></i></div>
-          <div class="not">3 damga kaldı. Bu hafta gel, ikram bizden.</div>
-          <div class="sat"><div><em>Son ziyaret</em><b>Salı, 19.40</b></div></div>
-        </div></div>
-        <div class="tf"><div class="ek">
-          <small>Sipariş</small><h4>Masa 7 · menü</h4>
-          <div class="sat"><div><b>Türk kahvesi</b><em>Közde, lokumla</em></div><span class="bt">Ekle</span></div>
-          <div class="sat"><div><b>Cold brew</b><em>18 saat demlenmiş</em></div><span class="bt">Ekle</span></div>
-          <div class="sat"><div><b>San Sebastian</b><em>Dilim</em></div><span class="bt">Ekle</span></div>
-          <div class="sat"><div><b>Demli çay</b><em>İnce belli</em></div><span class="bt k">Eklendi</span></div>
-          <div class="alt"><span>Sepet · 2 ürün</span><span>Gönder →</span></div>
-        </div></div>
-        <div class="tf"><div class="ek">
-          <small>Randevu</small><h4>Uygun saatler</h4>
-          <div class="gun"><span>Pzt</span><span class="s">Sal</span><span>Çar</span></div>
-          <div class="sat"><b>10.30</b><span class="bt">Seç</span></div>
-          <div class="sat"><b>13.00</b><span class="bt k">Dolu</span></div>
-          <div class="sat"><b>15.30</b><span class="bt">Seç</span></div>
-          <div class="sat"><b>17.00</b><span class="bt">Seç</span></div>
-        </div></div>
-      </div>
-    </div>
-    <div class="yzliste">
-      <div><h3>Mobil uygulama</h3><p>iOS ve Android. Sipariş, sadakat kartı, randevu, rezervasyon ve üyelik uygulamaları. App Store ve Google Play yayını dâhil.</p></div>
-      <div><h3>Web sitesi</h3><p>Kurumsal site, tek sayfalık tanıtım, çok dilli site. Hızlı, telefonda kusursuz, Google'da bulunur.</p></div>
-      <div><h3>E-ticaret</h3><p>Online mağaza, ödeme ve kargo bağlantıları, stok ve sipariş yönetimi.</p></div>
-      <div><h3>Web uygulaması ve panel</h3><p>Rezervasyon, sipariş takip, bayi ve müşteri paneli. Excel'de yürüyen işi tek ekrana taşıyoruz.</p></div>
-      <div><h3>Akıllı asistan ve otomasyon</h3><p>WhatsApp ve Instagram'da otomatik cevap, teklif ve randevu akışları; tekrar eden işleri kendiliğinden yürüyen sistemlere çeviriyoruz.</p></div>
-      <div><h3>Oyun ve kampanya uygulaması</h3><p>Markalı mini oyunlar, çarkıfelek ve kazı kazan kampanyaları, mobil oyun geliştirme.</p></div>
-      <div><h3>Yayın, bakım ve büyüme</h3><p>Güncellemeler, hata takibi, mağaza sayfası ve yorum yönetimi, kullanıcı sayısını artıran kampanyalar.</p></div>
-      <div><h3>Fikrinizi ürüne çevirme</h3><p>“Şöyle bir uygulama olsa” diyorsanız: fikri netleştirir, ilk sürümü çıkarır, satılabilir ürüne dönüştürürüz.</p></div>
-    </div>
-    <div class="yzson"><p><b>Uygulamayı da reklamını da aynı ekip yapınca</b> ürün daha ilk günden konuşulur: mağaza görselleri, tanıtım videosu ve lansman reklamı aynı elden çıkar.</p><a class="btn btn-kobalt" href="/teklif/">Uygulama fikrimi anlatayım</a></div>
-  </section>
-
   <section lang="tr" id="fikir-makinesi">
     <div class="bas">
       <div class="etiket">Fikir makinesi</div>
@@ -941,38 +783,7 @@ details.mmenu[open]>summary{background:var(--sinyal);border-color:var(--sinyal);
         <div class="fm-alt"><button class="btn btn-sinyal" type="button" id="fm-yeni">Başka fikir</button><a class="btn btn-hat2" href="/teklif/">Bana özel fikir ve teklif</a></div>
       </div>
     </div>
-  </section>
-
-  <section lang="tr" id="kontrol">
-    <div class="bas">
-      <div class="etiket">Ücretsiz kontrol</div>
-      <h2>Instagram'ınız <i>kaç puan?</i></h2>
-      <p>8 soruya evet ya da hayır deyin, 1 dakika sürer. Sonunda puanınız ve önce düzeltmeniz gereken 3 şey çıkar.</p>
-    </div>
-    <div class="kt">
-      <ol class="kt-liste" id="kt-liste"></ol>
-      <div class="kt-sonuc" id="kt-sonuc" aria-live="polite">
-        <div class="kt-puan"><span id="kt-puan">0</span><small>/ 8</small></div>
-        <p class="kt-durum" id="kt-durum">Soruları cevapladıkça puanınız burada çıkar.</p>
-        <div id="kt-oneri"></div>
-        <a class="btn btn-sinyal" href="/teklif/" id="kt-cta" hidden>Bunları sizin için düzeltelim</a>
-      </div>
-    </div>
-  </section>
-
-  <section lang="tr" id="sozumuz">
-    <div class="bas">
-      <div class="etiket">Sözümüz</div>
-      <h2>Bizimle çalışırken <i>içiniz rahat.</i></h2>
-    </div>
-    <div class="soz">
-      <div><h3>Onaysız hiçbir şey yayınlanmaz</h3><p>Her post, her reklam önce size gelir. "Tamam" demeden paylaşılmaz.</p></div>
-      <div><h3>Şifrenizi istemeyiz</h3><p>Meta'da bizi iş ortağı olarak eklersiniz. Hesabınız her zaman sizde kalır.</p></div>
-      <div><h3>Reklam parası sizin hesabınızda</h3><p>Bütçe doğrudan sizin reklam hesabınızdan harcanır, kuruşu kuruşuna görürsünüz.</p></div>
-      <div><h3>Rakibinize aynı fikri vermeyiz</h3><p>Size yaptığımız fikir sizindir. Aynı bölgede rakibinize tekrarlamayız.</p></div>
-      <div><h3>Bilgi uydurmayız</h3><p>Fiyat, saat, adres, rakam: hepsi sizden gelir ve harf harf kontrol edilir.</p></div>
-      <div><h3>Her ay şeffaf rapor</h3><p>Ne yaptık, kaç kişiye ulaştık, gelecek ay neyi daha iyi yapacağız.</p></div>
-    </div>
+    <a class="kt-serit" href="/instagram-kontrolu/"><span><b>Instagram'ınız kaç puan?</b> 8 soru, 1 dakika. Önce düzeltmeniz gereken 3 şey çıkar.</span><span class="btn btn-sinyal">Kontrolü başlat</span></a>
   </section>
 
   <section lang="tr" id="paketler">
@@ -990,7 +801,7 @@ details.mmenu[open]>summary{background:var(--sinyal);border-color:var(--sinyal);
     <div class="ic"><a class="btn btn-hat2 devam" href="/paketler/">Paketlerin tamamı →</a></div>
   </section>
 
-  <section>
+  <section lang="tr" id="calisma">
     <div class="bas">
       <div class="etiket">Nasıl çalışıyoruz</div>
       <h2>Önce görün, <i>sonra</i> karar verin.</h2>
@@ -1001,29 +812,14 @@ details.mmenu[open]>summary{background:var(--sinyal);border-color:var(--sinyal);
       <div class="adim"><i>3</i><h3>Aylık plan</h3><p>Ay başında takvim ve fikirler gelir. Onayladıklarınızı üretiriz, onaysız hiçbir şey yayınlanmaz.</p></div>
       <div class="adim"><i>4</i><h3>Aylık rapor</h3><p>Ne paylaştık, kaç kişiye ulaştık, gelecek ay neyi daha iyi yapacağız.</p></div>
     </div>
-  </section>
-
-  <section lang="tr" id="notlar">
-    <div class="bas">
-      <div class="etiket">Velvele notları · Ekim 2026</div>
-      <h2>Bu yıl ne değişti, <i>biz ne yapıyoruz.</i></h2>
-      <p>Platformlar her ay kural değiştiriyor. Takip etmek bizim işimiz. İşte 2026'da işletmenizi doğrudan etkileyen dört değişiklik.</p>
+    <div class="soz">
+      <div><h3>Onaysız hiçbir şey yayınlanmaz</h3><p>Her post, her reklam önce size gelir. "Tamam" demeden paylaşılmaz.</p></div>
+      <div><h3>Şifrenizi istemeyiz</h3><p>Meta'da bizi iş ortağı olarak eklersiniz. Hesabınız her zaman sizde kalır.</p></div>
+      <div><h3>Reklam parası sizin hesabınızda</h3><p>Bütçe doğrudan sizin reklam hesabınızdan harcanır, kuruşu kuruşuna görürsünüz.</p></div>
+      <div><h3>Rakibinize aynı fikri vermeyiz</h3><p>Size yaptığımız fikir sizindir. Aynı bölgede rakibinize tekrarlamayız.</p></div>
+      <div><h3>Bilgi uydurmayız</h3><p>Fiyat, saat, adres, rakam: hepsi sizden gelir ve harf harf kontrol edilir.</p></div>
+      <div><h3>Her ay şeffaf rapor</h3><p>Ne yaptık, kaç kişiye ulaştık, gelecek ay neyi daha iyi yapacağız.</p></div>
     </div>
-    <div class="notlar">
-      <article class="not-k"><span class="not-no">01</span><h3>Instagram artık "beğeni" değil "gönderilme" sayıyor</h3>
-        <p>Instagram'ın başındaki Adam Mosseri'nin açıklamalarına göre sıralamada en güçlü sinyaller izlenme süresi, tekrar izlenme ve gönderinin DM ile birine gönderilmesi. Özgün içerik, başkasından alınan içerikten daha geniş kitleye gösteriliyor. Kusursuz ve parlak görüntü yerine gerçek görünen içerik öne çıkıyor.</p>
-        <p class="not-biz"><b>Biz ne yapıyoruz:</b> Her işi "Biri bunu arkadaşına atar mı?" sorusuyla test ediyoruz. Atmıyorsa yayına çıkmıyor.</p></article>
-      <article class="not-k"><span class="not-no">02</span><h3>Meta reklam görselinizi artık kendisi değiştirebiliyor</h3>
-        <p>Meta'nın yapay zekâ araçları reklamdaki metni yeniden yazabiliyor, görsel varyantları üretebiliyor. Benzer görseller tek görsel sayılıyor, reklam setleri yaratıcı çeşitliliğe göre puanlanıyor.</p>
-        <p class="not-biz"><b>Biz ne yapıyoruz:</b> Her kampanyaya birbirinden gerçekten farklı en az üç format hazırlıyoruz. Markanızın asla değiştirilmemesi gereken kelimelerini ayarlarda kilitliyoruz ki yapay zekâ sizin adınıza konuşmasın.</p></article>
-      <article class="not-k"><span class="not-no">03</span><h3>İnsanlar Google'dan önce Instagram'da arıyor</h3>
-        <p>"Yakınımda kafe", "Kartal döner" gibi aramalar artık sosyal medyada da yapılıyor. Türkiye'de en çok kullanılan platform Instagram. Postun açıklaması, kapak yazısı ve Google Haritalar profiliniz, bulunup bulunmamanızı belirliyor.</p>
-        <p class="not-biz"><b>Biz ne yapıyoruz:</b> Her paylaşımın metnini semt ve ürün kelimeleriyle yazıyor, Google profilinizi aynı dille güncel tutuyoruz.</p></article>
-      <article class="not-k"><span class="not-no">04</span><h3>Müşteri artık yapay zekâya soruyor</h3>
-        <p>"Tuzla'da ofise yemek veren firma", "Kartal'da gece açık dönerci" gibi soruları insanlar artık ChatGPT'ye ve Gemini'ye de soruyor. Bu araçlar bir cevapta yalnızca birkaç işletmenin adını veriyor. Adınız geçmiyorsa o müşteri için yoksunuz.</p>
-        <p class="not-biz"><b>Biz ne yapıyoruz:</b> Markanızı yapay zekâ araçlarında arıyor, çıkmadığınız soruları buluyoruz. Adres, saat ve menü bilgilerinizi her yerde aynı yapıyor, yorumlarınızı ve sorulara cevap veren içeriklerinizi büyütüyoruz.</p></article>
-    </div>
-    <div class="ic"><a class="btn btn-hat2 devam" href="/notlar/">Tüm notlar →</a></div>
   </section>
 
   <section lang="tr" id="sss">
@@ -1033,17 +829,16 @@ details.mmenu[open]>summary{background:var(--sinyal);border-color:var(--sinyal);
     </div>
     <div class="sss">
       <details><summary>Ne ücretsiz, ne ücretli?</summary><p>İlk görüşme, size özel fikir taslağı ve Instagram kontrolü ücretsizdir. Tasarım, video, reklam yönetimi, baskı ve uygulama paketler ya da tek seferlik teklifle ücretlendirilir.</p></details>
-      <details><summary>Ödeme nasıl oluyor?</summary><p>Aylık paketlerde ödeme her ayın başında peşin yapılır. Tek seferlik işlerde yarısı başlarken, yarısı teslimde ödenir. Baskı ve uygulama işlerinde malzeme bedeli onaydan sonra alınır.</p></details>
       <details><summary>Fiyatlarınız ne kadar?</summary><p>İşletmenin büyüklüğüne ve aylık iş miktarına göre değişiyor. Brif formunu doldurduktan sonraki görüşmede size net bir teklif sunuyoruz.</p></details>
       <details><summary>Reklam bütçesi pakete dâhil mi?</summary><p>Hayır. Reklam bütçesi doğrudan sizin Meta reklam hesabınızdan ödenir, kontrol tamamen sizdedir. Biz reklamı kurar, yönetir ve raporlarız.</p></details>
       <details><summary>Hesap şifremi vermem gerekiyor mu?</summary><p>Hayır. Meta Business Suite'te bizi iş ortağı olarak eklemeniz yeterli. Şifreniz sizde kalır, erişimi istediğiniz an kaldırabilirsiniz.</p></details>
-      <details><summary>Kaç kez değişiklik isteyebilirim?</summary><p>Her iş için iki tur değişiklik pakete dâhildir. Fikir baştan değişecekse birlikte yeni bir yön belirleriz.</p></details>
-      <details><summary>Marka danışmanlığı ne işe yarar?</summary><p>Post, logo ya da tabela yapmadan önce markanın ne söylediğini netleştiririz: kime hitap ediyorsunuz, rakiplerden farkınız ne, fiyatınız nasıl algılanıyor, bir cümlede neyi temsil ediyorsunuz. Yeni açılan, şube açmaya hazırlanan ya da "bizi kimse fark etmiyor" diyen işletmeler için ilk adımdır. Sonunda elinizde markanızın yazılı bir rehberi olur.</p></details>
-      <details><summary>Baskı ve uygulamayı da siz mi yapıyorsunuz?</summary><p>Evet. Tasarımı yapan ekip baskıyı ve uygulamayı da üstleniyor: branda, tabela, mağaza ve cam giydirme, kaplama, UV baskı. Ölçü ve keşif için mekânınızı görmemiz gerekiyorsa randevulaşıyoruz.</p></details>
       <details><summary>Sözleşme süresi var mı?</summary><p>Aylık paketlerde önerimiz en az üç aydır, çünkü sosyal medyada sonuç düzenlilikle gelir. Detayları teklifle birlikte konuşuruz.</p></details>
     </div>
     <div class="ic"><a class="btn btn-hat2 devam" href="/sss/">Tüm sorular →</a></div>
   </section>
+
+</div>
+
 </main>
 
 <div class="ornek" id="ornek">
@@ -1104,8 +899,8 @@ details.mmenu[open]>summary{background:var(--sinyal);border-color:var(--sinyal);
 <div><h4>İşler</h4><ul><li><a href="/isler/kids-n-move/">Kids&#x27;n Move</a></li><li><a href="/isler/tiesto-coffee/">Tiesto Coffee</a></li><li><a href="/isler/ms-neilos/">Ms.Neilos Coffees</a></li><li><a href="/isler/demlesene/">Demlesene</a></li><li><a href="/isler/tomara-catering/">Tomara Catering</a></li><li><a href="/isler/alex-gece-donercisi/">Alex Gece Dönercisi</a></li><li><a href="/isler/umran-oto-ekspertiz/">Umran Oto Ekspertiz</a></li><li><a href="/isler/otomer/">Otomer Galericiler Sitesi</a></li><li><a href="/isler/">Tüm işler</a></li></ul></div>
 </div><div class="dip"><span>© 2026 Velvele Kreatif · İstanbul · <a href="/kvkk/">KVKK aydınlatma metni</a></span><span>Sosyal medya · Reklam · Video · Tasarım · Baskı · Uygulama</span></div></div></footer>
 
-<dialog id="buyut"><button class="kapat" type="button" id="kapat">Kapat ✕</button><img id="buyut-img" alt=""><p class="alt" id="buyut-alt"></p></dialog>
 
+<script>(()=>{const fl=[...document.querySelectorAll('.film')];fl.forEach(f=>{const b=f.querySelector('.film-ekran'),v=f.querySelector('video');b.addEventListener('click',()=>{if(v.paused){fl.forEach(o=>{if(o!==f){const ov=o.querySelector('video');ov.pause();o.classList.remove('oynuyor')}});v.muted=false;v.play();f.classList.add('oynuyor')}else{v.pause();f.classList.remove('oynuyor')}});v.addEventListener('ended',()=>{f.classList.remove('oynuyor');v.currentTime=0;v.load()})})})();</script>
 <script src="/assets/ana.js" defer></script>
 <script src="/assets/form.js" defer></script>
 <script data-goatcounter="https://velvelekreatif.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
