@@ -584,6 +584,48 @@ a.h.h-one h3::after{color:var(--sinyal)}
   .fm-sek button{flex:0 0 auto}
 }
 </style>
+<style>
+/* 2026-10 ikinci kısaltma */
+.dene{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media (max-width:700px){.dene{grid-template-columns:1fr;gap:10px}}
+.dene-k{display:grid;gap:8px;padding:28px;border-radius:18px;background:var(--fg);color:var(--bg);text-decoration:none;position:relative;overflow:hidden}
+.dene-k .etiket{color:var(--sinyal)}
+.dene-k b{font:800 clamp(24px,3vw,34px)/1.05 var(--display);letter-spacing:-.03em}
+.dene-k b i{font-family:var(--serif);font-weight:400}
+.dene-k span:not(.etiket):not(.ok){opacity:.8;font-size:15.5px}
+.dene-k .ok{font-weight:600;color:var(--sinyal)}
+.dene-k .ok::after{content:" →"}
+.soz-bas{margin:44px 0 16px;font-size:24px;font-weight:800}
+.soz div{background:var(--surface);border:1px solid var(--line)}
+@media (max-width:700px){
+  .markalar ul{flex-wrap:nowrap;overflow-x:auto;white-space:nowrap;scrollbar-width:none;margin-inline:-20px;padding-inline:20px;font-size:17px}
+  .markalar ul::-webkit-scrollbar{display:none}
+  .markalar .ic{gap:10px;padding-block:18px}
+  .yan .sutun:not(.v),.yan .not,.yan .sutun.v+.sutun.v{display:none}
+  #vakalar .bas p,#paketler .bas p,#fark .bas p{display:none}
+  .tf-kartlar{grid-template-columns:1fr 1fr!important;gap:8px!important}
+  .tf-kart small{display:none}
+  .alt-bilgi .kol{grid-template-columns:1fr 1fr!important;gap:24px 16px!important}
+  .alt-bilgi .kol>div:first-child{grid-column:1/-1}
+  .alt-bilgi .kol>div:nth-child(3){display:none}
+  .dizin summary{padding:16px 18px}
+  .kars{gap:22px}
+  .vk-izgara{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;margin-inline:-20px;padding:0 20px 6px;scrollbar-width:none}
+  .vk-izgara::-webkit-scrollbar{display:none}
+  .vk-izgara .isk{flex:0 0 62vw;scroll-snap-align:start}
+  .hizmet.kisa{grid-template-columns:1fr 1fr;gap:8px}
+  .hizmet.kisa .h{padding:16px 14px}
+  .hizmet.kisa .h h3{font-size:16.5px}
+  .hizmet.kisa .h p{display:none}
+  .hizmet.kisa .h-one{grid-column:1/-1}
+  .hizmet.kisa .h-one p{display:block;font-size:14px}
+  .dizin summary small{display:none}
+  .soz-bas{font-size:20px;margin-top:32px}
+  .ornek .sol ul,.ornek .sol>p{display:none}
+  .ornek .ic{gap:26px}
+  .film figcaption span:last-child{display:none}
+}
+</style>
 </head>
 <body>
 
@@ -704,32 +746,6 @@ a.h.h-one h3::after{color:var(--sinyal)}
     <div class="ic"><a class="btn btn-hat2 devam" href="/isler/">Tüm işler, filmler ve baskı uygulamaları →</a></div>
   </section>
 
-  <section lang="tr" id="biz">
-    <div class="sozluk">
-      <div class="sz-sol">
-        <div class="etiket" style="color:var(--muted)">Biz kimiz</div>
-        <p class="sz-kelime">vel·ve·le</p>
-        <p class="sz-tur"><i>isim</i> · Arapça kökenli</p>
-        <ol class="sz-anlam">
-          <li>Kalabalık sesi, yaygara, gürültü. <span>Sözlükte bir de "gereksiz telaş" anlamı var.</span></li>
-          <li><b>Velvele Kreatif'te:</b> Bir işletmenin adının mahallede, Instagram akışında ve sokakta konuşulur hale gelmesi. <span>Gereksizi yok, hepsi yerinde.</span></li>
-        </ol>
-      </div>
-      <div class="sz-sag">
-        <h2>Gürültüyü <i>biz yaparız,</i> konuşulan siz olursunuz.</h2>
-        <p>Bugün herkes paylaşım yapıyor ama çok azı fark ediliyor. Akışta bir saniyeden az kalıyorsunuz. O bir saniyede insanı durduracak bir fikir yoksa, en güzel fotoğraf bile kaydırılıp geçiliyor.</p>
-        <p>Velvele'yi bunun için kurduk. Önce işletmenizi tanıyoruz: semtinizi, müdavimlerinizi, yorumlarda sizi neden övdüklerini. Fikri oradan çıkarıyoruz. Sonra o fikri Instagram'dan tabelanıza, brandanızdan paket poşetinize kadar aynı dille taşıyoruz.</p>
-        <p><b>Kreatif</b> kısmı da tam burası: Rakibinizin aynısını yapamayacağı, size ait bir fikir. Kopyası olmayan iş.</p>
-        <ul class="sz-deger">
-          <li><b>Mahalleyi biliriz.</b> Fikir masa başında değil, işletmenizin gerçeğinden çıkar.</li>
-          <li><b>Klişe kullanmayız.</b> "Lezzetin adresi", "Kaçırma!", "Sizi bekliyoruz" bizde yasak.</li>
-          <li><b>Ekrandan sokağa.</b> Tasarım, video, reklam, baskı ve uygulama aynı ekipte.</li>
-        </ul>
-      </div>
-    </div>
-    <div class="ic"><a class="btn btn-hat2 devam" href="/hakkimizda/">Bizi daha yakından tanıyın →</a></div>
-  </section>
-
   <section lang="tr" id="hizmetler">
     <div class="bas">
       <div class="etiket">Hizmetler</div>
@@ -768,22 +784,9 @@ a.h.h-one h3::after{color:var(--sinyal)}
     <div class="ic"><a class="btn btn-hat2 devam" href="/hizmetler/">Tüm hizmetler →</a></div>
   </section>
 
-  <section lang="tr" id="fikir-makinesi">
-    <div class="bas">
-      <div class="etiket">Fikir makinesi</div>
-      <h2>Sektörünüzü seçin, <i>fikir alın.</i></h2>
-      <p>Nasıl düşündüğümüzü görün. Her tıklamada yeni bir fikir. Bunlar herkese açık başlangıçlar; asıl fikirleri işletmenize özel üretiyoruz.</p>
-    </div>
-    <div class="fm">
-      <div class="fm-sek" role="group" aria-label="Sektör seçin" id="fm-sek"></div>
-      <div class="fm-kart" aria-live="polite">
-        <span class="fm-no" id="fm-no">01</span>
-        <h3 id="fm-baslik">Sektörünüzü seçin</h3>
-        <p id="fm-metin">Kafeden kliniğe, galeriden fabrikaya, kuyumcudan yazılım şirketine. 19 sektör, 76 fikir. Seçin, ilk fikir gelsin.</p>
-        <div class="fm-alt"><button class="btn btn-sinyal" type="button" id="fm-yeni">Başka fikir</button><a class="btn btn-hat2" href="/teklif/">Bana özel fikir ve teklif</a></div>
-      </div>
-    </div>
-    <a class="kt-serit" href="/instagram-kontrolu/"><span><b>Instagram'ınız kaç puan?</b> 8 soru, 1 dakika. Önce düzeltmeniz gereken 3 şey çıkar.</span><span class="btn btn-sinyal">Kontrolü başlat</span></a>
+  <section lang="tr" id="dene" class="dene">
+    <a class="dene-k" href="/fikir-makinesi/"><span class="etiket">Fikir makinesi</span><b>Sektörünüzü seçin, <i>fikir alın.</i></b><span>19 sektör, 76 fikir. Nasıl düşündüğümüzü görün.</span><span class="ok">Fikir al</span></a>
+    <a class="dene-k" href="/instagram-kontrolu/"><span class="etiket">Ücretsiz kontrol</span><b>Instagram'ınız <i>kaç puan?</i></b><span>8 soru, 1 dakika. Önce düzeltmeniz gereken 3 şey çıkar.</span><span class="ok">Kontrolü başlat</span></a>
   </section>
 
   <section lang="tr" id="paketler">
@@ -798,20 +801,7 @@ a.h.h-one h3::after{color:var(--sinyal)}
       <div class="p"><div class="ad">Tam hizmet</div><div class="kim">Reklamla müşteri getirmek isteyenler</div><ul><li>Büyüme paketindeki her şey</li><li>Meta reklam yönetimi</li><li>Aylık sonuç raporu</li><li>Google Haritalar profili</li></ul><a class="btn" href="/teklif/">Teklif al</a></div>
       <div class="p"><div class="ad">Basılı + dijital</div><div class="kim">Açılış ya da yenilenme yapan mekânlar</div><ul><li>Logo ve kimlik</li><li>Tabela, branda, vitrin giydirme</li><li>Menü, masa QR'ı, basılılar</li><li>Açılış kampanyası</li></ul><a class="btn" href="/teklif/">Teklif al</a></div>
     </div>
-    <div class="ic"><a class="btn btn-hat2 devam" href="/paketler/">Paketlerin tamamı →</a></div>
-  </section>
-
-  <section lang="tr" id="calisma">
-    <div class="bas">
-      <div class="etiket">Nasıl çalışıyoruz</div>
-      <h2>Önce görün, <i>sonra</i> karar verin.</h2>
-    </div>
-    <div class="surec">
-      <div class="adim"><i>1</i><h3>Brif ve görüşme</h3><p>Brif formunu doldurursunuz. Sizi tanıyan kısa bir görüşmede fikir taslağımızı ve net teklifimizi sunarız.</p></div>
-      <div class="adim"><i>2</i><h3>Anlaşma</h3><p>Paket ve kapsam netleşir, sözleşme imzalanır. Sürpriz ücret yoktur.</p></div>
-      <div class="adim"><i>3</i><h3>Aylık plan</h3><p>Ay başında takvim ve fikirler gelir. Onayladıklarınızı üretiriz, onaysız hiçbir şey yayınlanmaz.</p></div>
-      <div class="adim"><i>4</i><h3>Aylık rapor</h3><p>Ne paylaştık, kaç kişiye ulaştık, gelecek ay neyi daha iyi yapacağız.</p></div>
-    </div>
+    <h3 class="soz-bas">Bizimle çalışırken içiniz rahat.</h3>
     <div class="soz">
       <div><h3>Onaysız hiçbir şey yayınlanmaz</h3><p>Her post, her reklam önce size gelir. "Tamam" demeden paylaşılmaz.</p></div>
       <div><h3>Şifrenizi istemeyiz</h3><p>Meta'da bizi iş ortağı olarak eklersiniz. Hesabınız her zaman sizde kalır.</p></div>
@@ -820,21 +810,7 @@ a.h.h-one h3::after{color:var(--sinyal)}
       <div><h3>Bilgi uydurmayız</h3><p>Fiyat, saat, adres, rakam: hepsi sizden gelir ve harf harf kontrol edilir.</p></div>
       <div><h3>Her ay şeffaf rapor</h3><p>Ne yaptık, kaç kişiye ulaştık, gelecek ay neyi daha iyi yapacağız.</p></div>
     </div>
-  </section>
-
-  <section lang="tr" id="sss">
-    <div class="bas">
-      <div class="etiket">Sık sorulanlar</div>
-      <h2>Aklınıza takılanlar.</h2>
-    </div>
-    <div class="sss">
-      <details><summary>Ne ücretsiz, ne ücretli?</summary><p>İlk görüşme, size özel fikir taslağı ve Instagram kontrolü ücretsizdir. Tasarım, video, reklam yönetimi, baskı ve uygulama paketler ya da tek seferlik teklifle ücretlendirilir.</p></details>
-      <details><summary>Fiyatlarınız ne kadar?</summary><p>İşletmenin büyüklüğüne ve aylık iş miktarına göre değişiyor. Brif formunu doldurduktan sonraki görüşmede size net bir teklif sunuyoruz.</p></details>
-      <details><summary>Reklam bütçesi pakete dâhil mi?</summary><p>Hayır. Reklam bütçesi doğrudan sizin Meta reklam hesabınızdan ödenir, kontrol tamamen sizdedir. Biz reklamı kurar, yönetir ve raporlarız.</p></details>
-      <details><summary>Hesap şifremi vermem gerekiyor mu?</summary><p>Hayır. Meta Business Suite'te bizi iş ortağı olarak eklemeniz yeterli. Şifreniz sizde kalır, erişimi istediğiniz an kaldırabilirsiniz.</p></details>
-      <details><summary>Sözleşme süresi var mı?</summary><p>Aylık paketlerde önerimiz en az üç aydır, çünkü sosyal medyada sonuç düzenlilikle gelir. Detayları teklifle birlikte konuşuruz.</p></details>
-    </div>
-    <div class="ic"><a class="btn btn-hat2 devam" href="/sss/">Tüm sorular →</a></div>
+    <div class="ic"><a class="btn btn-hat2 devam" href="/paketler/">Paketler ve çalışma şeklimiz →</a></div>
   </section>
 
 </div>
