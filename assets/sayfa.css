@@ -202,3 +202,8 @@ details.mmenu[open]>summary{background:var(--sinyal);border-color:var(--sinyal);
 .isk .tur.t{background:#FFC531;color:#16130A}
 .isk figcaption{display:grid;gap:6px}
 .kunye{margin-top:18px;font-size:13px;color:var(--muted)}
+.diger .k ul{margin:4px 0 0;padding:0 0 0 18px;color:var(--muted);font-size:14.5px;display:grid;gap:4px}
+.dizin-ic{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:0 28px;border-top:1px solid var(--line)}
+.dizin-ic>div{padding:20px 0;border-bottom:1px solid var(--line);display:grid;gap:6px;align-content:start}
+.dizin-ic h4{margin:0;font:800 18px/1.2 var(--display);letter-spacing:-.02em}
+.dizin-ic p{color:var(--muted);font-size:15px;line-height:1.55}
