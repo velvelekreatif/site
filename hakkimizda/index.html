@@ -242,6 +242,12 @@ footer{padding-block:40px;color:var(--muted);font-size:14px;display:flex;justify
 .not-k p{color:var(--muted);font-size:15.5px}
 .not-biz{border-top:1px solid var(--line);padding-top:14px;color:var(--fg)!important}
 /* SÖZLÜK */
+.kurucu{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:56px;align-items:center;margin-top:96px}
+@media (max-width:900px){.kurucu{grid-template-columns:1fr;gap:28px;margin-top:64px}}
+.kurucu figure{margin:0;border-radius:22px;overflow:hidden;aspect-ratio:4/5;background:var(--surface);border:1px solid var(--line)}
+.kurucu figure img{width:100%;height:100%;object-fit:cover;display:block}
+.kurucu blockquote{margin:16px 0 0;font:400 clamp(26px,3.2vw,38px)/1.25 var(--serif);letter-spacing:-.005em}
+.kurucu .imza{margin-top:22px;font:700 16px/1.3 var(--body)}.kurucu .imza span{display:block;font-weight:500;color:var(--muted);margin-top:4px}
 .sozluk{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:56px;align-items:start}
 @media (max-width:900px){.sozluk{grid-template-columns:1fr;gap:36px}}
 .sz-sol{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:34px 32px;display:grid;gap:12px;position:sticky;top:20px}
@@ -563,6 +569,14 @@ details.mmenu[open]>summary{background:var(--sinyal);border-color:var(--sinyal);
           <li><b>Ekrandan sokağa.</b> Tasarım, video, reklam, baskı ve uygulama aynı ekipte.</li>
         </ul>
       </div>
+    </div>
+  </section>
+  <section class="kurucu" aria-labelledby="k-b">
+    <figure><img src="/is/onur-celik.jpg" alt="Velvele Kreatif'in kurucusu Onur Çelik" width="960" height="1200" loading="lazy"></figure>
+    <div>
+      <div class="etiket" id="k-b">Kurucu</div>
+      <blockquote>“Ben Onur Çelik. Ailemin kafesinde, catering mutfağında, galericiler sitesinde, ambalaj deposunda; işin tam içinde büyüdüm. İyi iş yapan nice işletmenin, kendini anlatamadığı için görünmez kaldığını defalarca gördüm. Velvele’yi, iyi işin hak ettiği gürültüyü yapmak için kurdum.”</blockquote>
+      <p class="imza">Onur Çelik<span>Kurucu, Velvele Kreatif</span></p>
     </div>
   </section>
   <section>
