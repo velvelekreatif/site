@@ -520,9 +520,11 @@ details.mmenu[open]>summary{background:var(--sinyal);border-color:var(--sinyal);
 .tf-hat{display:flex;flex-direction:column;gap:10px;margin-top:28px}
 .tf-hat a{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 18px;border-radius:16px;border:1.5px solid rgba(255,255,255,.28);color:inherit;text-decoration:none}
 .tf-hat a:hover{background:rgba(255,255,255,.08)}
-.tf-hat span{font:600 13px/1 var(--body);letter-spacing:.14em;text-transform:uppercase;opacity:.75}
+.tf-hat span{white-space:nowrap;font:600 13px/1 var(--body);letter-spacing:.14em;text-transform:uppercase;opacity:.75}
 .tf-hat b{font:700 17px/1.2 var(--body)}
 .wa-yuz{position:fixed;right:max(16px,env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:30;display:flex;align-items:center;gap:10px;height:54px;padding:0 20px 0 16px;border-radius:999px;background:#16181D;color:#fff;font:700 15px/1 var(--body,system-ui);text-decoration:none;box-shadow:0 14px 34px rgba(10,12,30,.35)}
+@media (max-width:980px){.film-serit,.vk-izgara,.paket,.soz,.fm-sek{scroll-padding-inline:20px}}
+@media (max-width:860px){.wa-yuz{transition:opacity .25s ease,transform .25s ease}.wa-yuz.sakli{opacity:0;transform:translateY(20px);pointer-events:none}}
 .wa-yuz svg{width:22px;height:22px}
 .wa-yuz:hover{transform:translateY(-1px)}
 .yapiskan{right:calc(170px + env(safe-area-inset-right,0px))!important}
@@ -655,7 +657,7 @@ a.h.h-one h3::after{color:var(--sinyal)}
   </div>
 </div>
 
-<div class="markalar"><div class="ic"><span class="etiket">Birlikte çalıştığımız markalar</span><ul><li>Keyfhane</li><li>Ms.Neilos Coffees</li><li>Tiesto Coffee</li><li>Hacı Caferoğlu</li><li>Otomer</li><li>Uğur Hazır Yemek</li><li>Tomara Catering</li><li>Armet Ambalaj</li><li>Alex Gece Dönercisi</li><li>Kids'n Move</li><li>Umran Oto Ekspertiz</li><li>Demlesene</li></ul></div></div>
+<div class="markalar"><div class="ic"><span class="etiket">Birlikte çalıştığımız markalar</span><ul><li>Keyfhane</li><li><span lang="en">Ms.Neilos Coffees</span></li><li><span lang="en">Tiesto Coffee</span></li><li>Hacı Caferoğlu</li><li>Otomer</li><li>Uğur Hazır Yemek</li><li>Tomara Catering</li><li>Armet Ambalaj</li><li>Alex Gece Dönercisi</li><li>Kids'n Move</li><li>Umran Oto Ekspertiz</li><li>Demlesene</li></ul></div></div>
 <main>
 
 <section lang="tr" id="filmler" class="filmler">
@@ -688,7 +690,7 @@ a.h.h-one h3::after{color:var(--sinyal)}
           <span class="film-oynat" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"/></svg></span>
           <span class="film-sure">0:17</span>
         </button>
-        <figcaption><span class="etiket">Ms.Neilos Coffees · Reels</span><b>Planlı kahve kesintisi.</b><span>Herkesin tanıdığı kesinti bildirimi: 02.00 ile 09.00 arası kahve yok. Geri kalan 17 saat kesintisiz.</span></figcaption>
+        <figcaption><span class="etiket"><span lang="en">Ms.Neilos Coffees</span> · Reels</span><b>Planlı kahve kesintisi.</b><span>Herkesin tanıdığı kesinti bildirimi: 02.00 ile 09.00 arası kahve yok. Geri kalan 17 saat kesintisiz.</span></figcaption>
       </figure>
       <figure class="film">
         <button class="film-ekran" type="button" aria-label="Keyfhane Mesai bitti Reels videosunu oynat">
@@ -735,9 +737,9 @@ a.h.h-one h3::after{color:var(--sinyal)}
       <p>Önce markayı inceliyoruz: rengini, semtini, müşterisini, gününü. Sonra ondan başkasına ait olamayacak tek bir fikir kuruyoruz ve o fikri dükkândan pakete her yere taşıyoruz.</p>
     </div>
     <div class="vk-izgara"><a class="isk" href="/isler/kids-n-move/"><div class="kap"><img src="is/kidsnmove.jpg" alt="Kids&#x27;n Move sınıf fotoğrafı üzerinde okul öncesi karnesi tasarımı" width="880" height="1100" loading="lazy"></div>
-<div class="etiket">Kids&#x27;n Move · Kozyatağı</div><h3>Okula hazırlık, takla atarak.</h3><span class="ok">Vakayı aç</span></a><a class="isk" href="/isler/tiesto-coffee/"><div class="kap"><img src="is/tiesto.jpg" alt="Tiesto Coffee cephesi ve parmak izi tabelası önünde telefon galerisi tasarımı" width="880" height="1100" loading="lazy"></div>
-<div class="etiket">Tiesto Coffee · Beylikdüzü</div><h3>Galeride parmak izimiz var.</h3><span class="ok">Vakayı aç</span></a><a class="isk" href="/isler/ms-neilos/"><div class="kap"><img src="is/neilos.jpg" alt="Ms.Neilos buzlu latte fotoğrafının yanında müze etiketi tasarımı" width="880" height="1100" loading="lazy"></div>
-<div class="etiket">Ms.Neilos Coffees · Pendik</div><h3>Pendik&#x27;in kalıcı koleksiyonu.</h3><span class="ok">Vakayı aç</span></a><a class="isk" href="/isler/demlesene/"><div class="kap"><img src="is/demlesene.jpg" alt="Demlesene espresso paketleri polis teşhis sırasında" width="880" height="1100" loading="lazy"></div>
+<div class="etiket"><span lang="en">Kids&#x27;n Move</span> · Kozyatağı</div><h3>Okula hazırlık, takla atarak.</h3><span class="ok">Vakayı aç</span></a><a class="isk" href="/isler/tiesto-coffee/"><div class="kap"><img src="is/tiesto.jpg" alt="Tiesto Coffee cephesi ve parmak izi tabelası önünde telefon galerisi tasarımı" width="880" height="1100" loading="lazy"></div>
+<div class="etiket"><span lang="en">Tiesto Coffee</span> · Beylikdüzü</div><h3>Galeride parmak izimiz var.</h3><span class="ok">Vakayı aç</span></a><a class="isk" href="/isler/ms-neilos/"><div class="kap"><img src="is/neilos.jpg" alt="Ms.Neilos buzlu latte fotoğrafının yanında müze etiketi tasarımı" width="880" height="1100" loading="lazy"></div>
+<div class="etiket"><span lang="en">Ms.Neilos Coffees</span> · Pendik</div><h3>Pendik&#x27;in kalıcı koleksiyonu.</h3><span class="ok">Vakayı aç</span></a><a class="isk" href="/isler/demlesene/"><div class="kap"><img src="is/demlesene.jpg" alt="Demlesene espresso paketleri polis teşhis sırasında" width="880" height="1100" loading="lazy"></div>
 <div class="etiket">Demlesene · online nitelikli kahve</div><h3>Dün gece uykunu kaçıran hangisiydi?</h3><span class="ok">Vakayı aç</span></a><a class="isk" href="/isler/tomara-catering/"><div class="kap"><img src="is/tomara.jpg" alt="Tomara Catering yemek tepsisi üzerinde takvim daveti tasarımı" width="880" height="1100" loading="lazy"></div>
 <div class="etiket">Tomara Catering · Tuzla · 2015&#x27;ten beri kurumsal yemek</div><h3>Herkesin kabul ettiği tek toplantı.</h3><span class="ok">Vakayı aç</span></a><a class="isk" href="/isler/alex-gece-donercisi/"><div class="kap"><img src="is/alex.jpg" alt="Alex Gece Dönercisi dönerinin gece gökyüzünde dolunay gibi parladığı tasarım" width="880" height="1100" loading="lazy"></div>
 <div class="etiket">Alex Gece Dönercisi · Kartal</div><h3>Bu gece gökyüzünde dolunay var.</h3><span class="ok">Vakayı aç</span></a><a class="isk" href="/isler/umran-oto-ekspertiz/"><div class="kap"><img src="is/umran.jpg" alt="Umran Oto Ekspertiz atölyesinde usta, önünde ikinci el ilan açıklaması ve Bakalım damgası" width="880" height="1100" loading="lazy"></div>
@@ -835,7 +837,7 @@ a.h.h-one h3::after{color:var(--sinyal)}
 <p style="margin-top:16px;font-size:15px"><a href="mailto:merhaba@velvelekreatif.com">merhaba@velvelekreatif.com</a></p><p style="margin-top:8px;font-size:15px"><a href="https://wa.me/905454554129" target="_blank" rel="noopener">WhatsApp: 0545 455 41 29</a></p></div>
 <div><h4>Hizmetler</h4><ul><li><a href="/hizmetler/sosyal-medya-yonetimi/">Sosyal medya yönetimi</a></li><li><a href="/hizmetler/reklam-yonetimi/">Reklam yönetimi</a></li><li><a href="/hizmetler/tabela-branda-giydirme/">Tabela, branda ve giydirme</a></li><li><a href="/hizmetler/marka-danismanligi/">Marka danışmanlığı</a></li><li><a href="/hizmetler/mobil-uygulama-web/">Uygulama ve web</a></li><li><a href="/hizmetler/">Tüm hizmetler</a></li></ul></div>
 <div><h4>Sektörler</h4><ul><li><a href="/sektorler/kafe-restoran/">Kafe ve restoran</a></li><li><a href="/sektorler/kurumsal-b2b/">Kurumsal ve B2B</a></li><li>Otel, klinik, emlak, otomotiv</li><li>E-ticaret, eğitim, perakende</li><li><a href="/sektorler/">Tüm sektörler →</a></li></ul></div>
-<div><h4>İşler</h4><ul><li><a href="/isler/kids-n-move/">Kids&#x27;n Move</a></li><li><a href="/isler/tiesto-coffee/">Tiesto Coffee</a></li><li><a href="/isler/ms-neilos/">Ms.Neilos Coffees</a></li><li><a href="/isler/demlesene/">Demlesene</a></li><li><a href="/isler/tomara-catering/">Tomara Catering</a></li><li><a href="/isler/alex-gece-donercisi/">Alex Gece Dönercisi</a></li><li><a href="/isler/umran-oto-ekspertiz/">Umran Oto Ekspertiz</a></li><li><a href="/isler/otomer/">Otomer Galericiler Sitesi</a></li><li><a href="/isler/">Tüm işler</a></li></ul></div>
+<div><h4>İşler</h4><ul><li><a href="/isler/kids-n-move/"><span lang="en">Kids&#x27;n Move</span></a></li><li><a href="/isler/tiesto-coffee/"><span lang="en">Tiesto Coffee</span></a></li><li><a href="/isler/ms-neilos/"><span lang="en">Ms.Neilos Coffees</span></a></li><li><a href="/isler/demlesene/">Demlesene</a></li><li><a href="/isler/tomara-catering/">Tomara Catering</a></li><li><a href="/isler/alex-gece-donercisi/">Alex Gece Dönercisi</a></li><li><a href="/isler/umran-oto-ekspertiz/">Umran Oto Ekspertiz</a></li><li><a href="/isler/otomer/">Otomer Galericiler Sitesi</a></li><li><a href="/isler/">Tüm işler</a></li></ul></div>
 </div><div class="dip"><span>© 2026 Velvele Kreatif · İstanbul · <a href="/kvkk/">KVKK aydınlatma metni</a></span><span>Sosyal medya · Reklam · Video · Tasarım · Baskı · Uygulama</span></div></div></footer>
 
 
@@ -846,6 +848,6 @@ a.h.h-one h3::after{color:var(--sinyal)}
 <a class="wa-yuz" href="https://wa.me/905454554129?text=Merhaba%20Velvele%2C%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener" aria-label="WhatsApp'tan yazın: 0545 455 41 29"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 19z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1.2-1.4-2-1-1 .8a4 4 0 0 1-2.1-2.1l.8-1-1-2z"/></svg><span>WhatsApp</span></a>
 
 <script>document.querySelectorAll('.mmenu a').forEach(a=>a.addEventListener('click',()=>{a.closest('details').open=false}));document.addEventListener('click',e=>{document.querySelectorAll('details.mmenu[open]').forEach(d=>{if(!d.contains(e.target))d.open=false})});</script>
-<script>(()=>{const y=document.querySelector('.yapiskan'),b=document.querySelector('.bant'),f=document.getElementById('ornek');if(!y||!b)return;const g=()=>{const r=b.getBoundingClientRect(),fr=f?f.getBoundingClientRect():null;const formda=fr&&fr.top<innerHeight&&fr.bottom>0;y.classList.toggle('gor',r.bottom<0&&!formda)};addEventListener('scroll',g,{passive:true});g()})();</script>
+<script>(()=>{const y=document.querySelector('.yapiskan'),w=document.querySelector('.wa-yuz'),b=document.querySelector('.bant'),f=document.getElementById('ornek');if(!y||!b)return;const g=()=>{const r=b.getBoundingClientRect(),fr=f?f.getBoundingClientRect():null;const formda=fr&&fr.top<innerHeight&&fr.bottom>0;y.classList.toggle('gor',r.bottom<0&&!formda);if(w)w.classList.toggle('sakli',r.bottom>innerHeight*.35)};addEventListener('scroll',g,{passive:true});g()})();</script>
 </body>
 </html>
