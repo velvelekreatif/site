@@ -207,3 +207,5 @@ details.mmenu[open]>summary{background:var(--sinyal);border-color:var(--sinyal);
 .dizin-ic>div{padding:20px 0;border-bottom:1px solid var(--line);display:grid;gap:6px;align-content:start}
 .dizin-ic h4{margin:0;font:800 18px/1.2 var(--display);letter-spacing:-.02em}
 .dizin-ic p{color:var(--muted);font-size:15px;line-height:1.55}
+
+.kahraman h1 .anahtar{display:block;font:600 clamp(14px,1.3vw,16px)/1.35 var(--body);letter-spacing:.02em;opacity:.82;margin-bottom:18px;transform:none}
