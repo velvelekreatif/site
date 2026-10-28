@@ -209,3 +209,13 @@ details.mmenu[open]>summary{background:var(--sinyal);border-color:var(--sinyal);
 .dizin-ic p{color:var(--muted);font-size:15px;line-height:1.55}
 
 .kahraman h1 .anahtar{display:block;font:600 clamp(14px,1.3vw,16px)/1.35 var(--body);letter-spacing:.02em;opacity:.82;margin-bottom:18px;transform:none}
+
+/* Mobil uygulama sayfası: kurumsal uygulamalar */
+.uyg-gir{max-width:62ch;color:var(--muted);margin:0 0 22px}
+.uyg{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:14px}
+.uyg .uyg-tel{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:10px}
+.uyg .uyg-tel img{display:block;width:100%;height:auto;aspect-ratio:540/1169;object-fit:cover;border-radius:14px;border:1px solid var(--line);background:var(--sunk)}
+.uyg ul{margin:0;padding-left:1.15em;color:var(--muted);display:grid;gap:6px}
+.uyg-alt{margin:22px 0 0}
+.uyg-alt a{font-weight:600;color:var(--kobalt);text-decoration:none}
+.uyg-alt a:hover{text-decoration:underline}
